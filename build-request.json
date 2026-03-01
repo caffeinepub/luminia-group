@@ -1,39 +1,115 @@
 {
   "kind": "build_request",
-  "title": "Fix black background bleed above Exclusive Pre-Launch badge in Navigation",
+  "title": "Redesign Luminia Group landing page with improved visual quality",
+  "projectName": "Luminia Group",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Fix the visual issue where a black background area bleeds into or overlaps the 'Exclusive Pre-Launch' badge/section in the Navigation component. Ensure the area directly above the Pre-Launch badge is visually clean and consistent with the surrounding navbar styling — no unwanted black blocks, gaps, or misaligned backgrounds should appear.",
+      "text": "Redesign the overall visual aesthetic of the landing page to feel more premium, polished, and cohesive. Elevate the dark luxury theme with richer contrast, more refined typography hierarchy, and improved spacing throughout all sections (Hero, Manifesto, SubsidiaryGrid, Footer).",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "the black above is getting messed with exclusive pre launch"
+          "not that good"
         ]
       },
       "acceptanceCriteria": [
-        "No unintended black background area appears above or around the 'Exclusive Pre-Launch' badge in the Navigation bar",
-        "The Navigation bar background renders consistently across the full width without color bleed or overlap artifacts",
-        "The Pre-Launch badge is fully visible with correct spacing and no surrounding visual glitches",
-        "The fix is consistent across desktop and mobile viewports"
+        "Typography hierarchy is clearly defined with consistent size, weight, and letter-spacing across headings and body text.",
+        "Spacing between sections and elements feels intentional and generous.",
+        "Color contrast meets a high visual standard — gold accents pop against obsidian backgrounds.",
+        "Overall design feels noticeably more polished than Version 9."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Revamp the HeroSection to make a stronger first impression: use a more dramatic headline treatment, improve the background image overlay for better legibility, and ensure the CTA button stands out with a refined style.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "not that good"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero headline is visually striking and easy to read against the background.",
+        "Background image overlay provides strong contrast without obscuring the image entirely.",
+        "CTA button is visually distinct and clearly actionable."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Improve the WelcomePopup design to feel more elegant and intentional. Refine its layout, decorative elements, and animation so it enhances the premium brand experience rather than feeling like a generic modal.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "not that good"
+        ]
+      },
+      "acceptanceCriteria": [
+        "WelcomePopup has a clearly luxury aesthetic consistent with the rest of the page.",
+        "Animations feel smooth and cinematic, not abrupt.",
+        "Decorative gold corner accents are visually refined."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Redesign the SubsidiaryGrid card layout to be more visually compelling — improve card proportions, hover states, and typography so that each subsidiary feels prestigious and distinct.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "not that good"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Cards have a premium look with well-proportioned layout.",
+        "Hover states are smooth and add a sense of quality interaction.",
+        "Typography inside cards is legible and hierarchically clear."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Generate a rich, dark luxury hero background image featuring abstract gold and obsidian textures with a cinematic feel, to replace the current hero background.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "not that good"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero background image is rendered from frontend/public/assets/generated.",
+        "Image complements the dark luxury brand without overpowering the text overlay."
       ]
     }
   ],
   "constraints": [
-    "Do not alter the Navigation component's scroll behavior or the 'Connect With Us' smooth-scroll functionality",
-    "Do not modify files in frontend/src/hooks/"
+    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui.",
+    "Keep all existing section components (Navigation, HeroSection, ManifestoSection, SubsidiaryGrid, SubsidiaryDetails, Footer, WelcomePopup) — redesign their internals only.",
+    "Backend remains unchanged — this is a static corporate landing page."
   ],
   "nonGoals": [
-    "Redesigning the Navigation layout or badge style",
-    "Adding new navigation items or sections",
-    "Any backend changes"
+    "Adding new sections or pages not currently in the layout.",
+    "Changing the brand name, company name, or subsidiary names.",
+    "Implementing any backend functionality.",
+    "Changing the overall page structure or navigation links."
   ],
   "imageRequirements": {
-    "required": [],
+    "required": [
+      "Dark luxury abstract hero background with swirling gold foil textures, deep obsidian and charcoal tones, and a cinematic wide-format composition (hero-bg.dim_1920x1080.png)"
+    ],
     "edits": []
   }
 }

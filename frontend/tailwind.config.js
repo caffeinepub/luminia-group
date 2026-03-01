@@ -20,6 +20,12 @@ export default {
         body: ['Montserrat', 'system-ui', 'sans-serif'],
         sans: ['Montserrat', 'system-ui', 'sans-serif'],
       },
+      fontSize: {
+        'display-2xl': ['clamp(3.5rem, 8vw, 7rem)', { lineHeight: '0.95', letterSpacing: '-0.02em' }],
+        'display-xl': ['clamp(2.8rem, 6vw, 5.5rem)', { lineHeight: '1', letterSpacing: '-0.015em' }],
+        'display-lg': ['clamp(2rem, 4vw, 3.5rem)', { lineHeight: '1.05', letterSpacing: '-0.01em' }],
+        'display-md': ['clamp(1.5rem, 3vw, 2.5rem)', { lineHeight: '1.1', letterSpacing: '-0.005em' }],
+      },
       colors: {
         border: 'oklch(var(--border))',
         input: 'oklch(var(--input))',
@@ -55,16 +61,21 @@ export default {
           foreground: 'oklch(var(--card-foreground))'
         },
         gold: {
-          DEFAULT: 'oklch(0.72 0.12 85)',
-          light: 'oklch(0.82 0.1 85)',
-          dim: 'oklch(0.55 0.09 85)',
-          dark: 'oklch(0.45 0.08 85)',
+          DEFAULT: 'oklch(0.74 0.135 82)',
+          light: 'oklch(0.84 0.11 82)',
+          bright: 'oklch(0.88 0.13 82)',
+          dim: 'oklch(0.52 0.09 82)',
+          dark: 'oklch(0.42 0.08 82)',
         },
-        obsidian: 'oklch(0.08 0 0)',
-        charcoal: 'oklch(0.13 0 0)',
+        obsidian: 'oklch(0.07 0 0)',
+        charcoal: {
+          DEFAULT: 'oklch(0.12 0.004 82)',
+          mid: 'oklch(0.16 0.006 82)',
+        },
         ivory: {
-          DEFAULT: 'oklch(0.93 0.02 85)',
-          dim: 'oklch(0.75 0.015 85)',
+          DEFAULT: 'oklch(0.95 0.018 82)',
+          dim: 'oklch(0.72 0.014 82)',
+          faint: 'oklch(0.5 0.01 82)',
         },
         chart: {
           1: 'oklch(var(--chart-1))',
@@ -91,9 +102,18 @@ export default {
       },
       boxShadow: {
         xs: '0 1px 2px 0 rgba(0,0,0,0.05)',
-        gold: '0 0 20px oklch(0.72 0.12 85 / 0.3), 0 0 40px oklch(0.72 0.12 85 / 0.1)',
-        'gold-sm': '0 0 10px oklch(0.72 0.12 85 / 0.25)',
-        luxury: '0 20px 60px oklch(0 0 0 / 0.5), 0 0 30px oklch(0.72 0.12 85 / 0.1)',
+        gold: '0 0 24px oklch(0.74 0.135 82 / 0.35), 0 0 60px oklch(0.74 0.135 82 / 0.12)',
+        'gold-sm': '0 0 12px oklch(0.74 0.135 82 / 0.28)',
+        'gold-intense': '0 0 40px oklch(0.74 0.135 82 / 0.5), 0 0 80px oklch(0.74 0.135 82 / 0.2)',
+        luxury: '0 24px 80px oklch(0 0 0 / 0.6), 0 0 40px oklch(0.74 0.135 82 / 0.12)',
+        'luxury-card': '0 0 0 1px oklch(0.74 0.135 82 / 0.08), 0 0 40px oklch(0.74 0.135 82 / 0.18), 0 24px 80px oklch(0 0 0 / 0.6)',
+        modal: '0 0 100px oklch(0.74 0.135 82 / 0.25), 0 60px 120px oklch(0 0 0 / 0.9), inset 0 1px 0 oklch(0.84 0.11 82 / 0.2)',
+      },
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
+        '26': '6.5rem',
+        '30': '7.5rem',
       },
       keyframes: {
         'accordion-down': {
@@ -105,7 +125,7 @@ export default {
           to: { height: '0' }
         },
         'fade-in-up': {
-          from: { opacity: '0', transform: 'translateY(30px)' },
+          from: { opacity: '0', transform: 'translateY(32px)' },
           to: { opacity: '1', transform: 'translateY(0)' }
         },
         'fade-in': {
@@ -113,21 +133,21 @@ export default {
           to: { opacity: '1' }
         },
         shimmer: {
-          '0%': { backgroundPosition: '-200% center' },
-          '100%': { backgroundPosition: '200% center' }
+          '0%': { backgroundPosition: '-250% center' },
+          '100%': { backgroundPosition: '250% center' }
         },
         'pulse-gold': {
-          '0%, 100%': { boxShadow: '0 0 10px oklch(0.72 0.12 85 / 0.3)' },
-          '50%': { boxShadow: '0 0 25px oklch(0.72 0.12 85 / 0.6)' }
+          '0%, 100%': { boxShadow: '0 0 12px oklch(0.74 0.135 82 / 0.3)' },
+          '50%': { boxShadow: '0 0 30px oklch(0.74 0.135 82 / 0.65)' }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
-        'fade-in': 'fade-in 0.6s ease-out forwards',
-        shimmer: 'shimmer 3s linear infinite',
-        'pulse-gold': 'pulse-gold 2s ease-in-out infinite',
+        'fade-in-up': 'fade-in-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+        'fade-in': 'fade-in 0.7s ease-out forwards',
+        shimmer: 'shimmer 4s linear infinite',
+        'pulse-gold': 'pulse-gold 2.5s ease-in-out infinite',
       }
     }
   },

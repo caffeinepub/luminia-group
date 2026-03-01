@@ -16,8 +16,10 @@ const navLinks = [
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -37,6 +39,11 @@ export default function Navigation() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled ? 'nav-blur' : 'nav-transparent'
         }`}
+        style={{
+          opacity: mounted ? 1 : 0,
+          transform: mounted ? 'translateY(0)' : 'translateY(-12px)',
+          transition: 'opacity 0.6s ease-out 0.3s, transform 0.6s ease-out 0.3s, background 0.5s ease, border-color 0.5s ease, backdrop-filter 0.5s ease',
+        }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="flex items-center justify-between h-16 lg:h-20">
@@ -49,7 +56,7 @@ export default function Navigation() {
               <img
                 src="/assets/image.png"
                 alt="Luminia Group Conglomerate"
-                className="h-12 lg:h-14 w-auto object-contain"
+                className="h-12 lg:h-14 w-auto object-contain transition-opacity duration-300 group-hover:opacity-80"
                 onError={(e) => {
                   const target = e.currentTarget;
                   target.style.display = 'none';
@@ -77,7 +84,7 @@ export default function Navigation() {
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-gold transition-all duration-300 group-hover:w-3/4" />
                 </button>
               ))}
-              <div className="w-px h-4 bg-gold-dim mx-2 opacity-40" />
+              <div className="w-px h-4 mx-2 opacity-40" style={{ backgroundColor: 'oklch(0.55 0.09 85)' }} />
               <span className="pre-launch-badge text-xs font-body font-medium tracking-widest uppercase px-3 py-1 rounded-sm">
                 Exclusive Pre-Launch
               </span>
@@ -106,12 +113,15 @@ export default function Navigation() {
           onClick={() => setMobileOpen(false)}
         />
         <div
-          className={`absolute top-0 right-0 h-full w-72 bg-charcoal border-l border-gold-dim flex flex-col transition-transform duration-500 ${
+          className={`absolute top-0 right-0 h-full w-72 bg-charcoal flex flex-col transition-transform duration-500 ${
             mobileOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
-          style={{ borderColor: 'oklch(0.55 0.09 85 / 0.3)' }}
+          style={{ borderLeft: '1px solid oklch(0.55 0.09 85 / 0.3)' }}
         >
-          <div className="flex items-center justify-between p-6 border-b" style={{ borderColor: 'oklch(0.55 0.09 85 / 0.2)' }}>
+          <div
+            className="flex items-center justify-between p-6 border-b"
+            style={{ borderColor: 'oklch(0.55 0.09 85 / 0.2)' }}
+          >
             <img
               src="/assets/image.png"
               alt="Luminia Group Conglomerate"
@@ -125,12 +135,18 @@ export default function Navigation() {
             </button>
           </div>
           <nav className="flex-1 overflow-y-auto py-6 px-4">
-            {navLinks.map((link) => (
+            {navLinks.map((link, i) => (
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
                 className="w-full text-left px-4 py-3 text-sm font-body font-medium tracking-widest uppercase text-ivory-dim hover:text-gold hover:bg-gold/5 transition-all duration-200 rounded-sm border-b"
-                style={{ borderColor: 'oklch(0.55 0.09 85 / 0.1)' }}
+                style={{
+                  borderColor: 'oklch(0.55 0.09 85 / 0.1)',
+                  transitionDelay: mobileOpen ? `${i * 40}ms` : '0ms',
+                  opacity: mobileOpen ? 1 : 0,
+                  transform: mobileOpen ? 'translateX(0)' : 'translateX(20px)',
+                  transition: `opacity 0.3s ease ${i * 40}ms, transform 0.3s ease ${i * 40}ms, color 0.2s ease, background 0.2s ease`,
+                }}
               >
                 {link.label}
               </button>

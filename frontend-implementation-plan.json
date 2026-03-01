@@ -1,22 +1,95 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix black background bleed above Exclusive Pre-Launch badge in Navigation",
+  "title": "Redesign Luminia Group landing page with improved visual quality",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Fix visual issue where black background bleeds into or overlaps the 'Exclusive Pre-Launch' badge in the Navigation component, ensuring clean and consistent navbar styling",
+      "summary": "Redesign the overall visual aesthetic of the landing page to feel more premium, polished, and cohesive with richer contrast, refined typography hierarchy, and improved spacing throughout all sections",
       "acceptanceCriteria": [
-        "No unintended black background area appears above or around the 'Exclusive Pre-Launch' badge in the Navigation bar",
-        "The Navigation bar background renders consistently across the full width without color bleed or overlap artifacts",
-        "The Pre-Launch badge is fully visible with correct spacing and no surrounding visual glitches",
-        "The fix is consistent across desktop and mobile viewports"
+        "Typography hierarchy is clearly defined with consistent size, weight, and letter-spacing across headings and body text.",
+        "Spacing between sections and elements feels intentional and generous.",
+        "Color contrast meets a high visual standard — gold accents pop against obsidian backgrounds.",
+        "Overall design feels noticeably more polished than Version 9."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/Navigation.tsx",
+          "path": "frontend/src/index.css",
           "operation": "modify",
-          "description": "Inspect and fix CSS class combinations on the Navigation bar container and the Pre-Launch badge wrapper to eliminate black background bleed. Likely causes include overlapping absolute/relative positioning, z-index conflicts, or misaligned padding/margin creating gaps. Ensure the sticky nav container background is uniform and the badge section has proper spacing without introducing unwanted background layers. Verify the fix works across desktop and mobile breakpoints without affecting scroll behavior or the 'Connect With Us' smooth-scroll functionality."
+          "description": "Refine the dark luxury design system by enhancing OKLCH-based CSS custom properties for richer gold and obsidian contrast. Improve typography utilities with refined font-size scales, letter-spacing, and line-height values for clearer hierarchy. Add more generous spacing utilities and refine the existing glow, gradient, and card utility classes for a more premium aesthetic throughout the application."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend the Tailwind theme with refined typography scales that support clearer hierarchy (larger display sizes, more nuanced body text scales). Add custom spacing values that encourage generous layouts. Enhance the luxury box shadow definitions for more depth. Ensure the gold, obsidian, and ivory color tokens provide stronger visual contrast when used together."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Apply refined spacing between major sections (HeroSection, ManifestoSection, SubsidiaryGrid, Footer) using the updated spacing utilities. Ensure the overall page container reflects the improved dark luxury aesthetic with proper background treatment and sectional breathing room."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Revamp the HeroSection to make a stronger first impression with a more dramatic headline treatment, improved background image overlay for better legibility, and a refined CTA button style",
+      "acceptanceCriteria": [
+        "Hero headline is visually striking and easy to read against the background.",
+        "Background image overlay provides strong contrast without obscuring the image entirely.",
+        "CTA button is visually distinct and clearly actionable."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Replace the existing background image reference with the newly generated hero background at frontend/public/assets/generated/hero-bg.dim_1920x1080.png (note: the asset list shows .jpg, use the actual extension found). Enhance the overlay gradient for stronger contrast while preserving the cinematic background visibility. Refine the headline typography with a more dramatic size, weight, and letter-spacing treatment. Improve the shimmer gold pulse effect to feel more premium. Redesign the CTA button with refined padding, border treatment, hover states, and visual weight to make it clearly actionable and distinct."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Improve the WelcomePopup design to feel more elegant and intentional with refined layout, decorative elements, and smoother cinematic animations",
+      "acceptanceCriteria": [
+        "WelcomePopup has a clearly luxury aesthetic consistent with the rest of the page.",
+        "Animations feel smooth and cinematic, not abrupt.",
+        "Decorative gold corner accents are visually refined."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/WelcomePopup.tsx",
+          "operation": "modify",
+          "description": "Refine the modal layout with improved proportions, more generous internal padding, and better visual hierarchy. Enhance the decorative gold corner accents to feel more refined and elegant. Smooth out the cinematic entrance and exit animations to avoid abrupt transitions — adjust timing functions, durations, and easing curves. Ensure the overall modal aesthetic is cohesive with the premium dark luxury brand established in the redesigned landing page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Redesign the SubsidiaryGrid card layout to be more visually compelling with improved card proportions, hover states, and typography so that each subsidiary feels prestigious and distinct",
+      "acceptanceCriteria": [
+        "Cards have a premium look with well-proportioned layout.",
+        "Hover states are smooth and add a sense of quality interaction.",
+        "Typography inside cards is legible and hierarchically clear."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SubsidiaryGrid.tsx",
+          "operation": "modify",
+          "description": "Redesign the subsidiary card layout with improved proportions (aspect ratio, padding, icon-to-text balance). Refine the card typography hierarchy to make subsidiary names and descriptions more legible and prestigious. Enhance hover state transitions to feel smooth and luxurious — consider refined scale, shadow, or glow effects. Ensure each card reflects the premium aesthetic established in the overall redesign, using the updated design tokens and spacing utilities."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Wire the generated dark luxury hero background image into the HeroSection to replace the current hero background",
+      "acceptanceCriteria": [
+        "Hero background image is rendered from frontend/public/assets/generated.",
+        "Image complements the dark luxury brand without overpowering the text overlay."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Update the background image reference to use the generated asset at frontend/public/assets/generated/hero-bg.dim_1920x1080.jpg (or .png, depending on actual file extension in assets). Ensure the image loads correctly and complements the dark luxury brand. The overlay adjustments from REQ-2 will ensure text legibility without overpowering the cinematic background."
         }
       ]
     }
