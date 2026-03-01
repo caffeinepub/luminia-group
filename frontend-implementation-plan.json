@@ -1,24 +1,27 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix Welcome Popup display issues",
+  "title": "Unpublish Luminia Group Application with Branded Placeholder",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Fix WelcomePopup component display issues including text clipping, centering, font sizing, and gold accent styling to ensure proper full-screen rendering with luxury design consistency",
+      "summary": "Replace the live application with a branded 'Coming Soon' placeholder page while preserving all existing components for future re-publishing",
       "acceptanceCriteria": [
-        "The WelcomePopup renders full-screen without any content clipping or overflow issues",
-        "The 'Welcome to Luminia Group' heading is fully visible, centered, and uses the correct Cormorant Garamond display font",
-        "Gold accent styling (decorative corner accents, dividers, etc.) is correctly rendered",
-        "The dismiss button is clearly visible and accessible",
-        "The popup animates in/out smoothly on first session load (via sessionStorage guard)",
-        "The popup is responsive and displays correctly on both desktop and mobile viewports"
+        "The main application content (hero, navigation, manifesto, subsidiaries, footer, welcome popup) is no longer rendered to visitors.",
+        "A placeholder page is shown in its place with the Luminia Group branding.",
+        "The placeholder page is styled consistently with the existing luxury dark design system (obsidian background, gold accents, Cormorant Garamond typography).",
+        "No broken layouts or console errors appear on the placeholder page."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/WelcomePopup.tsx",
+          "path": "frontend/src/components/PlaceholderPage.tsx",
+          "operation": "create",
+          "description": "Create a new PlaceholderPage component that displays a centered 'Coming Soon' message with Luminia Group branding. Use the existing luxury design system tokens (obsidian background, gold accents, Cormorant Garamond typography). Include the Luminia Group logo from frontend/public/assets/generated/luminia-logo.dim_200x60.png, a heading announcing the site is temporarily unavailable, and subtle gold accent decorative elements. Apply scroll-animated entrance transitions consistent with the existing brand aesthetic."
+        },
+        {
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Fix the WelcomePopup component layout and styling to resolve content clipping and overflow issues. Ensure the heading uses proper Cormorant Garamond display font with fluid clamp-based sizing (text-5xl to text-7xl). Adjust container padding and max-width to prevent text overflow. Verify gold accent styling (border colors, corner decorations, dividers) uses the luxury gold tokens. Ensure the dismiss button is clearly visible with proper z-index and positioning. Maintain the sessionStorage-based show-once behavior and smooth entrance/exit animations. Ensure responsive layout works correctly on both desktop and mobile viewports with appropriate padding and spacing."
+          "description": "Replace the current application layout (WelcomePopup, Navigation, HeroSection, ManifestoSection, SubsidiaryGrid, Footer) with the new PlaceholderPage component. Comment out or conditionally hide the existing components rather than deleting them, so they can be easily restored when the site is re-published. Ensure the placeholder is the only visible content rendered to visitors."
         }
       ]
     }

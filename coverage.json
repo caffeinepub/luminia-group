@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-01T10:04:37.599Z",
+  "generatedAt": "2026-03-01T10:08:28.800Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,13 +12,15 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Fix the WelcomePopup component so that the 'Welcome to Luminia Group' text and all popup content display correctly — ensure the heading is fully visible, properly centered, and not clipped or overflowing. The popup layout should be well-structured with adequate padding, correct font sizing using the Cormorant Garamond display font, and gold accent styling consistent with the site's luxury design system.",
+        "summary": "Unpublish the application so it is no longer publicly accessible. Replace the live site with a simple, branded 'Coming Soon' or offline placeholder page that displays the Luminia Group name and indicates the site is temporarily unavailable.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/WelcomePopup.tsx"
+          "frontend/src/components/PlaceholderPage.tsx",
+          "frontend/src/App.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/WelcomePopup.tsx"
+          "frontend/src/components/PlaceholderPage.tsx",
+          "frontend/src/App.tsx"
         ]
       }
     ]
@@ -28,7 +30,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/WelcomePopup.tsx",
+    "frontend/src/App.tsx",
+    "frontend/src/components/PlaceholderPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

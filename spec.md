@@ -1,14 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Fix the WelcomePopup component so all content displays correctly, with proper layout, typography, and styling consistent with the site's luxury design system.
+**Goal:** Replace the live Luminia Group site with a simple branded placeholder page, making the application no longer publicly accessible while preserving all existing components for future re-publishing.
 
 **Planned changes:**
-- Fix the WelcomePopup layout to render full-screen without content clipping or overflow
-- Ensure the "Welcome to Luminia Group" heading is fully visible, centered, and uses the Cormorant Garamond display font
-- Correct gold accent styling (decorative corner accents, dividers) rendering
-- Ensure the dismiss button is clearly visible and accessible
-- Verify smooth animate-in/out behavior on first session load (sessionStorage guard preserved)
-- Make the popup responsive for both desktop and mobile viewports
+- Hide all existing main application content (hero, navigation, manifesto, subsidiaries, footer, welcome popup) without deleting them
+- Render a "Coming Soon" / temporarily unavailable placeholder page instead
+- Style the placeholder page using the existing luxury dark design system (obsidian background, gold accents, Cormorant Garamond typography) and display the Luminia Group name and logo
 
-**User-visible outcome:** The Welcome popup displays correctly with the full heading visible, proper gold luxury styling, and a clearly accessible dismiss button on both desktop and mobile.
+**User-visible outcome:** Visitors to the site see only a branded placeholder page indicating the site is temporarily unavailable, with no access to the main application content.

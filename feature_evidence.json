@@ -2,10 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-fix-the-welcomepopup-component-so-that-the-welcome-to-luminia-group-text-and-all-popup-content-display-correctly-ensure-the-heading-is-fully-visible-properly-centered-and-not-clipped-or-overflowing-the-popup-layout-should-be-well-structured-with-adequate-padding-correct-font-sizing-using-the-cormorant-garamond-display-font-and-gold-accent-styling-consistent-with-the-site-s-luxury-design-system",
-      "featureTitle": "Fix the WelcomePopup component so that the 'Welcome to Luminia Group' text and all popup content display correctly — ensure the heading is fully visible, properly centered, and not clipped or overflowing. The popup layout should be well-structured with adequate padding, correct font sizing using the Cormorant Garamond display font, and gold accent styling consistent with the site's luxury design system.",
+      "featureId": "feature-unpublish-the-application-so-it-is-no-longer-publicly-accessible-replace-the-live-site-with-a-simple-branded-coming-soon-or-offline-placeholder-page-that-displays-the-luminia-group-name-and-indicates-the-site-is-temporarily-unavailable",
+      "featureTitle": "Unpublish the application so it is no longer publicly accessible. Replace the live site with a simple, branded 'Coming Soon' or offline placeholder page that displays the Luminia Group name and indicates the site is temporarily unavailable.",
       "files": [
-        "frontend/src/components/WelcomePopup.tsx"
+        "frontend/src/App.tsx",
+        "frontend/src/components/PlaceholderPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",

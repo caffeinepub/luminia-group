@@ -1,16 +1,14 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Project for Luminia Group with a pop page (welcome screen) that needs fixing.",
+  "summary": "New project",
   "architectural_notes": [],
-  "known_issues": [
-    "Pop/welcome page display is not rendering properly when showing 'Welcome to Luminia Group'"
-  ],
-  "isFixRequest": true,
+  "known_issues": [],
+  "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-fix-the-welcomepopup-component-so-that-the-welcome-to-luminia-group-text-and-all-popup-content-display-correctly-ensure-the-heading-is-fully-visible-properly-centered-and-not-clipped-or-overflowing-the-popup-layout-should-be-well-structured-with-adequate-padding-correct-font-sizing-using-the-cormorant-garamond-display-font-and-gold-accent-styling-consistent-with-the-site-s-luxury-design-system",
-      "title": "Fix the WelcomePopup component so that the 'Welcome to Luminia Group' text and all popup content display correctly — ensure the heading is fully visible, properly centered, and not clipped or overflowing. The popup layout should be well-structured with adequate padding, correct font sizing using the Cormorant Garamond display font, and gold accent styling consistent with the site's luxury design system.",
+      "id": "feature-unpublish-the-application-so-it-is-no-longer-publicly-accessible-replace-the-live-site-with-a-simple-branded-coming-soon-or-offline-placeholder-page-that-displays-the-luminia-group-name-and-indicates-the-site-is-temporarily-unavailable",
+      "title": "Unpublish the application so it is no longer publicly accessible. Replace the live site with a simple, branded 'Coming Soon' or offline placeholder page that displays the Luminia Group name and indicates the site is temporarily unavailable.",
       "reqIds": [
         "REQ-1"
       ],
@@ -18,7 +16,6 @@
     }
   ],
   "new_feature_requests": [],
-  "gameProjectType": "none",
   "projectName": "Luminia Group",
   "clarification_mode": "instant",
   "clarification_rounds": 0

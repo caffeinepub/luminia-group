@@ -1,40 +1,37 @@
 {
   "kind": "build_request",
-  "title": "Fix Welcome Popup display issues",
+  "title": "Unpublish / take down the application",
   "projectName": "Luminia Group",
-  "priority": "high",
+  "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Fix the WelcomePopup component so that the 'Welcome to Luminia Group' text and all popup content display correctly — ensure the heading is fully visible, properly centered, and not clipped or overflowing. The popup layout should be well-structured with adequate padding, correct font sizing using the Cormorant Garamond display font, and gold accent styling consistent with the site's luxury design system.",
+      "text": "Unpublish the application so it is no longer publicly accessible. Replace the live site with a simple, branded 'Coming Soon' or offline placeholder page that displays the Luminia Group name and indicates the site is temporarily unavailable.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-4"
         ],
         "quotes": [
-          "the pop page is not proper while showing show that welcome to luminia group"
+          "de publish"
         ]
       },
       "acceptanceCriteria": [
-        "The WelcomePopup renders full-screen without any content clipping or overflow issues",
-        "The 'Welcome to Luminia Group' heading is fully visible, centered, and uses the correct Cormorant Garamond display font",
-        "Gold accent styling (decorative corner accents, dividers, etc.) is correctly rendered",
-        "The dismiss button is clearly visible and accessible",
-        "The popup animates in/out smoothly on first session load (via sessionStorage guard)",
-        "The popup is responsive and displays correctly on both desktop and mobile viewports"
+        "The main application content (hero, navigation, manifesto, subsidiaries, footer, welcome popup) is no longer rendered to visitors.",
+        "A placeholder page is shown in its place with the Luminia Group branding.",
+        "The placeholder page is styled consistently with the existing luxury dark design system (obsidian background, gold accents, Cormorant Garamond typography).",
+        "No broken layouts or console errors appear on the placeholder page."
       ]
     }
   ],
   "constraints": [
-    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui",
-    "Preserve the sessionStorage-based 'show once per session' behaviour",
-    "Maintain the existing dark obsidian + gold luxury design language"
+    "Do not delete or destructively remove existing components — preserve them so the site can be re-published later.",
+    "Maintain the existing design tokens and Tailwind configuration."
   ],
   "nonGoals": [
-    "Redesigning the overall site layout or other sections",
-    "Adding new popup content or features beyond fixing the current display",
-    "Changing backend logic"
+    "Modifying the backend canister.",
+    "Changing any authentication or Internet Identity logic.",
+    "Permanently deleting any existing frontend components or assets."
   ],
   "imageRequirements": {
     "required": [],
