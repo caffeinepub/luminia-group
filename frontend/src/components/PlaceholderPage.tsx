@@ -47,9 +47,9 @@ export default function PlaceholderPage() {
         {/* Logo */}
         <div className="mb-10">
           <img
-            src="/assets/generated/luminia-logo.dim_200x60.png"
-            alt="Luminia Group"
-            className="h-12 w-auto mx-auto"
+            src="/assets/generated/luminia-logo-correct.dim_400x120.png"
+            alt="Luminia Group Conglomerate"
+            className="h-16 w-auto mx-auto"
             style={{ filter: 'brightness(1.1)' }}
           />
         </div>

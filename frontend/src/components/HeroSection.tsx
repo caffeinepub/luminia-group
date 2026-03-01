@@ -1,215 +1,178 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export default function HeroSection() {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [loaded, setLoaded] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setLoaded(true), 120);
-    return () => clearTimeout(t);
+    setMounted(true);
   }, []);
 
-  const handleScrollToEmpire = () => {
-    const el = document.querySelector('#empire');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSubsidiaries = () => {
+    document.getElementById("subsidiaries")?.scrollIntoView({ behavior: "smooth" });
   };
-
-  const transition = (delay: number, duration = 0.9) =>
-    `opacity ${duration}s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform ${duration}s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`;
 
   return (
     <section
-      id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{ background: "#080808" }}
     >
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/assets/generated/hero-bg.dim_1920x1080.jpg"
-          alt=""
-          className="w-full h-full object-cover object-center scale-105"
-          aria-hidden="true"
-          style={{ filter: 'brightness(0.75) saturate(0.9)' }}
-        />
-        {/* Multi-layer overlay for depth */}
-        <div className="absolute inset-0 hero-overlay" />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 80% 60% at 50% 40%, transparent 20%, oklch(0.07 0 0 / 0.5) 70%, oklch(0.07 0 0 / 0.85) 100%)',
-          }}
-        />
-        {/* Subtle vignette */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 120% 100% at 50% 0%, transparent 40%, oklch(0.07 0 0 / 0.3) 100%)',
-          }}
-        />
-      </div>
+      {/* Background image */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/assets/generated/hero-bg.dim_1920x1080.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.25,
+        }}
+      />
+
+      {/* Multi-layer overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(8,8,8,0.7) 0%, rgba(8,8,8,0.3) 40%, rgba(8,8,8,0.3) 60%, rgba(8,8,8,0.9) 100%)",
+        }}
+      />
+
+      {/* Radial gold glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(212,175,55,0.06) 0%, transparent 70%)",
+        }}
+      />
 
       {/* Content */}
       <div
-        ref={contentRef}
-        className="relative z-10 text-center px-6 max-w-5xl mx-auto w-full"
+        className="relative z-10 text-center px-4 max-w-5xl mx-auto"
+        style={{
+          opacity: mounted ? 1 : 0,
+          transform: mounted ? "translateY(0)" : "translateY(30px)",
+          transition: "opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s",
+        }}
       >
-        {/* Pre-launch Badge */}
-        <div
-          className="flex justify-center mb-10"
-          style={{
-            opacity: loaded ? 1 : 0,
-            transform: loaded ? 'translateY(0)' : 'translateY(16px)',
-            transition: transition(0.15, 0.7),
-          }}
-        >
-          <span className="pre-launch-badge text-xs font-body font-medium tracking-[0.28em] uppercase px-6 py-2.5 inline-flex items-center gap-2.5">
-            <span
-              className="w-1.5 h-1.5 rounded-full animate-pulse flex-shrink-0"
-              style={{ backgroundColor: 'oklch(0.74 0.135 82)', boxShadow: '0 0 6px oklch(0.74 0.135 82 / 0.8)' }}
-            />
-            Exclusive Pre-Launch Phase
-          </span>
-        </div>
-
-        {/* Main Headline */}
-        <div
-          style={{
-            opacity: loaded ? 1 : 0,
-            transform: loaded ? 'translateY(0)' : 'translateY(36px)',
-            transition: transition(0.35),
-          }}
-        >
-          <h1 className="font-display font-light leading-none tracking-tight mb-0">
-            <span
-              className="block text-ivory mb-3"
-              style={{ fontSize: 'clamp(3.2rem, 7.5vw, 6.5rem)', letterSpacing: '-0.02em' }}
-            >
-              Luminia Group
-            </span>
-            <span
-              className="block shimmer-gold font-semibold animate-gold-pulse-glow"
-              style={{ fontSize: 'clamp(1.6rem, 3.5vw, 3rem)', letterSpacing: '0.04em' }}
-            >
-              Defining the Gold Standard.
-            </span>
-          </h1>
-        </div>
-
-        {/* Gold Divider */}
-        <div
-          className="flex items-center justify-center gap-5 my-10"
-          style={{
-            opacity: loaded ? 1 : 0,
-            transition: `opacity 0.8s ease-out 0.6s`,
-          }}
-        >
-          <div className="divider-gold w-28 sm:w-44" />
-          <div
-            className="w-2 h-2 rotate-45 flex-shrink-0"
-            style={{
-              background: 'oklch(0.74 0.135 82)',
-              boxShadow: '0 0 10px oklch(0.74 0.135 82 / 0.8)',
-            }}
-          />
-          <div className="divider-gold w-28 sm:w-44" />
-        </div>
-
-        {/* Subheadline */}
+        {/* Eyebrow */}
         <p
-          className="font-body text-base sm:text-lg font-light tracking-wide text-ivory-dim max-w-2xl mx-auto leading-relaxed mb-4"
+          className="uppercase tracking-[0.5em] text-xs mb-8"
           style={{
-            opacity: loaded ? 1 : 0,
-            transform: loaded ? 'translateY(0)' : 'translateY(20px)',
-            transition: transition(0.75),
+            color: "rgba(212,175,55,0.55)",
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            letterSpacing: "0.5em",
           }}
         >
-          Based in West Bengal and operating on a global vision, Luminia Group is an{' '}
-          <span className="text-gold font-medium">elite multi-sector conglomerate</span>{' '}
-          architecting a future where luxury meets logic.
+          Est. 2024 · India
         </p>
 
-        {/* Manifesto Quote */}
-        <p
-          className="font-display font-light italic text-gold-light mt-5 mb-12 tracking-wide"
+        {/* Main headline */}
+        <h1
+          className="font-serif mb-6 leading-none"
           style={{
-            fontSize: 'clamp(1.2rem, 2.5vw, 1.75rem)',
-            opacity: loaded ? 1 : 0,
-            transform: loaded ? 'translateY(0)' : 'translateY(20px)',
-            transition: transition(0.9),
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: "clamp(3rem, 10vw, 8rem)",
+            color: "rgba(212,175,55,1)",
+            textShadow:
+              "0 0 60px rgba(212,175,55,0.3), 0 0 120px rgba(212,175,55,0.1)",
+            letterSpacing: "-0.01em",
+            fontWeight: 300,
           }}
         >
-          "We don't just launch brands — we curate lifestyles."
+          LUMINIA
+        </h1>
+
+        {/* Diamond divider */}
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <div
+            className="h-px flex-1 max-w-32"
+            style={{ background: "linear-gradient(90deg, transparent, rgba(212,175,55,0.6))" }}
+          />
+          <span style={{ color: "rgba(212,175,55,0.8)", fontSize: "0.6rem" }}>◆</span>
+          <div
+            className="h-px flex-1 max-w-32"
+            style={{ background: "linear-gradient(90deg, rgba(212,175,55,0.6), transparent)" }}
+          />
+        </div>
+
+        <h2
+          className="font-serif mb-8"
+          style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: "clamp(1rem, 3vw, 1.8rem)",
+            color: "rgba(212,175,55,0.65)",
+            letterSpacing: "0.4em",
+            fontWeight: 300,
+          }}
+        >
+          GROUP CONGLOMERATE
+        </h2>
+
+        <p
+          className="mb-12 mx-auto leading-relaxed"
+          style={{
+            color: "rgba(212,175,55,0.45)",
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: "clamp(0.9rem, 2vw, 1.15rem)",
+            maxWidth: "520px",
+            letterSpacing: "0.05em",
+          }}
+        >
+          A diversified conglomerate of excellence — spanning technology, fashion, travel, photography, and beyond.
         </p>
 
         {/* CTA */}
-        <div
+        <button
+          onClick={scrollToSubsidiaries}
+          className="relative overflow-hidden"
           style={{
-            opacity: loaded ? 1 : 0,
-            transform: loaded ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.97)',
-            transition: transition(1.05),
+            background: "transparent",
+            border: "1px solid rgba(212,175,55,0.6)",
+            color: "rgba(212,175,55,0.9)",
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: "0.85rem",
+            letterSpacing: "0.35em",
+            padding: "14px 48px",
+            cursor: "pointer",
+            textTransform: "uppercase",
+            transition: "all 0.3s ease",
+            boxShadow: "0 0 20px rgba(212,175,55,0.1)",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "rgba(212,175,55,0.08)";
+            e.currentTarget.style.boxShadow = "0 0 40px rgba(212,175,55,0.25)";
+            e.currentTarget.style.borderColor = "rgba(212,175,55,0.9)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "transparent";
+            e.currentTarget.style.boxShadow = "0 0 20px rgba(212,175,55,0.1)";
+            e.currentTarget.style.borderColor = "rgba(212,175,55,0.6)";
           }}
         >
-          <button
-            onClick={handleScrollToEmpire}
-            className="group inline-flex items-center justify-center gap-3 font-body text-xs font-medium tracking-[0.25em] uppercase relative overflow-hidden"
-            style={{
-              padding: '1rem 2.5rem',
-              border: '1px solid oklch(0.74 0.135 82)',
-              color: 'oklch(0.74 0.135 82)',
-              transition: 'color 0.5s ease, box-shadow 0.5s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = '0 0 30px oklch(0.74 0.135 82 / 0.3)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = 'none';
-            }}
-          >
-            <span
-              className="relative z-10 transition-colors duration-500 group-hover:text-obsidian"
-              style={{ letterSpacing: '0.25em' }}
-            >
-              Explore Our Empire
-            </span>
-            <span
-              className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
-              style={{ backgroundColor: 'oklch(0.74 0.135 82)' }}
-            />
-            <svg
-              className="relative z-10 w-4 h-4 transition-all duration-400 group-hover:translate-x-1.5 group-hover:text-obsidian"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={1.5}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </button>
-        </div>
+          Explore Our Empire
+        </button>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll indicator */}
       <div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
-        style={{
-          opacity: loaded ? 0.55 : 0,
-          transition: 'opacity 1.2s ease-out 1.5s',
-        }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        style={{ opacity: mounted ? 0.6 : 0, transition: "opacity 1s ease 2s" }}
       >
-        <span className="font-body text-xs tracking-[0.35em] uppercase text-ivory-faint">Scroll</span>
         <div
-          className="w-px h-14 relative overflow-hidden"
-          style={{ backgroundColor: 'oklch(0.52 0.09 82 / 0.25)' }}
+          className="w-px h-12"
+          style={{
+            background: "linear-gradient(180deg, rgba(212,175,55,0.8), transparent)",
+            animation: "scrollLine 2s ease-in-out infinite",
+          }}
+        />
+        <span
+          className="text-xs uppercase tracking-widest"
+          style={{ color: "rgba(212,175,55,0.4)", letterSpacing: "0.3em", fontSize: "0.6rem" }}
         >
-          <div
-            className="absolute top-0 left-0 w-full h-1/2 animate-scroll-line"
-            style={{
-              background: 'linear-gradient(to bottom, transparent, oklch(0.74 0.135 82), transparent)',
-            }}
-          />
-        </div>
+          Scroll
+        </span>
       </div>
     </section>
   );

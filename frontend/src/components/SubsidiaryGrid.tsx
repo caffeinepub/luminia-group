@@ -1,299 +1,306 @@
-import { useState } from 'react';
-import SubsidiaryDetails from './SubsidiaryDetails';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useState } from "react";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import SubsidiaryDetails from "./SubsidiaryDetails";
 
 export interface Subsidiary {
   id: string;
   name: string;
   tagline: string;
   description: string;
+  domain: string;
   icon: string;
-  emoji: string;
+  images: string[];
 }
 
-export const subsidiaries: Subsidiary[] = [
+const subsidiaries: Subsidiary[] = [
   {
-    id: 'luminia-gadgets',
-    name: 'Luminia Gadgets',
-    tagline: 'Luxury Tech. Redefined.',
+    id: "luminia-gadgets",
+    name: "Luminia Gadgets",
+    tagline: "Precision Timepieces & Premium Audio",
     description:
-      'We curate high-end, hand-selected electronics for those who refuse to settle for the ordinary.',
-    icon: '/assets/generated/gadgets-icon.dim_128x128.png',
-    emoji: '📱',
+      "Curated collection of luxury watches, audiophile-grade headphones, and cutting-edge earbuds — where technology meets elegance.",
+    domain: "gadgets.luminia.group",
+    icon: "/assets/generated/gadgets-icon.dim_128x128.png",
+    images: [
+      "/assets/generated/luminia-gadgets-watch.dim_600x400.png",
+      "/assets/generated/luminia-gadgets-headphones.dim_600x400.png",
+      "/assets/generated/luminia-gadgets-earbuds.dim_600x400.png",
+    ],
   },
   {
-    id: 'velocity-vogue',
-    name: 'Velocity Vogue',
-    tagline: 'Travel with authority.',
+    id: "moda-vestra",
+    name: "Moda Vestra",
+    tagline: "Couture Fashion & Timeless Style",
     description:
-      'Our premium luggage and travel gear are designed for the modern elite who value durability and a "million-dollar" aesthetic.',
-    icon: '/assets/generated/velocity-icon.dim_128x128.png',
-    emoji: '🧳',
+      "Exclusive fashion house delivering bespoke couture, ready-to-wear collections, and timeless wardrobe essentials for the discerning individual.",
+    domain: "modavestra.luminia.group",
+    icon: "/assets/generated/moda-icon.dim_128x128.png",
+    images: ["/assets/generated/moda-vestra-fashion.dim_600x400.png"],
   },
   {
-    id: 'luminia-captures',
-    name: 'Luminia Captures',
-    tagline: 'Your legacy, in high definition.',
+    id: "velocity-vogue",
+    name: "Velocity Vogue",
+    tagline: "Luxury Travel Companions",
     description:
-      'We provide world-class photography for weddings and royal events, capturing moments that last forever.',
-    icon: '/assets/generated/captures-icon.dim_128x128.png',
-    emoji: '📸',
+      "Premium luggage and travel accessories crafted for the modern explorer — combining durability, elegance, and effortless mobility.",
+    domain: "velocityvogue.luminia.group",
+    icon: "/assets/generated/velocity-icon.dim_128x128.png",
+    images: ["/assets/generated/velocity-vogue-luggage.dim_600x400.png"],
   },
   {
-    id: 'moda-vestra',
-    name: 'Moda Vestra',
-    tagline: 'Sophistication in every stitch.',
+    id: "luminia-captures",
+    name: "Luminia Captures",
+    tagline: "Moments Transformed into Art",
     description:
-      'An exclusive apparel brand for the visionary who demands premium quality and timeless style.',
-    icon: '/assets/generated/moda-icon.dim_128x128.png',
-    emoji: '👗',
+      "World-class wedding photography and professional photoshoots — capturing the essence of your most cherished moments with cinematic precision.",
+    domain: "captures.luminia.group",
+    icon: "/assets/generated/captures-icon.dim_128x128.png",
+    images: [
+      "/assets/generated/luminia-captures-wedding.dim_600x400.png",
+      "/assets/generated/luminia-captures-studio.dim_600x400.png",
+    ],
   },
   {
-    id: 'assured-tours',
-    name: 'Assured Tours and Travels',
-    tagline: 'Global access, assured.',
+    id: "assured-tours",
+    name: "Assured Tours & Travels",
+    tagline: "Curated Journeys & Seamless Bookings",
     description:
-      'A full-service luxury travel agency dedicated to seamless, world-class journeys across the map.',
-    icon: '/assets/generated/tours-icon.dim_128x128.png',
-    emoji: '🌍',
+      "End-to-end travel solutions — from bespoke itineraries and flight bookings to train reservations and luxury hotel arrangements worldwide.",
+    domain: "tours.luminia.group",
+    icon: "/assets/generated/tours-icon.dim_128x128.png",
+    images: [
+      "/assets/generated/assured-tours-flight.dim_600x400.png",
+      "/assets/generated/assured-tours-train.dim_600x400.png",
+    ],
   },
   {
-    id: 'luminia-techlabs',
-    name: 'Luminia TechLabs',
-    tagline: 'The digital architect.',
+    id: "luminia-techlabs",
+    name: "Luminia TechLabs",
+    tagline: "Digital Innovation & Business Solutions",
     description:
-      'Our specialized division for bespoke web and app development, building the infrastructure of tomorrow.',
-    icon: '/assets/generated/techlabs-icon.dim_128x128.png',
-    emoji: '💻',
+      "Full-spectrum technology partner offering web development, mobile applications, UI/UX design, and comprehensive digital transformation services.",
+    domain: "techlabs.luminia.group",
+    icon: "/assets/generated/techlabs-icon.dim_128x128.png",
+    images: ["/assets/generated/luminia-techlabs-dev.dim_600x400.png"],
   },
   {
-    id: 'gst-services',
-    name: 'GST Services',
-    tagline: 'Precision and compliance.',
+    id: "gst-service",
+    name: "GST Service",
+    tagline: "Expert Tax & Compliance Advisory",
     description:
-      'Professional tax and consultancy services to ensure your business operations remain seamless and secure.',
-    icon: '/assets/generated/gst-icon.dim_128x128.png',
-    emoji: '🧾',
+      "Comprehensive GST registration, filing, compliance, and advisory services — simplifying India's tax landscape for businesses of all sizes.",
+    domain: "gst.luminia.group",
+    icon: "/assets/generated/gst-icon.dim_128x128.png",
+    images: ["/assets/generated/gst-service-tax.dim_600x400.png"],
   },
 ];
 
 export default function SubsidiaryGrid() {
   const [selectedSubsidiary, setSelectedSubsidiary] = useState<Subsidiary | null>(null);
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.15 });
+  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
   return (
-    <>
-      <section id="empire" className="py-28 lg:py-40 px-6 lg:px-10 bg-obsidian relative overflow-hidden">
-        {/* Subtle background texture */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.025]"
-          style={{
-            backgroundImage:
-              'repeating-linear-gradient(0deg, oklch(0.74 0.135 82) 0, oklch(0.74 0.135 82) 1px, transparent 0, transparent 80px), repeating-linear-gradient(90deg, oklch(0.74 0.135 82) 0, oklch(0.74 0.135 82) 1px, transparent 0, transparent 80px)',
-          }}
-        />
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* Section Header */}
-          <div ref={headerRef} className="text-center mb-20 lg:mb-28">
-            <p
-              className={`font-body text-xs tracking-[0.5em] uppercase text-gold mb-5 animate-on-scroll ${headerVisible ? 'is-visible' : ''}`}
-            >
-              The Portfolio
-            </p>
-            <h2
-              className={`font-display font-light text-ivory mb-5 animate-on-scroll animate-delay-100 ${headerVisible ? 'is-visible' : ''}`}
-              style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.015em', lineHeight: '1' }}
-            >
-              Our{' '}
-              <span className="gradient-gold-text font-semibold">Empire</span>
-            </h2>
-            <div
-              className={`flex items-center justify-center gap-5 mb-8 animate-on-scroll animate-delay-200 ${headerVisible ? 'is-visible' : ''}`}
-            >
-              <div className="divider-gold w-20 sm:w-32" />
-              <div
-                className="w-2 h-2 rotate-45 flex-shrink-0"
-                style={{
-                  background: 'oklch(0.74 0.135 82)',
-                  boxShadow: '0 0 8px oklch(0.74 0.135 82 / 0.7)',
-                }}
-              />
-              <div className="divider-gold w-20 sm:w-32" />
-            </div>
-            <p
-              className={`font-body text-base text-ivory-dim max-w-xl mx-auto leading-relaxed animate-on-scroll animate-delay-300 ${headerVisible ? 'is-visible' : ''}`}
-            >
-              Seven distinct brands. One unified vision. Each subsidiary is a pillar of excellence,
-              crafted to redefine its industry.
-            </p>
-          </div>
-
-          {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-            {subsidiaries.map((sub, index) => (
-              <SubsidiaryCard
-                key={sub.id}
-                subsidiary={sub}
-                index={index}
-                onClick={() => setSelectedSubsidiary(sub)}
-              />
-            ))}
-          </div>
+    <section
+      id="subsidiaries"
+      className="py-24 px-4 md:px-8"
+      style={{ background: "linear-gradient(180deg, #080808 0%, #0d0d0d 50%, #080808 100%)" }}
+    >
+      <div
+        ref={ref}
+        className="max-w-7xl mx-auto"
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? "translateY(0)" : "translateY(12px)",
+          transition: "opacity 1s ease, transform 1s ease",
+        }}
+      >
+        {/* Section header */}
+        <div className="text-center mb-16">
+          <p
+            className="uppercase tracking-[0.4em] text-xs mb-4"
+            style={{
+              color: "rgba(212,175,55,0.6)",
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+            }}
+          >
+            Our Portfolio
+          </p>
+          <h2
+            className="font-serif mb-6"
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: "clamp(2rem, 5vw, 3.5rem)",
+              color: "rgba(212,175,55,1)",
+              textShadow: "0 0 40px rgba(212,175,55,0.3)",
+              letterSpacing: "0.05em",
+            }}
+          >
+            The Luminia Empire
+          </h2>
+          <div
+            className="mx-auto h-px w-32"
+            style={{
+              background: "linear-gradient(90deg, transparent, rgba(212,175,55,0.8), transparent)",
+            }}
+          />
         </div>
-      </section>
 
-      {/* Detail Modal */}
+        {/* Cards grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {subsidiaries.map((sub, index) => (
+            <SubsidiaryCard
+              key={sub.id}
+              subsidiary={sub}
+              index={index}
+              onDiscover={() => setSelectedSubsidiary(sub)}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Launching Soon Modal */}
       {selectedSubsidiary && (
         <SubsidiaryDetails
           subsidiary={selectedSubsidiary}
           onClose={() => setSelectedSubsidiary(null)}
-          onNavigate={(sub) => setSelectedSubsidiary(sub)}
         />
       )}
-    </>
+    </section>
   );
 }
 
 interface SubsidiaryCardProps {
   subsidiary: Subsidiary;
   index: number;
-  onClick: () => void;
+  onDiscover: () => void;
 }
 
-function SubsidiaryCard({ subsidiary, index, onClick }: SubsidiaryCardProps) {
-  const [imgError, setImgError] = useState(false);
-  const { ref, isVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.08 });
-
-  const delayClass = [
-    '',
-    'animate-delay-100',
-    'animate-delay-200',
-    'animate-delay-300',
-    'animate-delay-400',
-    'animate-delay-500',
-    'animate-delay-600',
-  ][index % 7];
+function SubsidiaryCard({ subsidiary, index, onDiscover }: SubsidiaryCardProps) {
+  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
   return (
-    <article
+    <div
       ref={ref}
-      id={subsidiary.id}
-      className={`card-luxury cursor-pointer group relative overflow-hidden animate-on-scroll ${delayClass} ${isVisible ? 'is-visible' : ''}`}
-      style={{ padding: '2rem 2rem 1.75rem' }}
-      onClick={onClick}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => e.key === 'Enter' && onClick()}
-      aria-label={`Learn more about ${subsidiary.name}`}
+      className="group relative flex flex-col p-6 cursor-pointer"
+      style={{
+        background: "linear-gradient(135deg, #0f0f0f 0%, #111111 100%)",
+        border: "1px solid rgba(212,175,55,0.2)",
+        transition: "all 0.4s ease",
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0)" : "translateY(24px)",
+        transitionDelay: `${index * 80}ms`,
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.border = "1px solid rgba(212,175,55,0.7)";
+        e.currentTarget.style.boxShadow =
+          "0 0 30px rgba(212,175,55,0.12), inset 0 0 30px rgba(212,175,55,0.04)";
+        e.currentTarget.style.transform = "translateY(-4px)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.border = "1px solid rgba(212,175,55,0.2)";
+        e.currentTarget.style.boxShadow = "none";
+        e.currentTarget.style.transform = isVisible ? "translateY(0)" : "translateY(24px)";
+      }}
     >
-      {/* Top-left accent line */}
+      {/* Top accent line */}
       <div
-        className="absolute top-0 left-0 w-0 h-px group-hover:w-full transition-all duration-700 ease-out"
-        style={{ background: 'linear-gradient(90deg, oklch(0.74 0.135 82 / 0.8), transparent)' }}
+        className="absolute top-0 left-0 h-0.5 w-0 group-hover:w-full"
+        style={{
+          background: "linear-gradient(90deg, rgba(212,175,55,0.9), transparent)",
+          transition: "width 0.4s ease",
+        }}
       />
 
-      {/* Corner accent — top right */}
-      <div className="absolute top-0 right-0 overflow-hidden w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div
-          className="absolute top-0 right-0 w-full h-px"
-          style={{ background: 'linear-gradient(270deg, oklch(0.74 0.135 82 / 0.7), transparent)' }}
-        />
-        <div
-          className="absolute top-0 right-0 w-px h-full"
-          style={{ background: 'linear-gradient(180deg, oklch(0.74 0.135 82 / 0.7), transparent)' }}
-        />
-      </div>
-
-      {/* Number indicator */}
-      <div
-        className="absolute top-5 right-5 font-body text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-1 group-hover:translate-y-0"
-        style={{ color: 'oklch(0.74 0.135 82 / 0.5)', letterSpacing: '0.1em' }}
+      {/* Number */}
+      <span
+        className="absolute top-4 right-4 font-serif text-xs"
+        style={{
+          color: "rgba(212,175,55,0.25)",
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+        }}
       >
-        {String(index + 1).padStart(2, '0')}
-      </div>
+        {String(index + 1).padStart(2, "0")}
+      </span>
 
       {/* Icon */}
-      <div className="mb-7">
-        {!imgError ? (
-          <div
-            className="w-16 h-16 flex items-center justify-center transition-all duration-500 group-hover:scale-105"
-            style={{
-              background: 'radial-gradient(circle, oklch(0.74 0.135 82 / 0.08), oklch(0.74 0.135 82 / 0.02))',
-              border: '1px solid oklch(0.74 0.135 82 / 0.15)',
-              borderRadius: '2px',
-            }}
-          >
-            <img
-              src={subsidiary.icon}
-              alt={subsidiary.name}
-              className="w-9 h-9 object-contain"
-              onError={() => setImgError(true)}
-            />
-          </div>
-        ) : (
-          <div
-            className="w-16 h-16 flex items-center justify-center text-2xl transition-transform duration-500 group-hover:scale-105"
-            style={{
-              background: 'oklch(0.74 0.135 82 / 0.08)',
-              border: '1px solid oklch(0.74 0.135 82 / 0.15)',
-              borderRadius: '2px',
-            }}
-          >
-            {subsidiary.emoji}
-          </div>
-        )}
-      </div>
-
-      {/* Content */}
-      <div className="flex flex-col">
-        <h3
-          className="font-display font-semibold text-ivory mb-3 group-hover:text-gold-light transition-colors duration-400 leading-tight"
-          style={{ fontSize: 'clamp(1.15rem, 2vw, 1.35rem)', letterSpacing: '-0.005em' }}
-        >
-          {subsidiary.name}
-        </h3>
-
-        {/* Animated underline */}
-        <div
-          className="h-px mb-4 transition-all duration-600 ease-out"
+      <div
+        className="w-14 h-14 mb-5 flex items-center justify-center"
+        style={{
+          border: "1px solid rgba(212,175,55,0.25)",
+          background: "rgba(212,175,55,0.04)",
+        }}
+      >
+        <img
+          src={subsidiary.icon}
+          alt={subsidiary.name}
+          className="w-8 h-8 object-contain"
           style={{
-            width: '2rem',
-            background: 'oklch(0.74 0.135 82)',
+            filter:
+              "brightness(0) saturate(100%) invert(75%) sepia(50%) saturate(400%) hue-rotate(5deg)",
+          }}
+          onError={(e) => {
+            e.currentTarget.style.display = "none";
           }}
         />
-        <div
-          className="h-px -mt-4 mb-4 w-0 group-hover:w-12 transition-all duration-600 ease-out"
-          style={{ background: 'oklch(0.84 0.11 82 / 0.5)' }}
-        />
-
-        <p className="font-body text-xs font-semibold tracking-[0.15em] uppercase text-gold mb-3">
-          {subsidiary.tagline}
-        </p>
-        <p className="font-body text-sm text-ivory-dim leading-relaxed line-clamp-2 mb-6">
-          {subsidiary.description}
-        </p>
       </div>
 
-      {/* Explore link */}
-      <div className="flex items-center gap-2 mt-auto">
+      {/* Name */}
+      <h3
+        className="font-serif mb-2 leading-tight"
+        style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: "1.2rem",
+          color: "rgba(212,175,55,0.95)",
+          letterSpacing: "0.03em",
+        }}
+      >
+        {subsidiary.name}
+      </h3>
+
+      {/* Tagline */}
+      <p
+        className="text-xs mb-4 leading-relaxed flex-1"
+        style={{ color: "rgba(212,175,55,0.5)", letterSpacing: "0.05em" }}
+      >
+        {subsidiary.tagline}
+      </p>
+
+      {/* Divider */}
+      <div
+        className="mb-4 h-px"
+        style={{
+          background: "linear-gradient(90deg, rgba(212,175,55,0.3), transparent)",
+        }}
+      />
+
+      {/* Discover button */}
+      <button
+        onClick={onDiscover}
+        className="flex items-center gap-2 text-xs uppercase tracking-widest group/btn"
+        style={{
+          color: "rgba(212,175,55,0.8)",
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          padding: 0,
+          letterSpacing: "0.2em",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.color = "rgba(212,175,55,1)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.color = "rgba(212,175,55,0.8)";
+        }}
+      >
+        Discover
         <span
-          className="font-body text-xs font-medium tracking-[0.2em] uppercase transition-all duration-400"
-          style={{ color: 'oklch(0.74 0.135 82 / 0.6)' }}
+          className="inline-block transition-transform duration-300 group-hover/btn:translate-x-1"
+          style={{ fontSize: "1rem" }}
         >
-          <span className="group-hover:text-gold transition-colors duration-300">Discover</span>
+          →
         </span>
-        <svg
-          className="w-3 h-3 transition-all duration-400 -translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
-          style={{ color: 'oklch(0.74 0.135 82)' }}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </div>
-    </article>
+      </button>
+    </div>
   );
 }
