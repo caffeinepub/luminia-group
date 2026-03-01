@@ -56,18 +56,6 @@ export default function HeroSection() {
           transition: "opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s",
         }}
       >
-        {/* Eyebrow */}
-        <p
-          className="uppercase tracking-[0.5em] text-xs mb-8"
-          style={{
-            color: "rgba(212,175,55,0.55)",
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            letterSpacing: "0.5em",
-          }}
-        >
-          Est. 2024 · India
-        </p>
-
         {/* Main headline */}
         <h1
           className="font-serif mb-6 leading-none"

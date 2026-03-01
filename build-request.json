@@ -1,37 +1,53 @@
 {
   "kind": "build_request",
-  "title": "Change 'Launching Soon' to 'Pre-Launch' messaging across subsidiary modals",
-  "projectName": "Luminia Group",
+  "title": "Move GST Services section to last position with minimal content",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update all subsidiary detail modals and any 'Launching Soon' placeholder text/labels to use pre-launch messaging (e.g., 'Coming Soon' or 'Pre-Launch') instead of 'Launching Soon', reflecting that the company has not yet launched.",
+      "text": "Reorder the sections in App.tsx so that the GSTServicesSection appears last among the brand sections, after AssuredToursSection, LuminiaTechLabsSection, LuminiaCapturesSection, and ComingSoonSection.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "not yet launched so pre launch"
+          "keep gst services at last"
         ]
       },
       "acceptanceCriteria": [
-        "No instance of 'Launching Soon' text appears anywhere in the UI.",
-        "Subsidiary modals display 'Pre-Launch' or 'Coming Soon' status language consistently.",
-        "The PlaceholderPage component also reflects pre-launch messaging if it previously displayed 'Launching Soon'.",
-        "The overall tone and styling (black & gold theme) remains unchanged."
+        "GSTServicesSection renders after all other brand and coming-soon sections in the page layout.",
+        "All other sections remain in their existing order above GST Services."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Reduce the content in GSTServicesSection.tsx to a brief, minimal presentation: keep the section header and a short one-line description of GST services, but trim service cards down to 3 cards maximum with concise one-line labels and no detailed descriptions.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "don't mention much details as I don't know much but yeah give some part"
+        ]
+      },
+      "acceptanceCriteria": [
+        "GST Services section displays no more than 3 service cards.",
+        "Each card has only a short label — no lengthy descriptions or bullet points.",
+        "A brief introductory sentence about GST services is present under the section header.",
+        "The section still matches the gold/obsidian luxury theme of the rest of the site."
       ]
     }
   ],
   "constraints": [
-    "Do not alter the black-and-gold visual theme or any layout/styling.",
-    "Do not modify files under frontend/src/hooks/ that are listed as immutable."
+    "Do not remove the GST Services section entirely — it must still be present and visible.",
+    "Do not alter the order or content of any other brand sections."
   ],
   "nonGoals": [
-    "Adding new sections or features beyond the messaging update.",
-    "Changing the subsidiary card data or imagery.",
-    "Backend changes — the backend remains a static empty actor."
+    "Adding new GST service details or expanding GST content.",
+    "Changing the visual theme or layout style of any other section.",
+    "Modifying backend logic."
   ],
   "imageRequirements": {
     "required": [],

@@ -2,21 +2,40 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-all-subsidiary-detail-modals-and-any-launching-soon-placeholder-text-labels-to-use-pre-launch-messaging-e-g-coming-soon-or-pre-launch-instead-of-launching-soon-reflecting-that-the-company-has-not-yet-launched",
-      "featureTitle": "Update all subsidiary detail modals and any 'Launching Soon' placeholder text/labels to use pre-launch messaging (e.g., 'Coming Soon' or 'Pre-Launch') instead of 'Launching Soon', reflecting that the company has not yet launched.",
+      "featureId": "feature-reorder-the-sections-in-app-tsx-so-that-the-gstservicessection-appears-last-among-the-brand-sections-after-assuredtourssection-luminiatechlabssection-luminiacapturessection-and-comingsoonsection",
+      "featureTitle": "Reorder the sections in App.tsx so that the GSTServicesSection appears last among the brand sections, after AssuredToursSection, LuminiaTechLabsSection, LuminiaCapturesSection, and ComingSoonSection.",
       "files": [
-        "frontend/src/components/SubsidiaryDetails.tsx",
-        "frontend/src/components/SubsidiaryGrid.tsx"
+        "frontend/src/App.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
         "build-template-react@1.0.0",
         "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
       ],
       "testIds": [
         "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-reduce-the-content-in-gstservicessection-tsx-to-a-brief-minimal-presentation-keep-the-section-header-and-a-short-one-line-description-of-gst-services-but-trim-service-cards-down-to-3-cards-maximum-with-concise-one-line-labels-and-no-detailed-descriptions",
+      "featureTitle": "Reduce the content in GSTServicesSection.tsx to a brief, minimal presentation: keep the section header and a short one-line description of GST services, but trim service cards down to 3 cards maximum with concise one-line labels and no detailed descriptions.",
+      "files": [
+        "frontend/src/components/GSTServicesSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
       ],
       "confidence": "high"
     }

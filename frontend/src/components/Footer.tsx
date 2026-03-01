@@ -90,18 +90,18 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:info@luminiagroup.com"
+                  href="mailto:luminiagadgets@gmail.com"
                   className="text-xs transition-all duration-200"
                   style={{ color: "rgba(212,175,55,0.45)", fontFamily: "'Cormorant Garamond', Georgia, serif" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(212,175,55,0.9)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(212,175,55,0.45)")}
                 >
-                  info@luminiagroup.com
+                  luminiagadgets@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="https://wa.me/919999999999"
+                  href="https://wa.me/917439065260"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs transition-all duration-200"
@@ -109,7 +109,7 @@ export default function Footer() {
                   onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(212,175,55,0.9)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(212,175,55,0.45)")}
                 >
-                  WhatsApp
+                  WhatsApp: +91 74390 65260
                 </a>
               </li>
               <li>

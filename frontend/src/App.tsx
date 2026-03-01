@@ -1,7 +1,11 @@
 import Navigation from "./components/Navigation";
 import HeroSection from "./components/HeroSection";
 import ManifestoSection from "./components/ManifestoSection";
-import SubsidiaryGrid from "./components/SubsidiaryGrid";
+import AssuredToursSection from "./components/AssuredToursSection";
+import LuminiaCapturesSection from "./components/LuminiaCapturesSection";
+import LuminiaTechLabsSection from "./components/LuminiaTechLabsSection";
+import ComingSoonSection from "./components/ComingSoonSection";
+import GSTServicesSection from "./components/GSTServicesSection";
 import Footer from "./components/Footer";
 import WelcomePopup from "./components/WelcomePopup";
 
@@ -13,7 +17,11 @@ export default function App() {
       <main>
         <HeroSection />
         <ManifestoSection />
-        <SubsidiaryGrid />
+        <AssuredToursSection />
+        <LuminiaCapturesSection />
+        <LuminiaTechLabsSection />
+        <ComingSoonSection />
+        <GSTServicesSection />
       </main>
       <Footer />
     </div>

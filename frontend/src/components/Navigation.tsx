@@ -1,5 +1,16 @@
 import { useState, useEffect } from "react";
 
+const navItems = [
+  { label: "Home", id: "hero" },
+  { label: "Manifesto", id: "manifesto" },
+  { label: "Tours & Travels", id: "assured-tours" },
+  { label: "GST Services", id: "gst-services" },
+  { label: "Captures", id: "luminia-captures" },
+  { label: "TechLabs", id: "luminia-techlabs" },
+  { label: "Coming Soon", id: "coming-soon" },
+  { label: "Contact", id: "footer" },
+];
+
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,7 +46,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
         <div
-          className="flex items-center"
+          className="flex items-center flex-shrink-0"
           style={{
             background: "#080808",
             padding: "4px 12px",
@@ -51,24 +62,20 @@ export default function Navigation() {
         </div>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {[
-            { label: "Home", id: "hero" },
-            { label: "Manifesto", id: "manifesto" },
-            { label: "Portfolio", id: "subsidiaries" },
-            { label: "Contact", id: "footer" },
-          ].map((item) => (
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
+          {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
-              className="text-xs uppercase tracking-widest transition-all duration-300"
+              className="text-xs uppercase tracking-widest transition-all duration-300 whitespace-nowrap"
               style={{
                 color: "rgba(212,175,55,0.6)",
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                letterSpacing: "0.2em",
+                letterSpacing: "0.15em",
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: "0.7rem",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = "rgba(212,175,55,1)";
@@ -86,7 +93,7 @@ export default function Navigation() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="lg:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(!menuOpen)}
           style={{ background: "none", border: "none", cursor: "pointer" }}
           aria-label="Toggle menu"
@@ -113,14 +120,14 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       <div
-        className="md:hidden overflow-hidden transition-all duration-400"
+        className="lg:hidden overflow-hidden transition-all duration-400"
         style={{
-          maxHeight: menuOpen ? "300px" : "0",
+          maxHeight: menuOpen ? "500px" : "0",
           background: "rgba(8,8,8,0.98)",
           borderTop: menuOpen ? "1px solid rgba(212,175,55,0.1)" : "none",
         }}
       >
-        <div className="px-6 py-4 flex flex-col gap-4">
+        <div className="px-6 py-4 flex flex-col gap-3">
           {/* Mobile logo */}
           <div className="flex justify-center mb-2">
             <div style={{ background: "#080808", padding: "4px 12px", border: "1px solid rgba(212,175,55,0.15)" }}>
@@ -132,12 +139,7 @@ export default function Navigation() {
               />
             </div>
           </div>
-          {[
-            { label: "Home", id: "hero" },
-            { label: "Manifesto", id: "manifesto" },
-            { label: "Portfolio", id: "subsidiaries" },
-            { label: "Contact", id: "footer" },
-          ].map((item, i) => (
+          {navItems.map((item, i) => (
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
@@ -152,7 +154,7 @@ export default function Navigation() {
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
                 opacity: menuOpen ? 1 : 0,
                 transform: menuOpen ? "translateX(0)" : "translateX(-16px)",
-                transition: `opacity 0.3s ease ${i * 60}ms, transform 0.3s ease ${i * 60}ms`,
+                transition: `opacity 0.3s ease ${i * 50}ms, transform 0.3s ease ${i * 50}ms`,
               }}
             >
               {item.label}

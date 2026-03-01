@@ -1,32 +1,37 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Change 'Launching Soon' to 'Pre-Launch' messaging across subsidiary modals",
+  "title": "Move GST Services section to last position with minimal content",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Update all subsidiary detail modals and any 'Launching Soon' placeholder text/labels to use pre-launch messaging (e.g., 'Coming Soon' or 'Pre-Launch') instead of 'Launching Soon', reflecting that the company has not yet launched.",
+      "summary": "Reorder sections in App.tsx so GSTServicesSection appears last after all other brand and coming-soon sections",
       "acceptanceCriteria": [
-        "No instance of 'Launching Soon' text appears anywhere in the UI.",
-        "Subsidiary modals display 'Pre-Launch' or 'Coming Soon' status language consistently.",
-        "The PlaceholderPage component also reflects pre-launch messaging if it previously displayed 'Launching Soon'.",
-        "The overall tone and styling (black & gold theme) remains unchanged."
+        "GSTServicesSection renders after all other brand and coming-soon sections in the page layout.",
+        "All other sections remain in their existing order above GST Services."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/SubsidiaryDetails.tsx",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Update any 'Launching Soon' text in the subsidiary detail modal component to display 'Pre-Launch' or 'Coming Soon' messaging instead. Search for all instances of 'Launching Soon' text within the modal content, button labels, status indicators, and replace with pre-launch terminology while maintaining the existing black-and-gold styling and layout structure."
-        },
+          "description": "Reorder the section components so that GSTServicesSection is rendered after AssuredToursSection, LuminiaTechLabsSection, LuminiaCapturesSection, and ComingSoonSection. Keep all other sections (HeroSection, ManifestoSection, SubsidiaryGrid, Footer) in their current positions and only move GSTServicesSection to the last position among brand sections."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Reduce GSTServicesSection content to minimal presentation with 3 service cards maximum and concise labels",
+      "acceptanceCriteria": [
+        "GST Services section displays no more than 3 service cards.",
+        "Each card has only a short label — no lengthy descriptions or bullet points.",
+        "A brief introductory sentence about GST services is present under the section header.",
+        "The section still matches the gold/obsidian luxury theme of the rest of the site."
+      ],
+      "file_operations": [
         {
-          "path": "frontend/src/components/SubsidiaryGrid.tsx",
+          "path": "frontend/src/components/GSTServicesSection.tsx",
           "operation": "modify",
-          "description": "Update any 'Launching Soon' text in subsidiary card data, labels, or status fields to use 'Pre-Launch' or 'Coming Soon' messaging. Review the subsidiary definitions array and any status/launch text displayed on the grid cards, replacing all instances with pre-launch terminology."
-        },
-        {
-          "path": "frontend/src/components/PlaceholderPage.tsx",
-          "operation": "modify",
-          "description": "Verify and update any 'Launching Soon' text in the PlaceholderPage component to display 'Coming Soon' or 'Pre-Launch' messaging instead. The file summary indicates this is a 'Coming Soon' placeholder page, but confirm no 'Launching Soon' text exists and update if found while maintaining the existing fade-in animation and gold decorative elements."
+          "description": "Trim the GST services content to show only 3 service cards (down from 6) with short one-line labels and no detailed descriptions or bullet points. Replace the current descriptive text with a single brief introductory sentence about GST services. Keep the section header, banner image (frontend/public/assets/generated/gst-services-banner.dim_1200x400.png), and the gold/obsidian luxury styling intact. Maintain the scroll-triggered animations via useScrollAnimation hook."
         }
       ]
     }
