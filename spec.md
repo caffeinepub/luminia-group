@@ -1,13 +1,14 @@
 # Specification
 
 ## Summary
-**Goal:** Redesign the Luminia Group landing page with a more premium, polished dark luxury aesthetic across all sections.
+**Goal:** Fix the WelcomePopup component so all content displays correctly, with proper layout, typography, and styling consistent with the site's luxury design system.
 
 **Planned changes:**
-- Elevate the overall visual theme with richer contrast, refined typography hierarchy, and improved spacing across Hero, Manifesto, SubsidiaryGrid, and Footer sections
-- Revamp the HeroSection with a more dramatic headline treatment, improved background overlay legibility, and a refined CTA button
-- Improve the WelcomePopup with a more elegant layout, smoother cinematic animations, and refined gold corner accents
-- Redesign SubsidiaryGrid cards with better proportions, smoother hover states, and clearer typographic hierarchy
-- Replace the hero background image with a new dark luxury abstract texture
+- Fix the WelcomePopup layout to render full-screen without content clipping or overflow
+- Ensure the "Welcome to Luminia Group" heading is fully visible, centered, and uses the Cormorant Garamond display font
+- Correct gold accent styling (decorative corner accents, dividers) rendering
+- Ensure the dismiss button is clearly visible and accessible
+- Verify smooth animate-in/out behavior on first session load (sessionStorage guard preserved)
+- Make the popup responsive for both desktop and mobile viewports
 
-**User-visible outcome:** The landing page feels noticeably more premium and cohesive, with a dramatic hero, elegant popup, and polished subsidiary cards that reinforce the dark luxury brand identity.
+**User-visible outcome:** The Welcome popup displays correctly with the full heading visible, proper gold luxury styling, and a clearly accessible dismiss button on both desktop and mobile.

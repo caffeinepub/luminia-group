@@ -36,7 +36,7 @@ export default function WelcomePopup() {
       aria-modal="true"
       aria-label="Welcome to Luminia Group"
     >
-      {/* Corner accents — larger, more refined */}
+      {/* Corner accents */}
       {[
         'top-6 left-6',
         'top-6 right-6',
@@ -46,7 +46,7 @@ export default function WelcomePopup() {
         const isRight = pos.includes('right');
         const isBottom = pos.includes('bottom');
         return (
-          <div key={i} className={`absolute ${pos} w-20 h-20 pointer-events-none`} style={{ opacity: 0.45 }}>
+          <div key={i} className={`absolute ${pos} w-16 h-16 pointer-events-none`} style={{ opacity: 0.45 }}>
             <div
               className="absolute w-full h-px"
               style={{
@@ -73,7 +73,7 @@ export default function WelcomePopup() {
 
       {/* Modal Card */}
       <div
-        className={`relative w-full max-w-md ${exiting ? 'popup-content-exit' : 'popup-content-enter'}`}
+        className={`relative w-full max-w-lg mx-auto ${exiting ? 'popup-content-exit' : 'popup-content-enter'}`}
         style={{
           background: 'linear-gradient(160deg, oklch(0.14 0.008 82 / 0.99) 0%, oklch(0.10 0.003 82 / 1) 50%, oklch(0.08 0 0 / 1) 100%)',
           border: '1px solid oklch(0.74 0.135 82 / 0.3)',
@@ -90,14 +90,14 @@ export default function WelcomePopup() {
         {/* Close button */}
         <button
           onClick={handleDismiss}
-          className="absolute top-5 right-5 z-10 p-1.5 text-ivory-faint hover:text-gold transition-all duration-300 rounded-sm hover:bg-gold/8 group"
+          className="absolute top-4 right-4 z-10 p-2 text-ivory-faint hover:text-gold transition-all duration-300 rounded-sm hover:bg-gold/10 group"
           aria-label="Close welcome popup"
         >
-          <X size={15} strokeWidth={1.5} />
+          <X size={16} strokeWidth={1.5} />
         </button>
 
-        {/* Content */}
-        <div className="px-10 sm:px-14 py-14 sm:py-16">
+        {/* Content — fully centered */}
+        <div className="flex flex-col items-center text-center px-8 sm:px-14 py-12 sm:py-16">
 
           {/* Logo */}
           <div className="flex justify-center mb-8 popup-text-reveal popup-text-reveal-1">
@@ -113,7 +113,7 @@ export default function WelcomePopup() {
               }}
             />
             <span
-              className="hidden font-display text-3xl font-semibold shimmer-gold tracking-widest"
+              className="font-display text-3xl font-semibold shimmer-gold tracking-widest"
               style={{ display: 'none' }}
             >
               LUMINIA GROUP
@@ -121,9 +121,9 @@ export default function WelcomePopup() {
           </div>
 
           {/* Gold divider with diamond */}
-          <div className="flex items-center justify-center gap-4 mb-10 popup-text-reveal popup-text-reveal-2">
+          <div className="flex items-center justify-center gap-4 mb-10 w-full popup-text-reveal popup-text-reveal-2">
             <div
-              className="popup-line-reveal h-px w-20"
+              className="popup-line-reveal h-px flex-1 max-w-[80px]"
               style={{ background: 'linear-gradient(90deg, transparent, oklch(0.74 0.135 82 / 0.9))' }}
             />
             <div
@@ -134,7 +134,7 @@ export default function WelcomePopup() {
               }}
             />
             <div
-              className="popup-line-reveal h-px w-20"
+              className="popup-line-reveal h-px flex-1 max-w-[80px]"
               style={{
                 background: 'linear-gradient(270deg, transparent, oklch(0.74 0.135 82 / 0.9))',
                 animationDelay: '0.8s',
@@ -143,14 +143,14 @@ export default function WelcomePopup() {
           </div>
 
           {/* Welcome label */}
-          <p className="font-body text-xs tracking-[0.5em] uppercase text-gold mb-4 popup-text-reveal popup-text-reveal-3">
+          <p className="font-body text-xs tracking-[0.5em] uppercase text-gold mb-3 popup-text-reveal popup-text-reveal-3">
             Welcome to
           </p>
 
           {/* Main title */}
           <h1
-            className="font-display font-light text-ivory leading-none mb-3 popup-text-reveal popup-text-reveal-3 animate-gold-pulse-glow"
-            style={{ fontSize: 'clamp(2rem, 5vw, 2.8rem)', letterSpacing: '-0.01em' }}
+            className="font-display font-light text-ivory leading-tight mb-3 popup-text-reveal popup-text-reveal-3 animate-gold-pulse-glow"
+            style={{ fontSize: 'clamp(2.2rem, 6vw, 3.2rem)', letterSpacing: '-0.01em' }}
           >
             Luminia Group
           </h1>
@@ -158,20 +158,20 @@ export default function WelcomePopup() {
           {/* Tagline */}
           <p
             className="font-display font-light italic text-gold-light mb-8 popup-text-reveal popup-text-reveal-4"
-            style={{ fontSize: 'clamp(1rem, 2.5vw, 1.3rem)', letterSpacing: '0.02em' }}
+            style={{ fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', letterSpacing: '0.02em' }}
           >
             Defining the Gold Standard.
           </p>
 
           {/* Description */}
-          <p className="font-body text-sm text-ivory-dim leading-relaxed max-w-xs mx-auto mb-12 popup-text-reveal popup-text-reveal-4">
+          <p className="font-body text-sm text-ivory-dim leading-relaxed max-w-xs mb-10 popup-text-reveal popup-text-reveal-4">
             An elite multi-sector conglomerate architecting a future where{' '}
             <span className="text-gold font-medium">luxury meets logic</span>.
             Currently in exclusive pre-launch phase.
           </p>
 
           {/* CTA Button */}
-          <div className="popup-text-reveal popup-text-reveal-5">
+          <div className="popup-text-reveal popup-text-reveal-5 w-full">
             <button
               onClick={handleDismiss}
               className="group relative inline-flex items-center justify-center gap-3 w-full font-body text-xs font-medium tracking-[0.3em] uppercase overflow-hidden transition-all duration-500"
@@ -189,7 +189,7 @@ export default function WelcomePopup() {
                 style={{ backgroundColor: 'oklch(0.74 0.135 82)' }}
               />
               <svg
-                className="relative z-10 w-3.5 h-3.5 transition-all duration-400 group-hover:translate-x-1.5 group-hover:text-obsidian"
+                className="relative z-10 w-3.5 h-3.5 transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-obsidian"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

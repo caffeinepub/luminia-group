@@ -1,71 +1,24 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-01T09:49:15.853Z",
+  "generatedAt": "2026-03-01T10:04:37.599Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 5,
-    "implemented": 5,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Redesign the overall visual aesthetic of the landing page to feel more premium, polished, and cohesive. Elevate the dark luxury theme with richer contrast, more refined typography hierarchy, and improved spacing throughout all sections (Hero, Manifesto, SubsidiaryGrid, Footer).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/index.css",
-          "frontend/tailwind.config.js",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/index.css",
-          "frontend/tailwind.config.js"
-        ]
-      },
-      {
-        "id": "REQ-2",
-        "summary": "Revamp the HeroSection to make a stronger first impression: use a more dramatic headline treatment, improve the background image overlay for better legibility, and ensure the CTA button stands out with a refined style.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/HeroSection.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/HeroSection.tsx"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "Improve the WelcomePopup design to feel more elegant and intentional. Refine its layout, decorative elements, and animation so it enhances the premium brand experience rather than feeling like a generic modal.",
+        "summary": "Fix the WelcomePopup component so that the 'Welcome to Luminia Group' text and all popup content display correctly — ensure the heading is fully visible, properly centered, and not clipped or overflowing. The popup layout should be well-structured with adequate padding, correct font sizing using the Cormorant Garamond display font, and gold accent styling consistent with the site's luxury design system.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/components/WelcomePopup.tsx"
         ],
         "matchedFiles": [
           "frontend/src/components/WelcomePopup.tsx"
-        ]
-      },
-      {
-        "id": "REQ-4",
-        "summary": "Redesign the SubsidiaryGrid card layout to be more visually compelling — improve card proportions, hover states, and typography so that each subsidiary feels prestigious and distinct.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/SubsidiaryGrid.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/SubsidiaryGrid.tsx"
-        ]
-      },
-      {
-        "id": "REQ-5",
-        "summary": "Generate a rich, dark luxury hero background image featuring abstract gold and obsidian textures with a cinematic feel, to replace the current hero background.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/HeroSection.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/HeroSection.tsx"
         ]
       }
     ]
@@ -75,14 +28,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/hero-bg.dim_1920x1080.png",
-    "frontend/src/components/Footer.tsx",
-    "frontend/src/components/HeroSection.tsx",
-    "frontend/src/components/ManifestoSection.tsx",
-    "frontend/src/components/SubsidiaryGrid.tsx",
     "frontend/src/components/WelcomePopup.tsx",
-    "frontend/src/index.css",
-    "frontend/tailwind.config.js",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

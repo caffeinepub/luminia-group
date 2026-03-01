@@ -2,45 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-redesign-the-overall-visual-aesthetic-of-the-landing-page-to-feel-more-premium-polished-and-cohesive-elevate-the-dark-luxury-theme-with-richer-contrast-more-refined-typography-hierarchy-and-improved-spacing-throughout-all-sections-hero-manifesto-subsidiarygrid-footer",
-      "featureTitle": "Redesign the overall visual aesthetic of the landing page to feel more premium, polished, and cohesive. Elevate the dark luxury theme with richer contrast, more refined typography hierarchy, and improved spacing throughout all sections (Hero, Manifesto, SubsidiaryGrid, Footer).",
-      "files": [
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-revamp-the-herosection-to-make-a-stronger-first-impression-use-a-more-dramatic-headline-treatment-improve-the-background-image-overlay-for-better-legibility-and-ensure-the-cta-button-stands-out-with-a-refined-style",
-      "featureTitle": "Revamp the HeroSection to make a stronger first impression: use a more dramatic headline treatment, improve the background image overlay for better legibility, and ensure the CTA button stands out with a refined style.",
-      "files": [
-        "frontend/src/components/HeroSection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-improve-the-welcomepopup-design-to-feel-more-elegant-and-intentional-refine-its-layout-decorative-elements-and-animation-so-it-enhances-the-premium-brand-experience-rather-than-feeling-like-a-generic-modal",
-      "featureTitle": "Improve the WelcomePopup design to feel more elegant and intentional. Refine its layout, decorative elements, and animation so it enhances the premium brand experience rather than feeling like a generic modal.",
+      "featureId": "feature-fix-the-welcomepopup-component-so-that-the-welcome-to-luminia-group-text-and-all-popup-content-display-correctly-ensure-the-heading-is-fully-visible-properly-centered-and-not-clipped-or-overflowing-the-popup-layout-should-be-well-structured-with-adequate-padding-correct-font-sizing-using-the-cormorant-garamond-display-font-and-gold-accent-styling-consistent-with-the-site-s-luxury-design-system",
+      "featureTitle": "Fix the WelcomePopup component so that the 'Welcome to Luminia Group' text and all popup content display correctly — ensure the heading is fully visible, properly centered, and not clipped or overflowing. The popup layout should be well-structured with adequate padding, correct font sizing using the Cormorant Garamond display font, and gold accent styling consistent with the site's luxury design system.",
       "files": [
         "frontend/src/components/WelcomePopup.tsx"
       ],
@@ -52,43 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-redesign-the-subsidiarygrid-card-layout-to-be-more-visually-compelling-improve-card-proportions-hover-states-and-typography-so-that-each-subsidiary-feels-prestigious-and-distinct",
-      "featureTitle": "Redesign the SubsidiaryGrid card layout to be more visually compelling — improve card proportions, hover states, and typography so that each subsidiary feels prestigious and distinct.",
-      "files": [
-        "frontend/src/components/SubsidiaryGrid.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-generate-a-rich-dark-luxury-hero-background-image-featuring-abstract-gold-and-obsidian-textures-with-a-cinematic-feel-to-replace-the-current-hero-background",
-      "featureTitle": "Generate a rich, dark luxury hero background image featuring abstract gold and obsidian textures with a cinematic feel, to replace the current hero background.",
-      "files": [
-        "frontend/src/components/HeroSection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
+        "REQ-1"
       ],
       "confidence": "high"
     }

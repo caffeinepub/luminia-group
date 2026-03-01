@@ -1,54 +1,24 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
+  "summary": "Project for Luminia Group with a pop page (welcome screen) that needs fixing.",
   "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Dark luxury abstract hero background with swirling gold foil textures, deep obsidian and charcoal tones, and a cinematic wide-format composition (hero-bg.dim_1920x1080.png)",
+  "known_issues": [
+    "Pop/welcome page display is not rendering properly when showing 'Welcome to Luminia Group'"
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
-      "id": "feature-redesign-the-overall-visual-aesthetic-of-the-landing-page-to-feel-more-premium-polished-and-cohesive-elevate-the-dark-luxury-theme-with-richer-contrast-more-refined-typography-hierarchy-and-improved-spacing-throughout-all-sections-hero-manifesto-subsidiarygrid-footer",
-      "title": "Redesign the overall visual aesthetic of the landing page to feel more premium, polished, and cohesive. Elevate the dark luxury theme with richer contrast, more refined typography hierarchy, and improved spacing throughout all sections (Hero, Manifesto, SubsidiaryGrid, Footer).",
+      "id": "feature-fix-the-welcomepopup-component-so-that-the-welcome-to-luminia-group-text-and-all-popup-content-display-correctly-ensure-the-heading-is-fully-visible-properly-centered-and-not-clipped-or-overflowing-the-popup-layout-should-be-well-structured-with-adequate-padding-correct-font-sizing-using-the-cormorant-garamond-display-font-and-gold-accent-styling-consistent-with-the-site-s-luxury-design-system",
+      "title": "Fix the WelcomePopup component so that the 'Welcome to Luminia Group' text and all popup content display correctly — ensure the heading is fully visible, properly centered, and not clipped or overflowing. The popup layout should be well-structured with adequate padding, correct font sizing using the Cormorant Garamond display font, and gold accent styling consistent with the site's luxury design system.",
       "reqIds": [
         "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-revamp-the-herosection-to-make-a-stronger-first-impression-use-a-more-dramatic-headline-treatment-improve-the-background-image-overlay-for-better-legibility-and-ensure-the-cta-button-stands-out-with-a-refined-style",
-      "title": "Revamp the HeroSection to make a stronger first impression: use a more dramatic headline treatment, improve the background image overlay for better legibility, and ensure the CTA button stands out with a refined style.",
-      "reqIds": [
-        "REQ-2"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-improve-the-welcomepopup-design-to-feel-more-elegant-and-intentional-refine-its-layout-decorative-elements-and-animation-so-it-enhances-the-premium-brand-experience-rather-than-feeling-like-a-generic-modal",
-      "title": "Improve the WelcomePopup design to feel more elegant and intentional. Refine its layout, decorative elements, and animation so it enhances the premium brand experience rather than feeling like a generic modal.",
-      "reqIds": [
-        "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-redesign-the-subsidiarygrid-card-layout-to-be-more-visually-compelling-improve-card-proportions-hover-states-and-typography-so-that-each-subsidiary-feels-prestigious-and-distinct",
-      "title": "Redesign the SubsidiaryGrid card layout to be more visually compelling — improve card proportions, hover states, and typography so that each subsidiary feels prestigious and distinct.",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-generate-a-rich-dark-luxury-hero-background-image-featuring-abstract-gold-and-obsidian-textures-with-a-cinematic-feel-to-replace-the-current-hero-background",
-      "title": "Generate a rich, dark luxury hero background image featuring abstract gold and obsidian textures with a cinematic feel, to replace the current hero background.",
-      "reqIds": [
-        "REQ-5"
       ],
       "version": 1
     }
   ],
   "new_feature_requests": [],
+  "gameProjectType": "none",
   "projectName": "Luminia Group",
   "clarification_mode": "instant",
   "clarification_rounds": 0
