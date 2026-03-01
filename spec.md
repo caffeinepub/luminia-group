@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Replace the 'Luminia Gadgets' navigation button with a 'Connect With Us' button that smoothly scrolls to the contact/footer section.
+**Goal:** Fix a visual glitch where a black background area bleeds into or overlaps the "Exclusive Pre-Launch" badge in the Navigation component.
 
 **Planned changes:**
-- Remove the 'Luminia Gadgets' button from the Navigation component
-- Add a 'Connect With Us' button in its place, styled to match the existing dark luxury design
-- Wire the button to smoothly scroll the page to the Footer/Contact section on click
+- Remove the unintended black background area appearing above or around the "Exclusive Pre-Launch" badge in the Navigation bar
+- Ensure the navbar background renders consistently across its full width without color bleed or overlap artifacts
+- Verify the fix works on both desktop and mobile viewports
 
-**User-visible outcome:** Users see a 'Connect With Us' button in the navigation bar instead of 'Luminia Gadgets', and clicking it smoothly scrolls them to the contact section at the bottom of the page.
+**User-visible outcome:** The Navigation bar displays cleanly with no black block or color bleed near the "Exclusive Pre-Launch" badge, and the badge is fully visible with correct spacing.

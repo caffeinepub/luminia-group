@@ -2,10 +2,9 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-in-the-navigation-component-replace-the-luminia-gadgets-button-with-a-connect-with-us-button-that-smoothly-scrolls-to-the-footer-contact-section-when-clicked",
-      "featureTitle": "In the Navigation component, replace the 'Luminia Gadgets' button with a 'Connect With Us' button that smoothly scrolls to the Footer/Contact section when clicked.",
+      "featureId": "feature-fix-the-visual-issue-where-a-black-background-area-bleeds-into-or-overlaps-the-exclusive-pre-launch-badge-section-in-the-navigation-component-ensure-the-area-directly-above-the-pre-launch-badge-is-visually-clean-and-consistent-with-the-surrounding-navbar-styling-no-unwanted-black-blocks-gaps-or-misaligned-backgrounds-should-appear",
+      "featureTitle": "Fix the visual issue where a black background area bleeds into or overlaps the 'Exclusive Pre-Launch' badge/section in the Navigation component. Ensure the area directly above the Pre-Launch badge is visually clean and consistent with the surrounding navbar styling — no unwanted black blocks, gaps, or misaligned backgrounds should appear.",
       "files": [
-        "frontend/src/components/Footer.tsx",
         "frontend/src/components/Navigation.tsx"
       ],
       "components": [

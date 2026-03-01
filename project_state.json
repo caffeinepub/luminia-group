@@ -1,14 +1,16 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
+  "summary": "Landing page project with sections including Contact and Exclusive Pre-Launch. User reporting a visual issue with black background/area above the Exclusive Pre-Launch section.",
   "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
+  "known_issues": [
+    "Black background/area above the Exclusive Pre-Launch section is visually broken or misaligned"
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
-      "id": "feature-in-the-navigation-component-replace-the-luminia-gadgets-button-with-a-connect-with-us-button-that-smoothly-scrolls-to-the-footer-contact-section-when-clicked",
-      "title": "In the Navigation component, replace the 'Luminia Gadgets' button with a 'Connect With Us' button that smoothly scrolls to the Footer/Contact section when clicked.",
+      "id": "feature-fix-the-visual-issue-where-a-black-background-area-bleeds-into-or-overlaps-the-exclusive-pre-launch-badge-section-in-the-navigation-component-ensure-the-area-directly-above-the-pre-launch-badge-is-visually-clean-and-consistent-with-the-surrounding-navbar-styling-no-unwanted-black-blocks-gaps-or-misaligned-backgrounds-should-appear",
+      "title": "Fix the visual issue where a black background area bleeds into or overlaps the 'Exclusive Pre-Launch' badge/section in the Navigation component. Ensure the area directly above the Pre-Launch badge is visually clean and consistent with the surrounding navbar styling — no unwanted black blocks, gaps, or misaligned backgrounds should appear.",
       "reqIds": [
         "REQ-1"
       ],
@@ -16,7 +18,8 @@
     }
   ],
   "new_feature_requests": [],
-  "projectName": "Luminia Group",
+  "gameProjectType": "none",
+  "projectName": "Fix black background bleed above Exclusive Pre-Launch badge in Navigation",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

@@ -1,27 +1,22 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Replace 'Luminia Gadgets' button with 'Connect With Us' scroll button",
+  "title": "Fix black background bleed above Exclusive Pre-Launch badge in Navigation",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Replace the 'Luminia Gadgets' navigation button with a 'Connect With Us' button that smoothly scrolls to the Footer/Contact section",
+      "summary": "Fix visual issue where black background bleeds into or overlaps the 'Exclusive Pre-Launch' badge in the Navigation component, ensuring clean and consistent navbar styling",
       "acceptanceCriteria": [
-        "The navigation bar no longer displays a 'Luminia Gadgets' button.",
-        "A 'Connect With Us' button is visible in the navigation bar.",
-        "Clicking 'Connect With Us' smoothly scrolls the page to the Footer/Contact section.",
-        "The button styling is consistent with the existing dark luxury design system."
+        "No unintended black background area appears above or around the 'Exclusive Pre-Launch' badge in the Navigation bar",
+        "The Navigation bar background renders consistently across the full width without color bleed or overlap artifacts",
+        "The Pre-Launch badge is fully visible with correct spacing and no surrounding visual glitches",
+        "The fix is consistent across desktop and mobile viewports"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/Navigation.tsx",
           "operation": "modify",
-          "description": "Replace the 'Luminia Gadgets' button with a 'Connect With Us' button. Update the button's onClick handler to smoothly scroll to the Footer/Contact section using scrollIntoView with smooth behavior. Ensure the button styling matches the existing luxury design tokens (gold, obsidian, ivory) and is consistent with other navigation elements. Maintain both desktop and mobile navigation implementations."
-        },
-        {
-          "path": "frontend/src/components/Footer.tsx",
-          "operation": "modify",
-          "description": "Add an id attribute (e.g., 'contact-section') to the Footer component or its Connect section container to serve as the scroll target for the 'Connect With Us' button. Ensure this does not alter the existing layout, alignment, or styling of the footer's email, WhatsApp, and Instagram links."
+          "description": "Inspect and fix CSS class combinations on the Navigation bar container and the Pre-Launch badge wrapper to eliminate black background bleed. Likely causes include overlapping absolute/relative positioning, z-index conflicts, or misaligned padding/margin creating gaps. Ensure the sticky nav container background is uniform and the badge section has proper spacing without introducing unwanted background layers. Verify the fix works across desktop and mobile breakpoints without affecting scroll behavior or the 'Connect With Us' smooth-scroll functionality."
         }
       ]
     }

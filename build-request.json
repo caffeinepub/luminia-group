@@ -1,37 +1,36 @@
 {
   "kind": "build_request",
-  "title": "Replace 'Luminia Gadgets' button with 'Connect With Us' scroll button",
-  "projectName": "Luminia Group",
+  "title": "Fix black background bleed above Exclusive Pre-Launch badge in Navigation",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "In the Navigation component, replace the 'Luminia Gadgets' button with a 'Connect With Us' button that smoothly scrolls to the Footer/Contact section when clicked.",
+      "text": "Fix the visual issue where a black background area bleeds into or overlaps the 'Exclusive Pre-Launch' badge/section in the Navigation component. Ensure the area directly above the Pre-Launch badge is visually clean and consistent with the surrounding navbar styling — no unwanted black blocks, gaps, or misaligned backgrounds should appear.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "Replace the Luminia Gadgets button with a Connect With Us button that scrolls/navigates to the Contact section when clicked."
+          "the black above is getting messed with exclusive pre launch"
         ]
       },
       "acceptanceCriteria": [
-        "The navigation bar no longer displays a 'Luminia Gadgets' button.",
-        "A 'Connect With Us' button is visible in the navigation bar.",
-        "Clicking 'Connect With Us' smoothly scrolls the page to the Footer/Contact section.",
-        "The button styling is consistent with the existing dark luxury design system."
+        "No unintended black background area appears above or around the 'Exclusive Pre-Launch' badge in the Navigation bar",
+        "The Navigation bar background renders consistently across the full width without color bleed or overlap artifacts",
+        "The Pre-Launch badge is fully visible with correct spacing and no surrounding visual glitches",
+        "The fix is consistent across desktop and mobile viewports"
       ]
     }
   ],
   "constraints": [
-    "Do not alter the overall dark obsidian luxury design system or color tokens.",
-    "Do not modify immutable frontend paths (useInternetIdentity, useActor, main.tsx, ui components)."
+    "Do not alter the Navigation component's scroll behavior or the 'Connect With Us' smooth-scroll functionality",
+    "Do not modify files in frontend/src/hooks/"
   ],
   "nonGoals": [
-    "Adding any new sections or pages.",
-    "Changing any backend logic.",
-    "Modifying the Footer contact links or alignment."
+    "Redesigning the Navigation layout or badge style",
+    "Adding new navigation items or sections",
+    "Any backend changes"
   ],
   "imageRequirements": {
     "required": [],

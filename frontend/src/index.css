@@ -154,6 +154,15 @@
     transform: translateY(-4px);
   }
 
+  /* Transparent nav state — subtle gradient so the badge area has no black bleed */
+  .nav-transparent {
+    background: linear-gradient(
+      to bottom,
+      oklch(0.06 0 0 / 0.55) 0%,
+      oklch(0.06 0 0 / 0) 100%
+    );
+  }
+
   .nav-blur {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -208,7 +217,7 @@
   }
 
   .pre-launch-badge {
-    background: linear-gradient(135deg, oklch(0.55 0.09 85 / 0.2), oklch(0.72 0.12 85 / 0.15));
+    background: oklch(0.12 0.01 85 / 0.75);
     border: 1px solid oklch(0.72 0.12 85 / 0.5);
     color: oklch(0.82 0.1 85);
     letter-spacing: 0.2em;

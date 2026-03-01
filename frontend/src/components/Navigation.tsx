@@ -35,7 +35,7 @@ export default function Navigation() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? 'nav-blur' : 'bg-transparent'
+          isScrolled ? 'nav-blur' : 'nav-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -79,7 +79,7 @@ export default function Navigation() {
               ))}
               <div className="w-px h-4 bg-gold-dim mx-2 opacity-40" />
               <span className="pre-launch-badge text-xs font-body font-medium tracking-widest uppercase px-3 py-1 rounded-sm">
-                Pre-Launch
+                Exclusive Pre-Launch
               </span>
             </nav>
 
