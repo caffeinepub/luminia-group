@@ -1,39 +1,61 @@
 {
   "kind": "build_request",
-  "title": "Fix non-functional buttons across all sections",
-  "priority": "high",
+  "title": "WhatsApp automation for booking and launch notification buttons",
+  "projectName": "Luminia Group",
+  "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Fix all non-functional buttons across the site — including the Navigation smooth-scroll links, the HeroSection CTA button (scroll to subsidiaries), the WelcomePopup enter button, any interactive cards or buttons in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, ComingSoonSection, GSTServicesSection, SubsidiaryGrid, and SubsidiaryDetails — so that each button performs its intended action when clicked. Buttons in the 'Connect with Us' section (Footer email and WhatsApp links) are already working and must not be changed.",
+      "text": "When a user clicks any 'Book a Session' or booking-related CTA button (e.g., in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, GSTServicesSection), open WhatsApp (wa.me) in a new tab with a pre-filled message that includes the name of the service/subsidiary selected and a prompt for the user to specify their preferred date/time. The WhatsApp number must be the same one already used in the Footer contact link.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-recent-user-1"
+          "msg-4"
         ],
         "quotes": [
-          "None of the buttons are working except the buttons on connect with us"
+          "Whenever they select book a session or something book automate them to my whatsapp with a message of what is selected and when"
         ]
       },
       "acceptanceCriteria": [
-        "Clicking the Navigation menu links smoothly scrolls to the correct section on the page.",
-        "Clicking the HeroSection CTA button scrolls to the subsidiaries section.",
-        "Clicking the WelcomePopup enter button dismisses the splash and reveals the main page.",
-        "Clicking any interactive card or button in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, ComingSoonSection, and GSTServicesSection triggers the expected behavior (e.g., opens modal, navigates, or expands detail).",
-        "Opening SubsidiaryDetails from SubsidiaryGrid works correctly and the modal's close/navigation buttons function.",
-        "Footer 'Connect with Us' buttons (email and WhatsApp) continue to work as before.",
-        "No console errors related to button click handlers."
+        "Clicking any booking CTA button opens a new tab with a WhatsApp chat URL (https://wa.me/<number>?text=...)",
+        "The pre-filled message includes the name of the selected service or subsidiary",
+        "The pre-filled message includes a placeholder or prompt for the preferred date and time",
+        "The WhatsApp number used matches the existing Footer contact number",
+        "All booking buttons across AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, and GSTServicesSection trigger this behavior"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "When a user clicks the 'Notify Me' button for any upcoming brand card in ComingSoonSection (Gadgets, Moda Vestra, Velocity Vogue), open WhatsApp (wa.me) in a new tab with a pre-filled message stating that the person wants to be notified for the launch of that specific company (e.g., 'Hi, I would like to be notified about the launch of Luminia Gadgets!'). The WhatsApp number must be the same one already used in the Footer contact link.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "notify it should also open the whatsapp with saying that person wants to get notified for this companies launch"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking the 'Notify Me' button for a coming-soon brand opens WhatsApp in a new tab",
+        "The pre-filled message includes the specific brand name the user selected",
+        "The pre-filled message clearly states intent to be notified of that brand's launch",
+        "The WhatsApp number used matches the existing Footer contact number",
+        "All three Notify Me buttons (Gadgets, Moda Vestra, Velocity Vogue) trigger this behavior with their respective brand names"
       ]
     }
   ],
   "constraints": [
-    "Do not modify the Footer 'Connect with Us' buttons — they are already functional.",
-    "Do not alter immutable paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui."
+    "Use the same WhatsApp number already present in the Footer component — do not introduce a different number",
+    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui",
+    "Open WhatsApp in a new browser tab using wa.me URL scheme with URL-encoded pre-filled text",
+    "No backend changes required — this is a pure frontend change"
   ],
   "nonGoals": [
-    "Adding new buttons or sections not currently in the app.",
-    "Redesigning any visual styles or layouts.",
-    "Backend changes — this is a purely frontend issue."
+    "Building a custom booking form or scheduling system",
+    "Storing booking or notification requests in the backend",
+    "Sending automated messages programmatically via WhatsApp Business API",
+    "Email or SMS notification alternatives"
   ],
   "imageRequirements": {
     "required": [],

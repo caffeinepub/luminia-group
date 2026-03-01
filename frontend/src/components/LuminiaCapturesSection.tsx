@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { openWhatsApp, buildBookingMessage } from '../lib/whatsapp';
 
 const services = [
   { title: 'Wedding Photography', desc: 'Timeless captures of your most cherished day.' },
@@ -13,9 +14,8 @@ export default function LuminiaCapturesSection() {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  const handleContactClick = () => {
-    const el = document.getElementById('contact');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const handleBookClick = () => {
+    openWhatsApp(buildBookingMessage('Luminia Captures Photography'));
   };
 
   return (
@@ -137,7 +137,7 @@ export default function LuminiaCapturesSection() {
         <div className="text-center">
           <button
             type="button"
-            onClick={handleContactClick}
+            onClick={handleBookClick}
             className="px-10 py-4 font-serif text-sm tracking-widest uppercase cursor-pointer transition-all duration-300"
             style={{
               border: '1px solid oklch(0.78 0.12 75)',

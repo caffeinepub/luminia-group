@@ -1,24 +1,46 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
-  "architectural_notes": [],
-  "known_issues": [
-    "Most buttons are non-functional except those in the 'Connect with Us' section"
+  "summary": "Project includes booking/session functionality with WhatsApp automation for booking confirmations and launch notifications.",
+  "architectural_notes": [
+    "WhatsApp automation uses wa.me deep links with pre-filled messages for booking and notification flows"
   ],
-  "isFixRequest": true,
+  "known_issues": [],
+  "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-fix-all-non-functional-buttons-across-the-site-including-the-navigation-smooth-scroll-links-the-herosection-cta-button-scroll-to-subsidiaries-the-welcomepopup-enter-button-any-interactive-cards-or-buttons-in-assuredtourssection-luminiacapturessection-luminiatechlabssection-comingsoonsection-gstservicessection-subsidiarygrid-and-subsidiarydetails-so-that-each-button-performs-its-intended-action-when-clicked-buttons-in-the-connect-with-us-section-footer-email-and-whatsapp-links-are-already-working-and-must-not-be-changed",
-      "title": "Fix all non-functional buttons across the site — including the Navigation smooth-scroll links, the HeroSection CTA button (scroll to subsidiaries), the WelcomePopup enter button, any interactive cards or buttons in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, ComingSoonSection, GSTServicesSection, SubsidiaryGrid, and SubsidiaryDetails — so that each button performs its intended action when clicked. Buttons in the 'Connect with Us' section (Footer email and WhatsApp links) are already working and must not be changed.",
+      "id": "feature-when-a-user-clicks-any-book-a-session-or-booking-related-cta-button-e-g-in-assuredtourssection-luminiacapturessection-luminiatechlabssection-gstservicessection-open-whatsapp-wa-me-in-a-new-tab-with-a-pre-filled-message-that-includes-the-name-of-the-service-subsidiary-selected-and-a-prompt-for-the-user-to-specify-their-preferred-date-time-the-whatsapp-number-must-be-the-same-one-already-used-in-the-footer-contact-link",
+      "title": "When a user clicks any 'Book a Session' or booking-related CTA button (e.g., in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, GSTServicesSection), open WhatsApp (wa.me) in a new tab with a pre-filled message that includes the name of the service/subsidiary selected and a prompt for the user to specify their preferred date/time. The WhatsApp number must be the same one already used in the Footer contact link.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-when-a-user-clicks-the-notify-me-button-for-any-upcoming-brand-card-in-comingsoonsection-gadgets-moda-vestra-velocity-vogue-open-whatsapp-wa-me-in-a-new-tab-with-a-pre-filled-message-stating-that-the-person-wants-to-be-notified-for-the-launch-of-that-specific-company-e-g-hi-i-would-like-to-be-notified-about-the-launch-of-luminia-gadgets-the-whatsapp-number-must-be-the-same-one-already-used-in-the-footer-contact-link",
+      "title": "When a user clicks the 'Notify Me' button for any upcoming brand card in ComingSoonSection (Gadgets, Moda Vestra, Velocity Vogue), open WhatsApp (wa.me) in a new tab with a pre-filled message stating that the person wants to be notified for the launch of that specific company (e.g., 'Hi, I would like to be notified about the launch of Luminia Gadgets!'). The WhatsApp number must be the same one already used in the Footer contact link.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
     }
   ],
-  "new_feature_requests": [],
-  "projectName": "Fix non-functional buttons across all sections",
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "When user clicks 'Book a Session' or similar booking button, automatically open WhatsApp with a pre-filled message containing what was selected and when",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "When user clicks 'Notify' for a company launch, automatically open WhatsApp with a pre-filled message stating the person wants to be notified for that company's launch",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Luminia Group",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

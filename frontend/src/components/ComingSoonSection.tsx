@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { openWhatsApp, buildNotifyMessage } from '../lib/whatsapp';
 
 const brands = [
   {
@@ -145,12 +146,7 @@ export default function ComingSoonSection() {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.1 });
 
   const handleNotifyClick = (brandName: string) => {
-    const el = document.getElementById('contact');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      alert(`Stay tuned for ${brandName}! Contact us to be notified at launch.`);
-    }
+    openWhatsApp(buildNotifyMessage(brandName));
   };
 
   return (
@@ -174,7 +170,7 @@ export default function ComingSoonSection() {
             className="font-serif italic text-sm tracking-[0.3em] uppercase mb-4"
             style={{ color: 'oklch(0.78 0.12 75 / 0.6)' }}
           >
-            Expanding Horizons
+            Luminia Group · Upcoming Ventures
           </p>
           <h2
             className="font-serif text-4xl md:text-5xl mb-4"
@@ -191,17 +187,17 @@ export default function ComingSoonSection() {
             className="font-serif italic text-lg max-w-2xl mx-auto"
             style={{ color: 'oklch(0.78 0.12 75 / 0.7)' }}
           >
-            The Luminia empire continues to grow. New ventures launching soon.
+            The next chapter of Luminia — new ventures on the horizon, redefining industries.
           </p>
         </div>
 
         {/* Brand Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {brands.map((brand, idx) => (
+          {brands.map((brand, index) => (
             <BrandCard
               key={brand.id}
               brand={brand}
-              index={idx}
+              index={index}
               onNotify={handleNotifyClick}
             />
           ))}

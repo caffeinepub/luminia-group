@@ -2,19 +2,13 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-fix-all-non-functional-buttons-across-the-site-including-the-navigation-smooth-scroll-links-the-herosection-cta-button-scroll-to-subsidiaries-the-welcomepopup-enter-button-any-interactive-cards-or-buttons-in-assuredtourssection-luminiacapturessection-luminiatechlabssection-comingsoonsection-gstservicessection-subsidiarygrid-and-subsidiarydetails-so-that-each-button-performs-its-intended-action-when-clicked-buttons-in-the-connect-with-us-section-footer-email-and-whatsapp-links-are-already-working-and-must-not-be-changed",
-      "featureTitle": "Fix all non-functional buttons across the site — including the Navigation smooth-scroll links, the HeroSection CTA button (scroll to subsidiaries), the WelcomePopup enter button, any interactive cards or buttons in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, ComingSoonSection, GSTServicesSection, SubsidiaryGrid, and SubsidiaryDetails — so that each button performs its intended action when clicked. Buttons in the 'Connect with Us' section (Footer email and WhatsApp links) are already working and must not be changed.",
+      "featureId": "feature-when-a-user-clicks-any-book-a-session-or-booking-related-cta-button-e-g-in-assuredtourssection-luminiacapturessection-luminiatechlabssection-gstservicessection-open-whatsapp-wa-me-in-a-new-tab-with-a-pre-filled-message-that-includes-the-name-of-the-service-subsidiary-selected-and-a-prompt-for-the-user-to-specify-their-preferred-date-time-the-whatsapp-number-must-be-the-same-one-already-used-in-the-footer-contact-link",
+      "featureTitle": "When a user clicks any 'Book a Session' or booking-related CTA button (e.g., in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, GSTServicesSection), open WhatsApp (wa.me) in a new tab with a pre-filled message that includes the name of the service/subsidiary selected and a prompt for the user to specify their preferred date/time. The WhatsApp number must be the same one already used in the Footer contact link.",
       "files": [
         "frontend/src/components/AssuredToursSection.tsx",
-        "frontend/src/components/ComingSoonSection.tsx",
         "frontend/src/components/GSTServicesSection.tsx",
-        "frontend/src/components/HeroSection.tsx",
         "frontend/src/components/LuminiaCapturesSection.tsx",
-        "frontend/src/components/LuminiaTechLabsSection.tsx",
-        "frontend/src/components/Navigation.tsx",
-        "frontend/src/components/SubsidiaryDetails.tsx",
-        "frontend/src/components/SubsidiaryGrid.tsx",
-        "frontend/src/components/WelcomePopup.tsx"
+        "frontend/src/components/LuminiaTechLabsSection.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -26,6 +20,25 @@
       ],
       "testIds": [
         "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-when-a-user-clicks-the-notify-me-button-for-any-upcoming-brand-card-in-comingsoonsection-gadgets-moda-vestra-velocity-vogue-open-whatsapp-wa-me-in-a-new-tab-with-a-pre-filled-message-stating-that-the-person-wants-to-be-notified-for-the-launch-of-that-specific-company-e-g-hi-i-would-like-to-be-notified-about-the-launch-of-luminia-gadgets-the-whatsapp-number-must-be-the-same-one-already-used-in-the-footer-contact-link",
+      "featureTitle": "When a user clicks the 'Notify Me' button for any upcoming brand card in ComingSoonSection (Gadgets, Moda Vestra, Velocity Vogue), open WhatsApp (wa.me) in a new tab with a pre-filled message stating that the person wants to be notified for the launch of that specific company (e.g., 'Hi, I would like to be notified about the launch of Luminia Gadgets!'). The WhatsApp number must be the same one already used in the Footer contact link.",
+      "files": [
+        "frontend/src/components/ComingSoonSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
       ],
       "confidence": "high"
     }

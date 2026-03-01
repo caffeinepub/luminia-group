@@ -1,70 +1,61 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix non-functional buttons across all sections",
+  "title": "WhatsApp automation for booking and launch notification buttons",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Fix all non-functional buttons across the site — Navigation smooth-scroll links, HeroSection CTA button, WelcomePopup enter button, interactive elements in subsidiary sections, SubsidiaryGrid cards, and SubsidiaryDetails modal controls",
+      "summary": "Add WhatsApp booking automation to all booking CTA buttons across subsidiary sections",
       "acceptanceCriteria": [
-        "Clicking the Navigation menu links smoothly scrolls to the correct section on the page.",
-        "Clicking the HeroSection CTA button scrolls to the subsidiaries section.",
-        "Clicking the WelcomePopup enter button dismisses the splash and reveals the main page.",
-        "Clicking any interactive card or button in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, ComingSoonSection, and GSTServicesSection triggers the expected behavior (e.g., opens modal, navigates, or expands detail).",
-        "Opening SubsidiaryDetails from SubsidiaryGrid works correctly and the modal's close/navigation buttons function.",
-        "Footer 'Connect with Us' buttons (email and WhatsApp) continue to work as before.",
-        "No console errors related to button click handlers."
+        "Clicking any booking CTA button opens a new tab with a WhatsApp chat URL (https://wa.me/<number>?text=...)",
+        "The pre-filled message includes the name of the selected service or subsidiary",
+        "The pre-filled message includes a placeholder or prompt for the preferred date and time",
+        "The WhatsApp number used matches the existing Footer contact number",
+        "All booking buttons across AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, and GSTServicesSection trigger this behavior"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/Navigation.tsx",
+          "path": "frontend/src/components/Footer.tsx",
           "operation": "modify",
-          "description": "Fix smooth-scroll navigation links by adding proper onClick handlers that call scrollIntoView with smooth behavior on the target section elements. Ensure both desktop and mobile menu links trigger scroll navigation correctly and close the mobile menu after navigation."
-        },
-        {
-          "path": "frontend/src/components/HeroSection.tsx",
-          "operation": "modify",
-          "description": "Fix the CTA button by adding an onClick handler that scrolls to the subsidiaries section using document.querySelector and scrollIntoView with smooth behavior."
-        },
-        {
-          "path": "frontend/src/components/WelcomePopup.tsx",
-          "operation": "modify",
-          "description": "Fix the enter button by adding an onClick handler that sets hasVisited to true in sessionStorage and updates the component state to hide the splash overlay, revealing the main page content."
-        },
-        {
-          "path": "frontend/src/components/SubsidiaryGrid.tsx",
-          "operation": "modify",
-          "description": "Fix subsidiary card click handlers by adding onClick events that call setSelectedSubsidiary to open the SubsidiaryDetails modal with the selected subsidiary data."
-        },
-        {
-          "path": "frontend/src/components/SubsidiaryDetails.tsx",
-          "operation": "modify",
-          "description": "Fix modal close button, backdrop click, escape key handler, and carousel navigation buttons by adding proper onClick handlers and keyboard event listeners that update modal state and navigate through images correctly."
+          "description": "Extract the existing WhatsApp phone number into a constant that can be imported by other components to ensure consistency across all WhatsApp links"
         },
         {
           "path": "frontend/src/components/AssuredToursSection.tsx",
           "operation": "modify",
-          "description": "Add onClick handlers to any interactive service cards or buttons to enable expected behavior (e.g., expanding details, opening modals, or navigating to service pages). If cards are currently non-interactive placeholders, add cursor-pointer styling and click handlers for future extensibility."
+          "description": "Replace the existing CTA button's smooth-scroll behavior with a WhatsApp link that opens wa.me in a new tab with a pre-filled message including 'Assured Tours & Travels' and a prompt for preferred date/time. Import the WhatsApp number from Footer to maintain consistency"
         },
         {
           "path": "frontend/src/components/LuminiaCapturesSection.tsx",
           "operation": "modify",
-          "description": "Add onClick handlers to any interactive service cards or buttons to enable expected behavior (e.g., expanding service details, opening portfolio modals, or triggering contact forms). Ensure all interactive elements have proper event handlers and visual feedback."
+          "description": "Replace the existing CTA button's smooth-scroll behavior with a WhatsApp link that opens wa.me in a new tab with a pre-filled message including 'Luminia Captures Photography' and a prompt for preferred date/time. Import the WhatsApp number from Footer to maintain consistency"
         },
         {
           "path": "frontend/src/components/LuminiaTechLabsSection.tsx",
           "operation": "modify",
-          "description": "Add onClick handlers to any interactive service cards or buttons to enable expected behavior (e.g., expanding technology descriptions, opening service inquiry modals, or navigating to detail pages). Implement proper click event handling for all interactive UI elements."
-        },
-        {
-          "path": "frontend/src/components/ComingSoonSection.tsx",
-          "operation": "modify",
-          "description": "Add onClick handlers to any interactive brand cards or buttons to enable expected behavior (e.g., showing coming-soon notifications, subscribing to launch updates, or opening brand preview modals). Ensure interactive elements respond to user clicks appropriately."
+          "description": "Replace the existing CTA button's smooth-scroll behavior with a WhatsApp link that opens wa.me in a new tab with a pre-filled message including 'Luminia TechLabs' and a prompt for preferred date/time. Import the WhatsApp number from Footer to maintain consistency"
         },
         {
           "path": "frontend/src/components/GSTServicesSection.tsx",
           "operation": "modify",
-          "description": "Add onClick handlers to any interactive service cards or buttons to enable expected behavior (e.g., opening service detail modals, initiating consultation requests, or expanding service descriptions). Implement proper event handlers for all clickable elements."
+          "description": "Replace the existing CTA button's smooth-scroll behavior with a WhatsApp link that opens wa.me in a new tab with a pre-filled message including 'GST Services' and a prompt for preferred date/time. Import the WhatsApp number from Footer to maintain consistency"
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add WhatsApp notification automation to 'Notify Me' buttons for upcoming brands in ComingSoonSection",
+      "acceptanceCriteria": [
+        "Clicking the 'Notify Me' button for a coming-soon brand opens WhatsApp in a new tab",
+        "The pre-filled message includes the specific brand name the user selected",
+        "The pre-filled message clearly states intent to be notified of that brand's launch",
+        "The WhatsApp number used matches the existing Footer contact number",
+        "All three Notify Me buttons (Gadgets, Moda Vestra, Velocity Vogue) trigger this behavior with their respective brand names"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ComingSoonSection.tsx",
+          "operation": "modify",
+          "description": "Update all three 'Notify Me' buttons to open WhatsApp (wa.me) in a new tab with pre-filled messages stating the user wants to be notified about the launch of the specific brand (Luminia Gadgets, Moda Vestra, or Velocity Vogue). Import the WhatsApp number from Footer to maintain consistency. Ensure each button includes the correct brand name in its message"
         }
       ]
     }

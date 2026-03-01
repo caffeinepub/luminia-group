@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { openWhatsApp, buildBookingMessage } from '../lib/whatsapp';
 
 const services = [
   {
@@ -22,9 +23,12 @@ export default function GSTServicesSection() {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  const handleContactClick = () => {
-    const el = document.getElementById('contact');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const handleConsultClick = () => {
+    openWhatsApp(buildBookingMessage('GST Services'));
+  };
+
+  const handleServiceCardClick = (serviceTitle: string) => {
+    openWhatsApp(buildBookingMessage(`GST Services — ${serviceTitle}`));
   };
 
   return (
@@ -99,7 +103,7 @@ export default function GSTServicesSection() {
                 border: '1px solid oklch(0.78 0.12 75 / 0.2)',
                 background: 'oklch(0.10 0.01 60)',
               }}
-              onClick={handleContactClick}
+              onClick={() => handleServiceCardClick(service.title)}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLDivElement).style.borderColor = 'oklch(0.78 0.12 75 / 0.5)';
                 (e.currentTarget as HTMLDivElement).style.background = 'oklch(0.12 0.02 60)';
@@ -130,7 +134,7 @@ export default function GSTServicesSection() {
         <div className="text-center">
           <button
             type="button"
-            onClick={handleContactClick}
+            onClick={handleConsultClick}
             className="px-10 py-4 font-serif text-sm tracking-widest uppercase cursor-pointer transition-all duration-300"
             style={{
               border: '1px solid oklch(0.78 0.12 75)',
