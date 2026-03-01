@@ -1,166 +1,134 @@
-import { useEffect, useState } from "react";
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function HeroSection() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   const scrollToSubsidiaries = () => {
-    document.getElementById("subsidiaries")?.scrollIntoView({ behavior: "smooth" });
+    const el = document.getElementById('assured-tours');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: "#080808" }}
     >
-      {/* Background image */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: "url('/assets/generated/hero-bg.dim_1920x1080.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          opacity: 0.25,
-        }}
-      />
-
-      {/* Multi-layer overlay */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(8,8,8,0.7) 0%, rgba(8,8,8,0.3) 40%, rgba(8,8,8,0.3) 60%, rgba(8,8,8,0.9) 100%)",
-        }}
-      />
-
-      {/* Radial gold glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(212,175,55,0.06) 0%, transparent 70%)",
-        }}
-      />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="/assets/generated/hero-bg.dim_1920x1080.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        {/* Multi-layer overlay */}
+        <div
+          className="absolute inset-0"
+          style={{ background: 'oklch(0.08 0.01 60 / 0.75)' }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse at center, transparent 30%, oklch(0.08 0.01 60 / 0.6) 100%)',
+          }}
+        />
+      </div>
 
       {/* Content */}
       <div
-        className="relative z-10 text-center px-4 max-w-5xl mx-auto"
+        ref={ref as React.RefObject<HTMLDivElement>}
+        className="relative z-10 text-center px-6 max-w-5xl mx-auto"
         style={{
-          opacity: mounted ? 1 : 0,
-          transform: mounted ? "translateY(0)" : "translateY(30px)",
-          transition: "opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s",
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
+          transition: 'opacity 1.2s ease, transform 1.2s ease',
         }}
       >
-        {/* Main headline */}
+        {/* Tagline */}
+        <p
+          className="font-serif italic text-sm md:text-base tracking-[0.3em] uppercase mb-6"
+          style={{ color: 'oklch(0.78 0.12 75 / 0.7)' }}
+        >
+          Est. 2024 · India
+        </p>
+
+        {/* Main Title */}
         <h1
-          className="font-serif mb-6 leading-none"
+          className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 leading-tight"
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: "clamp(3rem, 10vw, 8rem)",
-            color: "rgba(212,175,55,1)",
-            textShadow:
-              "0 0 60px rgba(212,175,55,0.3), 0 0 120px rgba(212,175,55,0.1)",
-            letterSpacing: "-0.01em",
-            fontWeight: 300,
+            color: 'oklch(0.78 0.12 75)',
+            textShadow: '0 0 60px oklch(0.78 0.12 75 / 0.3)',
           }}
         >
-          LUMINIA
+          Luminia Group
+          <br />
+          <span
+            className="italic"
+            style={{ color: 'oklch(0.78 0.12 75 / 0.8)' }}
+          >
+            Conglomerate
+          </span>
         </h1>
 
-        {/* Diamond divider */}
-        <div className="flex items-center justify-center gap-4 mb-6">
+        {/* Diamond Divider */}
+        <div className="flex items-center justify-center gap-4 mb-8">
           <div
-            className="h-px flex-1 max-w-32"
-            style={{ background: "linear-gradient(90deg, transparent, rgba(212,175,55,0.6))" }}
+            className="h-px w-24"
+            style={{ background: 'oklch(0.78 0.12 75 / 0.5)' }}
           />
-          <span style={{ color: "rgba(212,175,55,0.8)", fontSize: "0.6rem" }}>◆</span>
           <div
-            className="h-px flex-1 max-w-32"
-            style={{ background: "linear-gradient(90deg, rgba(212,175,55,0.6), transparent)" }}
+            className="w-2 h-2 rotate-45"
+            style={{ background: 'oklch(0.78 0.12 75)' }}
+          />
+          <div
+            className="h-px w-24"
+            style={{ background: 'oklch(0.78 0.12 75 / 0.5)' }}
           />
         </div>
 
-        <h2
-          className="font-serif mb-8"
-          style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: "clamp(1rem, 3vw, 1.8rem)",
-            color: "rgba(212,175,55,0.65)",
-            letterSpacing: "0.4em",
-            fontWeight: 300,
-          }}
-        >
-          GROUP CONGLOMERATE
-        </h2>
-
+        {/* Subtitle */}
         <p
-          className="mb-12 mx-auto leading-relaxed"
-          style={{
-            color: "rgba(212,175,55,0.45)",
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: "clamp(0.9rem, 2vw, 1.15rem)",
-            maxWidth: "520px",
-            letterSpacing: "0.05em",
-          }}
+          className="font-serif italic text-xl md:text-2xl mb-12"
+          style={{ color: 'oklch(0.78 0.12 75 / 0.7)' }}
         >
-          A diversified conglomerate of excellence — spanning technology, fashion, travel, photography, and beyond.
+          A Legacy of Excellence Across Industries
         </p>
 
-        {/* CTA */}
+        {/* CTA Button */}
         <button
+          type="button"
           onClick={scrollToSubsidiaries}
-          className="relative overflow-hidden"
+          className="px-10 py-4 font-serif text-base tracking-widest uppercase cursor-pointer transition-all duration-300"
           style={{
-            background: "transparent",
-            border: "1px solid rgba(212,175,55,0.6)",
-            color: "rgba(212,175,55,0.9)",
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: "0.85rem",
-            letterSpacing: "0.35em",
-            padding: "14px 48px",
-            cursor: "pointer",
-            textTransform: "uppercase",
-            transition: "all 0.3s ease",
-            boxShadow: "0 0 20px rgba(212,175,55,0.1)",
+            border: '1px solid oklch(0.78 0.12 75)',
+            color: 'oklch(0.78 0.12 75)',
+            background: 'transparent',
+            letterSpacing: '0.2em',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = "rgba(212,175,55,0.08)";
-            e.currentTarget.style.boxShadow = "0 0 40px rgba(212,175,55,0.25)";
-            e.currentTarget.style.borderColor = "rgba(212,175,55,0.9)";
+            (e.currentTarget as HTMLButtonElement).style.background =
+              'oklch(0.78 0.12 75 / 0.1)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.boxShadow = "0 0 20px rgba(212,175,55,0.1)";
-            e.currentTarget.style.borderColor = "rgba(212,175,55,0.6)";
+            (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
           }}
         >
           Explore Our Empire
         </button>
       </div>
 
-      {/* Scroll indicator */}
-      <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        style={{ opacity: mounted ? 0.6 : 0, transition: "opacity 1s ease 2s" }}
-      >
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
         <div
-          className="w-px h-12"
+          className="w-px h-16"
           style={{
-            background: "linear-gradient(180deg, rgba(212,175,55,0.8), transparent)",
-            animation: "scrollLine 2s ease-in-out infinite",
+            background:
+              'linear-gradient(to bottom, oklch(0.78 0.12 75), transparent)',
+            animation: 'scrollLine 2s ease infinite',
           }}
         />
-        <span
-          className="text-xs uppercase tracking-widest"
-          style={{ color: "rgba(212,175,55,0.4)", letterSpacing: "0.3em", fontSize: "0.6rem" }}
-        >
-          Scroll
-        </span>
       </div>
     </section>
   );

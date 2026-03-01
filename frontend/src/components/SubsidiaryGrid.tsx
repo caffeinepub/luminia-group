@@ -1,314 +1,206 @@
-import { useState } from "react";
-import { useScrollAnimation } from "../hooks/useScrollAnimation";
-import SubsidiaryDetails from "./SubsidiaryDetails";
+import { useState } from 'react';
+import SubsidiaryDetails from './SubsidiaryDetails';
 
-export interface Subsidiary {
-  id: string;
-  name: string;
-  tagline: string;
-  description: string;
-  domain: string;
-  icon: string;
-  images: string[];
-}
-
-const subsidiaries: Subsidiary[] = [
+const subsidiaries = [
   {
-    id: "luminia-gadgets",
-    name: "Luminia Gadgets",
-    tagline: "Precision Timepieces & Premium Audio",
-    description:
-      "Curated collection of luxury watches, audiophile-grade headphones, and cutting-edge earbuds — where technology meets elegance.",
-    domain: "gadgets.luminia.group",
-    icon: "/assets/generated/gadgets-icon.dim_128x128.png",
+    id: 'assured-tours',
+    name: 'Assured Tours & Travels',
+    tagline: 'Journey Beyond Boundaries',
+    description: 'Premium travel experiences crafted for the discerning explorer.',
+    icon: '/assets/generated/tours-icon.dim_128x128.png',
     images: [
-      "/assets/generated/luminia-gadgets-watch.dim_600x400.png",
-      "/assets/generated/luminia-gadgets-headphones.dim_600x400.png",
-      "/assets/generated/luminia-gadgets-earbuds.dim_600x400.png",
+      '/assets/generated/assured-tours-banner.dim_1200x400.png',
+      '/assets/generated/assured-tours-flight.dim_600x400.png',
+      '/assets/generated/assured-tours-train.dim_600x400.png',
     ],
+    status: 'Pre-Launch',
   },
   {
-    id: "moda-vestra",
-    name: "Moda Vestra",
-    tagline: "Couture Fashion & Timeless Style",
-    description:
-      "Exclusive fashion house delivering bespoke couture, ready-to-wear collections, and timeless wardrobe essentials for the discerning individual.",
-    domain: "modavestra.luminia.group",
-    icon: "/assets/generated/moda-icon.dim_128x128.png",
-    images: ["/assets/generated/moda-vestra-fashion.dim_600x400.png"],
-  },
-  {
-    id: "velocity-vogue",
-    name: "Velocity Vogue",
-    tagline: "Luxury Travel Companions",
-    description:
-      "Premium luggage and travel accessories crafted for the modern explorer — combining durability, elegance, and effortless mobility.",
-    domain: "velocityvogue.luminia.group",
-    icon: "/assets/generated/velocity-icon.dim_128x128.png",
-    images: ["/assets/generated/velocity-vogue-luggage.dim_600x400.png"],
-  },
-  {
-    id: "luminia-captures",
-    name: "Luminia Captures",
-    tagline: "Moments Transformed into Art",
-    description:
-      "World-class wedding photography and professional photoshoots — capturing the essence of your most cherished moments with cinematic precision.",
-    domain: "captures.luminia.group",
-    icon: "/assets/generated/captures-icon.dim_128x128.png",
+    id: 'luminia-captures',
+    name: 'Luminia Captures',
+    tagline: 'Moments Immortalized',
+    description: 'World-class photography and videography for life\'s finest moments.',
+    icon: '/assets/generated/captures-icon.dim_128x128.png',
     images: [
-      "/assets/generated/luminia-captures-wedding.dim_600x400.png",
-      "/assets/generated/luminia-captures-studio.dim_600x400.png",
+      '/assets/generated/luminia-captures-banner.dim_1200x400.png',
+      '/assets/generated/luminia-captures-wedding.dim_600x400.png',
+      '/assets/generated/luminia-captures-studio.dim_600x400.png',
     ],
+    status: 'Pre-Launch',
   },
   {
-    id: "assured-tours",
-    name: "Assured Tours & Travels",
-    tagline: "Curated Journeys & Seamless Bookings",
-    description:
-      "End-to-end travel solutions — from bespoke itineraries and flight bookings to train reservations and luxury hotel arrangements worldwide.",
-    domain: "tours.luminia.group",
-    icon: "/assets/generated/tours-icon.dim_128x128.png",
+    id: 'luminia-techlabs',
+    name: 'Luminia TechLabs',
+    tagline: 'Engineering Tomorrow',
+    description: 'Cutting-edge technology solutions for the modern enterprise.',
+    icon: '/assets/generated/techlabs-icon.dim_128x128.png',
     images: [
-      "/assets/generated/assured-tours-flight.dim_600x400.png",
-      "/assets/generated/assured-tours-train.dim_600x400.png",
+      '/assets/generated/luminia-techlabs-banner.dim_1200x400.png',
+      '/assets/generated/luminia-techlabs-dev.dim_600x400.png',
     ],
+    status: 'Pre-Launch',
   },
   {
-    id: "luminia-techlabs",
-    name: "Luminia TechLabs",
-    tagline: "Digital Innovation & Business Solutions",
-    description:
-      "Full-spectrum technology partner offering web development, mobile applications, UI/UX design, and comprehensive digital transformation services.",
-    domain: "techlabs.luminia.group",
-    icon: "/assets/generated/techlabs-icon.dim_128x128.png",
-    images: ["/assets/generated/luminia-techlabs-dev.dim_600x400.png"],
+    id: 'luminia-gadgets',
+    name: 'Luminia Gadgets',
+    tagline: 'Tech Redefined',
+    description: 'Premium consumer electronics for the connected lifestyle.',
+    icon: '/assets/generated/gadgets-icon.dim_128x128.png',
+    images: [
+      '/assets/generated/luminia-gadgets-watch.dim_600x400.png',
+      '/assets/generated/luminia-gadgets-earbuds.dim_600x400.png',
+      '/assets/generated/luminia-gadgets-headphones.dim_600x400.png',
+    ],
+    status: 'Pre-Launch',
   },
   {
-    id: "gst-service",
-    name: "GST Service",
-    tagline: "Expert Tax & Compliance Advisory",
-    description:
-      "Comprehensive GST registration, filing, compliance, and advisory services — simplifying India's tax landscape for businesses of all sizes.",
-    domain: "gst.luminia.group",
-    icon: "/assets/generated/gst-icon.dim_128x128.png",
-    images: ["/assets/generated/gst-service-tax.dim_600x400.png"],
+    id: 'moda-vestra',
+    name: 'Moda Vestra',
+    tagline: 'Wear Your Story',
+    description: 'Luxury fashion that speaks the language of elegance.',
+    icon: '/assets/generated/moda-icon.dim_128x128.png',
+    images: [
+      '/assets/generated/moda-vestra-fashion.dim_600x400.png',
+    ],
+    status: 'Pre-Launch',
+  },
+  {
+    id: 'velocity-vogue',
+    name: 'Velocity Vogue',
+    tagline: 'Speed Meets Style',
+    description: 'Premium travel accessories for the modern nomad.',
+    icon: '/assets/generated/velocity-icon.dim_128x128.png',
+    images: [
+      '/assets/generated/velocity-vogue-luggage.dim_600x400.png',
+    ],
+    status: 'Pre-Launch',
+  },
+  {
+    id: 'gst-services',
+    name: 'GST Services',
+    tagline: 'Compliance Made Simple',
+    description: 'Expert GST registration, filing, and tax consulting services.',
+    icon: '/assets/generated/gst-icon.dim_128x128.png',
+    images: [
+      '/assets/generated/gst-services-banner.dim_1200x400.png',
+      '/assets/generated/gst-service-tax.dim_600x400.png',
+    ],
+    status: 'Pre-Launch',
   },
 ];
 
 export default function SubsidiaryGrid() {
-  const [selectedSubsidiary, setSelectedSubsidiary] = useState<Subsidiary | null>(null);
-  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const [selected, setSelected] = useState<typeof subsidiaries[0] | null>(null);
 
   return (
-    <section
-      id="subsidiaries"
-      className="py-24 px-4 md:px-8"
-      style={{ background: "linear-gradient(180deg, #080808 0%, #0d0d0d 50%, #080808 100%)" }}
-    >
-      <div
-        ref={ref}
-        className="max-w-7xl mx-auto"
-        style={{
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? "translateY(0)" : "translateY(12px)",
-          transition: "opacity 1s ease, transform 1s ease",
-        }}
-      >
-        {/* Section header */}
+    <section id="subsidiaries" className="py-24 px-6" style={{ background: 'oklch(0.08 0.01 60)' }}>
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
         <div className="text-center mb-16">
           <p
-            className="uppercase tracking-[0.4em] text-xs mb-4"
-            style={{
-              color: "rgba(212,175,55,0.6)",
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-            }}
+            className="font-serif italic text-sm tracking-[0.3em] uppercase mb-4"
+            style={{ color: 'oklch(0.78 0.12 75 / 0.6)' }}
           >
             Our Portfolio
           </p>
           <h2
-            className="font-serif mb-6"
-            style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              color: "rgba(212,175,55,1)",
-              textShadow: "0 0 40px rgba(212,175,55,0.3)",
-              letterSpacing: "0.05em",
-            }}
+            className="font-serif text-4xl md:text-5xl mb-6"
+            style={{ color: 'oklch(0.78 0.12 75)' }}
           >
             The Luminia Empire
           </h2>
-          <div
-            className="mx-auto h-px w-32"
-            style={{
-              background: "linear-gradient(90deg, transparent, rgba(212,175,55,0.8), transparent)",
-            }}
-          />
+          <div className="flex items-center justify-center gap-4">
+            <div className="h-px w-24" style={{ background: 'oklch(0.78 0.12 75 / 0.4)' }} />
+            <div className="w-2 h-2 rotate-45" style={{ background: 'oklch(0.78 0.12 75)' }} />
+            <div className="h-px w-24" style={{ background: 'oklch(0.78 0.12 75 / 0.4)' }} />
+          </div>
         </div>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {subsidiaries.map((sub, index) => (
-            <SubsidiaryCard
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {subsidiaries.map((sub) => (
+            <div
               key={sub.id}
-              subsidiary={sub}
-              index={index}
-              onDiscover={() => setSelectedSubsidiary(sub)}
-            />
+              onClick={() => setSelected(sub)}
+              className="group cursor-pointer p-8 transition-all duration-300"
+              style={{
+                border: '1px solid oklch(0.78 0.12 75 / 0.25)',
+                background: 'oklch(0.10 0.01 60)',
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLDivElement).style.borderColor = 'oklch(0.78 0.12 75 / 0.6)';
+                (e.currentTarget as HTMLDivElement).style.background = 'oklch(0.12 0.02 60)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLDivElement).style.borderColor = 'oklch(0.78 0.12 75 / 0.25)';
+                (e.currentTarget as HTMLDivElement).style.background = 'oklch(0.10 0.01 60)';
+              }}
+            >
+              {/* Badge */}
+              <div className="flex justify-between items-start mb-6">
+                <img src={sub.icon} alt={sub.name} className="w-12 h-12 object-contain" />
+                <span
+                  className="text-xs tracking-widest uppercase px-3 py-1 font-serif"
+                  style={{
+                    border: '1px solid oklch(0.78 0.12 75 / 0.4)',
+                    color: 'oklch(0.78 0.12 75 / 0.7)',
+                  }}
+                >
+                  {sub.status}
+                </span>
+              </div>
+
+              <h3
+                className="font-serif text-xl mb-2"
+                style={{ color: 'oklch(0.78 0.12 75)' }}
+              >
+                {sub.name}
+              </h3>
+              <p
+                className="font-serif italic text-sm mb-4"
+                style={{ color: 'oklch(0.78 0.12 75 / 0.6)' }}
+              >
+                {sub.tagline}
+              </p>
+              <p
+                className="text-sm leading-relaxed mb-6"
+                style={{ color: 'oklch(0.85 0.01 60 / 0.6)' }}
+              >
+                {sub.description}
+              </p>
+
+              {/* Discover Button */}
+              <button
+                type="button"
+                onClick={(e) => { e.stopPropagation(); setSelected(sub); }}
+                className="text-xs tracking-widest uppercase font-serif cursor-pointer transition-colors duration-300"
+                style={{
+                  color: 'oklch(0.78 0.12 75 / 0.7)',
+                  background: 'none',
+                  border: 'none',
+                  padding: 0,
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.color = 'oklch(0.78 0.12 75)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.color = 'oklch(0.78 0.12 75 / 0.7)';
+                }}
+              >
+                Discover →
+              </button>
+            </div>
           ))}
         </div>
       </div>
 
-      {/* Pre-Launch Modal */}
-      {selectedSubsidiary && (
+      {/* Modal */}
+      {selected && (
         <SubsidiaryDetails
-          subsidiary={selectedSubsidiary}
-          onClose={() => setSelectedSubsidiary(null)}
+          subsidiary={selected}
+          onClose={() => setSelected(null)}
         />
       )}
     </section>
-  );
-}
-
-interface SubsidiaryCardProps {
-  subsidiary: Subsidiary;
-  index: number;
-  onDiscover: () => void;
-}
-
-function SubsidiaryCard({ subsidiary, index, onDiscover }: SubsidiaryCardProps) {
-  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
-
-  return (
-    <div
-      ref={ref}
-      className="group relative flex flex-col p-6 cursor-pointer"
-      style={{
-        background: "linear-gradient(135deg, #0f0f0f 0%, #111111 100%)",
-        border: "1px solid rgba(212,175,55,0.2)",
-        transition: "all 0.4s ease",
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translateY(0)" : "translateY(24px)",
-        transitionDelay: `${index * 80}ms`,
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.border = "1px solid rgba(212,175,55,0.7)";
-        e.currentTarget.style.boxShadow =
-          "0 0 30px rgba(212,175,55,0.12), inset 0 0 30px rgba(212,175,55,0.04)";
-        e.currentTarget.style.transform = "translateY(-4px)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.border = "1px solid rgba(212,175,55,0.2)";
-        e.currentTarget.style.boxShadow = "none";
-        e.currentTarget.style.transform = isVisible ? "translateY(0)" : "translateY(24px)";
-      }}
-    >
-      {/* Top accent line */}
-      <div
-        className="absolute top-0 left-0 h-0.5 w-0 group-hover:w-full"
-        style={{
-          background: "linear-gradient(90deg, rgba(212,175,55,0.9), transparent)",
-          transition: "width 0.4s ease",
-        }}
-      />
-
-      {/* Number */}
-      <span
-        className="absolute top-4 right-4 font-serif text-xs"
-        style={{
-          color: "rgba(212,175,55,0.25)",
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
-        }}
-      >
-        {String(index + 1).padStart(2, "0")}
-      </span>
-
-      {/* Icon */}
-      <div
-        className="w-14 h-14 mb-5 flex items-center justify-center"
-        style={{
-          border: "1px solid rgba(212,175,55,0.25)",
-          background: "rgba(212,175,55,0.04)",
-        }}
-      >
-        <img
-          src={subsidiary.icon}
-          alt={subsidiary.name}
-          className="w-8 h-8 object-contain"
-          style={{
-            filter:
-              "brightness(0) saturate(100%) invert(75%) sepia(50%) saturate(400%) hue-rotate(5deg)",
-          }}
-          onError={(e) => {
-            e.currentTarget.style.display = "none";
-          }}
-        />
-      </div>
-
-      {/* Name */}
-      <h3
-        className="font-serif mb-1"
-        style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
-          fontSize: "1.2rem",
-          color: "rgba(212,175,55,0.95)",
-          letterSpacing: "0.03em",
-        }}
-      >
-        {subsidiary.name}
-      </h3>
-
-      {/* Tagline */}
-      <p
-        className="text-xs mb-4 leading-relaxed flex-1"
-        style={{
-          color: "rgba(212,175,55,0.45)",
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
-          letterSpacing: "0.05em",
-        }}
-      >
-        {subsidiary.tagline}
-      </p>
-
-      {/* Pre-Launch badge */}
-      <div className="mb-4">
-        <span
-          className="uppercase text-xs tracking-widest"
-          style={{
-            color: "rgba(212,175,55,0.5)",
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            letterSpacing: "0.25em",
-          }}
-        >
-          Pre-Launch
-        </span>
-      </div>
-
-      {/* Discover button */}
-      <button
-        onClick={onDiscover}
-        className="w-full py-2.5 uppercase text-xs tracking-widest"
-        style={{
-          border: "1px solid rgba(212,175,55,0.35)",
-          background: "rgba(212,175,55,0.04)",
-          color: "rgba(212,175,55,0.8)",
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
-          letterSpacing: "0.3em",
-          cursor: "pointer",
-          transition: "all 0.3s ease",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = "rgba(212,175,55,0.12)";
-          e.currentTarget.style.color = "rgba(212,175,55,1)";
-          e.currentTarget.style.boxShadow = "0 0 20px rgba(212,175,55,0.2)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.background = "rgba(212,175,55,0.04)";
-          e.currentTarget.style.color = "rgba(212,175,55,0.8)";
-          e.currentTarget.style.boxShadow = "none";
-        }}
-      >
-        Discover
-      </button>
-    </div>
   );
 }

@@ -1,53 +1,39 @@
 {
   "kind": "build_request",
-  "title": "Move GST Services section to last position with minimal content",
-  "priority": "normal",
+  "title": "Fix non-functional buttons across all sections",
+  "priority": "high",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Reorder the sections in App.tsx so that the GSTServicesSection appears last among the brand sections, after AssuredToursSection, LuminiaTechLabsSection, LuminiaCapturesSection, and ComingSoonSection.",
+      "text": "Fix all non-functional buttons across the site — including the Navigation smooth-scroll links, the HeroSection CTA button (scroll to subsidiaries), the WelcomePopup enter button, any interactive cards or buttons in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, ComingSoonSection, GSTServicesSection, SubsidiaryGrid, and SubsidiaryDetails — so that each button performs its intended action when clicked. Buttons in the 'Connect with Us' section (Footer email and WhatsApp links) are already working and must not be changed.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-recent-user-1"
         ],
         "quotes": [
-          "keep gst services at last"
+          "None of the buttons are working except the buttons on connect with us"
         ]
       },
       "acceptanceCriteria": [
-        "GSTServicesSection renders after all other brand and coming-soon sections in the page layout.",
-        "All other sections remain in their existing order above GST Services."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Reduce the content in GSTServicesSection.tsx to a brief, minimal presentation: keep the section header and a short one-line description of GST services, but trim service cards down to 3 cards maximum with concise one-line labels and no detailed descriptions.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "don't mention much details as I don't know much but yeah give some part"
-        ]
-      },
-      "acceptanceCriteria": [
-        "GST Services section displays no more than 3 service cards.",
-        "Each card has only a short label — no lengthy descriptions or bullet points.",
-        "A brief introductory sentence about GST services is present under the section header.",
-        "The section still matches the gold/obsidian luxury theme of the rest of the site."
+        "Clicking the Navigation menu links smoothly scrolls to the correct section on the page.",
+        "Clicking the HeroSection CTA button scrolls to the subsidiaries section.",
+        "Clicking the WelcomePopup enter button dismisses the splash and reveals the main page.",
+        "Clicking any interactive card or button in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, ComingSoonSection, and GSTServicesSection triggers the expected behavior (e.g., opens modal, navigates, or expands detail).",
+        "Opening SubsidiaryDetails from SubsidiaryGrid works correctly and the modal's close/navigation buttons function.",
+        "Footer 'Connect with Us' buttons (email and WhatsApp) continue to work as before.",
+        "No console errors related to button click handlers."
       ]
     }
   ],
   "constraints": [
-    "Do not remove the GST Services section entirely — it must still be present and visible.",
-    "Do not alter the order or content of any other brand sections."
+    "Do not modify the Footer 'Connect with Us' buttons — they are already functional.",
+    "Do not alter immutable paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui."
   ],
   "nonGoals": [
-    "Adding new GST service details or expanding GST content.",
-    "Changing the visual theme or layout style of any other section.",
-    "Modifying backend logic."
+    "Adding new buttons or sections not currently in the app.",
+    "Redesigning any visual styles or layouts.",
+    "Backend changes — this is a purely frontend issue."
   ],
   "imageRequirements": {
     "required": [],

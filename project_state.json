@@ -1,33 +1,24 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Multi-brand website featuring Assured Tours & Travels, GST Services, Luminia TechLabs, and other brands with a 'Coming Soon' section. GST Services section is placed last with minimal/brief content.",
-  "architectural_notes": [
-    "GST Services section appears last among all brand sections, with minimal/brief content (limited details available)"
+  "summary": "New project",
+  "architectural_notes": [],
+  "known_issues": [
+    "Most buttons are non-functional except those in the 'Connect with Us' section"
   ],
-  "known_issues": [],
-  "isFixRequest": false,
+  "isFixRequest": true,
   "existing_features": [
     {
-      "id": "feature-reorder-the-sections-in-app-tsx-so-that-the-gstservicessection-appears-last-among-the-brand-sections-after-assuredtourssection-luminiatechlabssection-luminiacapturessection-and-comingsoonsection",
-      "title": "Reorder the sections in App.tsx so that the GSTServicesSection appears last among the brand sections, after AssuredToursSection, LuminiaTechLabsSection, LuminiaCapturesSection, and ComingSoonSection.",
+      "id": "feature-fix-all-non-functional-buttons-across-the-site-including-the-navigation-smooth-scroll-links-the-herosection-cta-button-scroll-to-subsidiaries-the-welcomepopup-enter-button-any-interactive-cards-or-buttons-in-assuredtourssection-luminiacapturessection-luminiatechlabssection-comingsoonsection-gstservicessection-subsidiarygrid-and-subsidiarydetails-so-that-each-button-performs-its-intended-action-when-clicked-buttons-in-the-connect-with-us-section-footer-email-and-whatsapp-links-are-already-working-and-must-not-be-changed",
+      "title": "Fix all non-functional buttons across the site — including the Navigation smooth-scroll links, the HeroSection CTA button (scroll to subsidiaries), the WelcomePopup enter button, any interactive cards or buttons in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, ComingSoonSection, GSTServicesSection, SubsidiaryGrid, and SubsidiaryDetails — so that each button performs its intended action when clicked. Buttons in the 'Connect with Us' section (Footer email and WhatsApp links) are already working and must not be changed.",
       "reqIds": [
         "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-reduce-the-content-in-gstservicessection-tsx-to-a-brief-minimal-presentation-keep-the-section-header-and-a-short-one-line-description-of-gst-services-but-trim-service-cards-down-to-3-cards-maximum-with-concise-one-line-labels-and-no-detailed-descriptions",
-      "title": "Reduce the content in GSTServicesSection.tsx to a brief, minimal presentation: keep the section header and a short one-line description of GST services, but trim service cards down to 3 cards maximum with concise one-line labels and no detailed descriptions.",
-      "reqIds": [
-        "REQ-2"
       ],
       "version": 1
     }
   ],
   "new_feature_requests": [],
-  "gameProjectType": "none",
-  "projectName": "Move GST Services section to last position with minimal content",
+  "projectName": "Fix non-functional buttons across all sections",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

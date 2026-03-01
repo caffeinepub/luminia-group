@@ -1,167 +1,123 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 
-const navItems = [
-  { label: "Home", id: "hero" },
-  { label: "Manifesto", id: "manifesto" },
-  { label: "Tours & Travels", id: "assured-tours" },
-  { label: "GST Services", id: "gst-services" },
-  { label: "Captures", id: "luminia-captures" },
-  { label: "TechLabs", id: "luminia-techlabs" },
-  { label: "Coming Soon", id: "coming-soon" },
-  { label: "Contact", id: "footer" },
+const navLinks = [
+  { label: 'Tours & Travels', href: '#assured-tours' },
+  { label: 'Captures', href: '#luminia-captures' },
+  { label: 'TechLabs', href: '#luminia-techlabs' },
+  { label: 'Coming Soon', href: '#coming-soon' },
+  { label: 'GST Services', href: '#gst-services' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollTo = (id: string) => {
-    setMenuOpen(false);
+  const scrollTo = (href: string) => {
+    const id = href.replace('#', '');
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    setMobileOpen(false);
   };
 
   return (
-    <header
+    <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={{
         background: scrolled
-          ? "rgba(8,8,8,0.97)"
-          : "linear-gradient(180deg, rgba(8,8,8,0.9) 0%, transparent 100%)",
-        borderBottom: scrolled ? "1px solid rgba(212,175,55,0.15)" : "none",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        opacity: mounted ? 1 : 0,
-        transform: mounted ? "translateY(0)" : "translateY(-100%)",
-        transition: "opacity 0.6s ease, transform 0.6s ease, background 0.4s ease, border 0.4s ease",
+          ? 'oklch(0.08 0.01 60 / 0.97)'
+          : 'oklch(0.08 0.01 60 / 0.7)',
+        borderBottom: scrolled ? '1px solid oklch(0.78 0.12 75 / 0.3)' : 'none',
+        backdropFilter: 'blur(12px)',
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 md:h-20">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <div
-          className="flex items-center flex-shrink-0"
-          style={{
-            background: "#080808",
-            padding: "4px 12px",
-            border: "1px solid rgba(212,175,55,0.15)",
-          }}
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="cursor-pointer"
+          style={{ background: 'none', border: 'none', padding: 0 }}
         >
           <img
-            src="/assets/image-3.png"
-            alt="Luminia Group Conglomerate"
-            className="h-10 md:h-12 w-auto object-contain"
-            style={{ filter: "drop-shadow(0 0 8px rgba(212,175,55,0.3))" }}
+            src="/assets/generated/luminia-logo-correct.dim_400x120.png"
+            alt="Luminia Group"
+            className="h-8 md:h-10 object-contain"
+            style={{ filter: 'drop-shadow(0 0 8px oklch(0.78 0.12 75 / 0.4))' }}
           />
-        </div>
+        </button>
 
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
-          {navItems.map((item) => (
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex items-center gap-6">
+          {navLinks.map((link) => (
             <button
-              key={item.id}
-              onClick={() => scrollTo(item.id)}
-              className="text-xs uppercase tracking-widest transition-all duration-300 whitespace-nowrap"
+              key={link.href}
+              type="button"
+              onClick={() => scrollTo(link.href)}
+              className="font-serif text-sm tracking-widest uppercase transition-colors duration-300 cursor-pointer"
               style={{
-                color: "rgba(212,175,55,0.6)",
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                letterSpacing: "0.15em",
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontSize: "0.7rem",
+                color: 'oklch(0.78 0.12 75 / 0.7)',
+                background: 'none',
+                border: 'none',
+                padding: '4px 0',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = "rgba(212,175,55,1)";
-                e.currentTarget.style.textShadow = "0 0 12px rgba(212,175,55,0.4)";
+                (e.currentTarget as HTMLButtonElement).style.color = 'oklch(0.78 0.12 75)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = "rgba(212,175,55,0.6)";
-                e.currentTarget.style.textShadow = "none";
+                (e.currentTarget as HTMLButtonElement).style.color = 'oklch(0.78 0.12 75 / 0.7)';
               }}
             >
-              {item.label}
+              {link.label}
             </button>
           ))}
-        </nav>
+        </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile Hamburger */}
         <button
-          className="lg:hidden flex flex-col gap-1.5 p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={{ background: "none", border: "none", cursor: "pointer" }}
+          type="button"
+          className="lg:hidden cursor-pointer"
+          style={{ color: 'oklch(0.78 0.12 75)', background: 'none', border: 'none' }}
+          onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
-          {[0, 1, 2].map((i) => (
-            <span
-              key={i}
-              className="block h-px w-6 transition-all duration-300"
-              style={{
-                background: "rgba(212,175,55,0.8)",
-                transform:
-                  menuOpen
-                    ? i === 0
-                      ? "rotate(45deg) translate(4px, 4px)"
-                      : i === 2
-                      ? "rotate(-45deg) translate(4px, -4px)"
-                      : "scaleX(0)"
-                    : "none",
-              }}
-            />
-          ))}
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
-      <div
-        className="lg:hidden overflow-hidden transition-all duration-400"
-        style={{
-          maxHeight: menuOpen ? "500px" : "0",
-          background: "rgba(8,8,8,0.98)",
-          borderTop: menuOpen ? "1px solid rgba(212,175,55,0.1)" : "none",
-        }}
-      >
-        <div className="px-6 py-4 flex flex-col gap-3">
-          {/* Mobile logo */}
-          <div className="flex justify-center mb-2">
-            <div style={{ background: "#080808", padding: "4px 12px", border: "1px solid rgba(212,175,55,0.15)" }}>
-              <img
-                src="/assets/image-3.png"
-                alt="Luminia Group"
-                className="h-10 w-auto object-contain"
-                style={{ filter: "drop-shadow(0 0 8px rgba(212,175,55,0.3))" }}
-              />
-            </div>
-          </div>
-          {navItems.map((item, i) => (
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div
+          className="lg:hidden px-6 pb-6 flex flex-col gap-4"
+          style={{ background: 'oklch(0.08 0.01 60 / 0.98)' }}
+        >
+          {navLinks.map((link) => (
             <button
-              key={item.id}
-              onClick={() => scrollTo(item.id)}
-              className="text-xs uppercase tracking-widest text-left py-2 transition-all duration-300"
+              key={link.href}
+              type="button"
+              onClick={() => scrollTo(link.href)}
+              className="font-serif text-sm tracking-widest uppercase text-left cursor-pointer py-2"
               style={{
-                color: "rgba(212,175,55,0.7)",
-                background: "none",
-                border: "none",
-                borderBottom: "1px solid rgba(212,175,55,0.08)",
-                cursor: "pointer",
-                letterSpacing: "0.2em",
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                opacity: menuOpen ? 1 : 0,
-                transform: menuOpen ? "translateX(0)" : "translateX(-16px)",
-                transition: `opacity 0.3s ease ${i * 50}ms, transform 0.3s ease ${i * 50}ms`,
+                color: 'oklch(0.78 0.12 75 / 0.8)',
+                background: 'none',
+                border: 'none',
+                borderBottom: '1px solid oklch(0.78 0.12 75 / 0.15)',
               }}
             >
-              {item.label}
+              {link.label}
             </button>
           ))}
         </div>
-      </div>
-    </header>
+      )}
+    </nav>
   );
 }

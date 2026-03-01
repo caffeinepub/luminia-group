@@ -1,34 +1,41 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-01T19:58:30.586Z",
+  "generatedAt": "2026-03-01T20:10:19.163Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 2,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Reorder the sections in App.tsx so that the GSTServicesSection appears last among the brand sections, after AssuredToursSection, LuminiaTechLabsSection, LuminiaCapturesSection, and ComingSoonSection.",
+        "summary": "Fix all non-functional buttons across the site — including the Navigation smooth-scroll links, the HeroSection CTA button (scroll to subsidiaries), the WelcomePopup enter button, any interactive cards or buttons in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, ComingSoonSection, GSTServicesSection, SubsidiaryGrid, and SubsidiaryDetails — so that each button performs its intended action when clicked. Buttons in the 'Connect with Us' section (Footer email and WhatsApp links) are already working and must not be changed.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/App.tsx"
-        ]
-      },
-      {
-        "id": "REQ-2",
-        "summary": "Reduce the content in GSTServicesSection.tsx to a brief, minimal presentation: keep the section header and a short one-line description of GST services, but trim service cards down to 3 cards maximum with concise one-line labels and no detailed descriptions.",
-        "status": "implemented",
-        "plannedFiles": [
+          "frontend/src/components/Navigation.tsx",
+          "frontend/src/components/HeroSection.tsx",
+          "frontend/src/components/WelcomePopup.tsx",
+          "frontend/src/components/SubsidiaryGrid.tsx",
+          "frontend/src/components/SubsidiaryDetails.tsx",
+          "frontend/src/components/AssuredToursSection.tsx",
+          "frontend/src/components/LuminiaCapturesSection.tsx",
+          "frontend/src/components/LuminiaTechLabsSection.tsx",
+          "frontend/src/components/ComingSoonSection.tsx",
           "frontend/src/components/GSTServicesSection.tsx"
         ],
         "matchedFiles": [
+          "frontend/src/components/Navigation.tsx",
+          "frontend/src/components/HeroSection.tsx",
+          "frontend/src/components/WelcomePopup.tsx",
+          "frontend/src/components/SubsidiaryGrid.tsx",
+          "frontend/src/components/SubsidiaryDetails.tsx",
+          "frontend/src/components/AssuredToursSection.tsx",
+          "frontend/src/components/LuminiaCapturesSection.tsx",
+          "frontend/src/components/LuminiaTechLabsSection.tsx",
+          "frontend/src/components/ComingSoonSection.tsx",
           "frontend/src/components/GSTServicesSection.tsx"
         ]
       }
@@ -40,7 +47,16 @@
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
     "frontend/src/App.tsx",
+    "frontend/src/components/AssuredToursSection.tsx",
+    "frontend/src/components/ComingSoonSection.tsx",
     "frontend/src/components/GSTServicesSection.tsx",
+    "frontend/src/components/HeroSection.tsx",
+    "frontend/src/components/LuminiaCapturesSection.tsx",
+    "frontend/src/components/LuminiaTechLabsSection.tsx",
+    "frontend/src/components/Navigation.tsx",
+    "frontend/src/components/SubsidiaryDetails.tsx",
+    "frontend/src/components/SubsidiaryGrid.tsx",
+    "frontend/src/components/WelcomePopup.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

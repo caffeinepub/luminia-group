@@ -1,37 +1,70 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Move GST Services section to last position with minimal content",
+  "title": "Fix non-functional buttons across all sections",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Reorder sections in App.tsx so GSTServicesSection appears last after all other brand and coming-soon sections",
+      "summary": "Fix all non-functional buttons across the site — Navigation smooth-scroll links, HeroSection CTA button, WelcomePopup enter button, interactive elements in subsidiary sections, SubsidiaryGrid cards, and SubsidiaryDetails modal controls",
       "acceptanceCriteria": [
-        "GSTServicesSection renders after all other brand and coming-soon sections in the page layout.",
-        "All other sections remain in their existing order above GST Services."
+        "Clicking the Navigation menu links smoothly scrolls to the correct section on the page.",
+        "Clicking the HeroSection CTA button scrolls to the subsidiaries section.",
+        "Clicking the WelcomePopup enter button dismisses the splash and reveals the main page.",
+        "Clicking any interactive card or button in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, ComingSoonSection, and GSTServicesSection triggers the expected behavior (e.g., opens modal, navigates, or expands detail).",
+        "Opening SubsidiaryDetails from SubsidiaryGrid works correctly and the modal's close/navigation buttons function.",
+        "Footer 'Connect with Us' buttons (email and WhatsApp) continue to work as before.",
+        "No console errors related to button click handlers."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/src/components/Navigation.tsx",
           "operation": "modify",
-          "description": "Reorder the section components so that GSTServicesSection is rendered after AssuredToursSection, LuminiaTechLabsSection, LuminiaCapturesSection, and ComingSoonSection. Keep all other sections (HeroSection, ManifestoSection, SubsidiaryGrid, Footer) in their current positions and only move GSTServicesSection to the last position among brand sections."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Reduce GSTServicesSection content to minimal presentation with 3 service cards maximum and concise labels",
-      "acceptanceCriteria": [
-        "GST Services section displays no more than 3 service cards.",
-        "Each card has only a short label — no lengthy descriptions or bullet points.",
-        "A brief introductory sentence about GST services is present under the section header.",
-        "The section still matches the gold/obsidian luxury theme of the rest of the site."
-      ],
-      "file_operations": [
+          "description": "Fix smooth-scroll navigation links by adding proper onClick handlers that call scrollIntoView with smooth behavior on the target section elements. Ensure both desktop and mobile menu links trigger scroll navigation correctly and close the mobile menu after navigation."
+        },
+        {
+          "path": "frontend/src/components/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Fix the CTA button by adding an onClick handler that scrolls to the subsidiaries section using document.querySelector and scrollIntoView with smooth behavior."
+        },
+        {
+          "path": "frontend/src/components/WelcomePopup.tsx",
+          "operation": "modify",
+          "description": "Fix the enter button by adding an onClick handler that sets hasVisited to true in sessionStorage and updates the component state to hide the splash overlay, revealing the main page content."
+        },
+        {
+          "path": "frontend/src/components/SubsidiaryGrid.tsx",
+          "operation": "modify",
+          "description": "Fix subsidiary card click handlers by adding onClick events that call setSelectedSubsidiary to open the SubsidiaryDetails modal with the selected subsidiary data."
+        },
+        {
+          "path": "frontend/src/components/SubsidiaryDetails.tsx",
+          "operation": "modify",
+          "description": "Fix modal close button, backdrop click, escape key handler, and carousel navigation buttons by adding proper onClick handlers and keyboard event listeners that update modal state and navigate through images correctly."
+        },
+        {
+          "path": "frontend/src/components/AssuredToursSection.tsx",
+          "operation": "modify",
+          "description": "Add onClick handlers to any interactive service cards or buttons to enable expected behavior (e.g., expanding details, opening modals, or navigating to service pages). If cards are currently non-interactive placeholders, add cursor-pointer styling and click handlers for future extensibility."
+        },
+        {
+          "path": "frontend/src/components/LuminiaCapturesSection.tsx",
+          "operation": "modify",
+          "description": "Add onClick handlers to any interactive service cards or buttons to enable expected behavior (e.g., expanding service details, opening portfolio modals, or triggering contact forms). Ensure all interactive elements have proper event handlers and visual feedback."
+        },
+        {
+          "path": "frontend/src/components/LuminiaTechLabsSection.tsx",
+          "operation": "modify",
+          "description": "Add onClick handlers to any interactive service cards or buttons to enable expected behavior (e.g., expanding technology descriptions, opening service inquiry modals, or navigating to detail pages). Implement proper click event handling for all interactive UI elements."
+        },
+        {
+          "path": "frontend/src/components/ComingSoonSection.tsx",
+          "operation": "modify",
+          "description": "Add onClick handlers to any interactive brand cards or buttons to enable expected behavior (e.g., showing coming-soon notifications, subscribing to launch updates, or opening brand preview modals). Ensure interactive elements respond to user clicks appropriately."
+        },
         {
           "path": "frontend/src/components/GSTServicesSection.tsx",
           "operation": "modify",
-          "description": "Trim the GST services content to show only 3 service cards (down from 6) with short one-line labels and no detailed descriptions or bullet points. Replace the current descriptive text with a single brief introductory sentence about GST services. Keep the section header, banner image (frontend/public/assets/generated/gst-services-banner.dim_1200x400.png), and the gold/obsidian luxury styling intact. Maintain the scroll-triggered animations via useScrollAnimation hook."
+          "description": "Add onClick handlers to any interactive service cards or buttons to enable expected behavior (e.g., opening service detail modals, initiating consultation requests, or expanding service descriptions). Implement proper event handlers for all clickable elements."
         }
       ]
     }

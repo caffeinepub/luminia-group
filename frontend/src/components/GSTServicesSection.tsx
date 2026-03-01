@@ -1,146 +1,153 @@
-import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const services = [
-  { icon: "📝", label: "GST Registration" },
-  { icon: "📊", label: "GST Filing" },
-  { icon: "💼", label: "Tax Consulting" },
+  {
+    title: 'GST Registration',
+    desc: 'Quick and hassle-free GST registration for businesses of all sizes.',
+    icon: '📋',
+  },
+  {
+    title: 'GST Filing',
+    desc: 'Timely and accurate GST return filing to keep you compliant.',
+    icon: '📊',
+  },
+  {
+    title: 'Tax Consulting',
+    desc: 'Expert advice to optimize your tax strategy and minimize liability.',
+    icon: '💼',
+  },
 ];
 
 export default function GSTServicesSection() {
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.15 });
-  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation({ threshold: 0.1 });
+
+  const handleContactClick = () => {
+    const el = document.getElementById('contact');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <section
       id="gst-services"
-      className="relative overflow-hidden"
-      style={{ background: "#0a0a0a" }}
+      className="py-24"
+      style={{ background: 'oklch(0.09 0.01 60)' }}
     >
-      {/* Banner image */}
-      <div className="relative w-full h-64 md:h-80 overflow-hidden">
-        <img
-          src="/assets/generated/gst-services-banner.dim_1200x400.png"
-          alt="GST Services"
-          className="w-full h-full object-cover"
-          style={{ filter: "brightness(0.4)" }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.6) 60%, rgba(10,10,10,1) 100%)",
-          }}
-        />
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
         <div
           ref={headerRef as React.RefObject<HTMLDivElement>}
-          className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
+          className="text-center mb-16"
           style={{
             opacity: headerVisible ? 1 : 0,
-            transform: headerVisible ? "translateY(0)" : "translateY(24px)",
-            transition: "opacity 1s ease, transform 1s ease",
+            transform: headerVisible ? 'translateY(0)' : 'translateY(30px)',
+            transition: 'opacity 0.8s ease, transform 0.8s ease',
           }}
         >
           <p
-            className="uppercase tracking-[0.5em] text-xs mb-3"
-            style={{
-              color: "rgba(212,175,55,0.6)",
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-            }}
+            className="font-serif italic text-sm tracking-[0.3em] uppercase mb-4"
+            style={{ color: 'oklch(0.78 0.12 75 / 0.6)' }}
           >
             Luminia Group · Financial Services
           </p>
           <h2
-            className="font-serif"
-            style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: "clamp(2.2rem, 6vw, 4rem)",
-              color: "rgba(212,175,55,1)",
-              textShadow: "0 0 60px rgba(212,175,55,0.5)",
-              letterSpacing: "0.06em",
-              fontWeight: 300,
-            }}
+            className="font-serif text-4xl md:text-5xl mb-4"
+            style={{ color: 'oklch(0.78 0.12 75)' }}
           >
             GST Services
           </h2>
-          <div
-            className="mt-4 h-px w-32"
-            style={{
-              background: "linear-gradient(90deg, transparent, rgba(212,175,55,0.8), transparent)",
-            }}
-          />
-        </div>
-      </div>
-
-      {/* Content */}
-      <div
-        ref={contentRef as React.RefObject<HTMLDivElement>}
-        className="max-w-4xl mx-auto px-4 md:px-8 py-16"
-        style={{
-          opacity: contentVisible ? 1 : 0,
-          transform: contentVisible ? "translateY(0)" : "translateY(32px)",
-          transition: "opacity 1.1s ease, transform 1.1s ease",
-        }}
-      >
-        {/* Brief intro */}
-        <div className="max-w-2xl mx-auto text-center mb-12">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="h-px w-24" style={{ background: 'oklch(0.78 0.12 75 / 0.4)' }} />
+            <div className="w-2 h-2 rotate-45" style={{ background: 'oklch(0.78 0.12 75)' }} />
+            <div className="h-px w-24" style={{ background: 'oklch(0.78 0.12 75 / 0.4)' }} />
+          </div>
           <p
-            className="leading-relaxed"
-            style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: "clamp(1.05rem, 2.2vw, 1.25rem)",
-              color: "rgba(212,175,55,0.65)",
-              fontStyle: "italic",
-              letterSpacing: "0.03em",
-            }}
+            className="font-serif italic text-lg max-w-2xl mx-auto"
+            style={{ color: 'oklch(0.78 0.12 75 / 0.7)' }}
           >
-            Professional GST compliance and advisory services to keep your business on the right side of every regulation.
+            Compliance Made Simple — expert GST solutions tailored for your business needs.
           </p>
         </div>
 
-        {/* Services grid — 3 cards, label only */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-          {services.map((svc, i) => (
+        {/* Banner Image */}
+        <div
+          className="w-full h-64 md:h-80 overflow-hidden mb-12"
+          style={{ border: '1px solid oklch(0.78 0.12 75 / 0.2)' }}
+        >
+          <img
+            src="/assets/generated/gst-services-banner.dim_1200x400.png"
+            alt="GST Services"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Service Cards */}
+        <div
+          ref={cardsRef as React.RefObject<HTMLDivElement>}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
+          style={{
+            opacity: cardsVisible ? 1 : 0,
+            transform: cardsVisible ? 'translateY(0)' : 'translateY(30px)',
+            transition: 'opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s',
+          }}
+        >
+          {services.map((service, idx) => (
             <div
-              key={svc.label}
-              className="p-7 flex flex-col items-center text-center"
+              key={idx}
+              className="p-8 text-center cursor-pointer transition-all duration-300"
               style={{
-                border: "1px solid rgba(212,175,55,0.12)",
-                background: "rgba(212,175,55,0.02)",
-                transition: "all 0.3s ease",
-                transitionDelay: `${i * 80}ms`,
+                border: '1px solid oklch(0.78 0.12 75 / 0.2)',
+                background: 'oklch(0.10 0.01 60)',
               }}
+              onClick={handleContactClick}
               onMouseEnter={(e) => {
-                e.currentTarget.style.border = "1px solid rgba(212,175,55,0.4)";
-                e.currentTarget.style.background = "rgba(212,175,55,0.05)";
+                (e.currentTarget as HTMLDivElement).style.borderColor = 'oklch(0.78 0.12 75 / 0.5)';
+                (e.currentTarget as HTMLDivElement).style.background = 'oklch(0.12 0.02 60)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.border = "1px solid rgba(212,175,55,0.12)";
-                e.currentTarget.style.background = "rgba(212,175,55,0.02)";
+                (e.currentTarget as HTMLDivElement).style.borderColor = 'oklch(0.78 0.12 75 / 0.2)';
+                (e.currentTarget as HTMLDivElement).style.background = 'oklch(0.10 0.01 60)';
               }}
             >
-              <span className="text-3xl mb-4">{svc.icon}</span>
-              <h4
-                className="font-serif"
-                style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
-                  fontSize: "1.1rem",
-                  color: "rgba(212,175,55,0.9)",
-                  letterSpacing: "0.05em",
-                  fontWeight: 400,
-                }}
+              <div className="text-4xl mb-4">{service.icon}</div>
+              <h3
+                className="font-serif text-xl mb-3"
+                style={{ color: 'oklch(0.78 0.12 75)' }}
               >
-                {svc.label}
-              </h4>
+                {service.title}
+              </h3>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: 'oklch(0.85 0.01 60 / 0.6)' }}
+              >
+                {service.desc}
+              </p>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Bottom separator */}
-      <div
-        className="h-px mx-8"
-        style={{ background: "linear-gradient(90deg, transparent, rgba(212,175,55,0.2), transparent)" }}
-      />
+        {/* CTA */}
+        <div className="text-center">
+          <button
+            type="button"
+            onClick={handleContactClick}
+            className="px-10 py-4 font-serif text-sm tracking-widest uppercase cursor-pointer transition-all duration-300"
+            style={{
+              border: '1px solid oklch(0.78 0.12 75)',
+              color: 'oklch(0.78 0.12 75)',
+              background: 'transparent',
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.background = 'oklch(0.78 0.12 75 / 0.1)';
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
+            }}
+          >
+            Get a Free Consultation
+          </button>
+        </div>
+      </div>
     </section>
   );
 }
