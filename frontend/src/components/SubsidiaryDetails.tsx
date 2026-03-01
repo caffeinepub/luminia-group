@@ -107,7 +107,7 @@ export default function SubsidiaryDetails({ subsidiary, onClose }: SubsidiaryDet
             {subsidiary.name}
           </h2>
 
-          {/* LAUNCHING SOON with shimmer */}
+          {/* PRE-LAUNCH with shimmer */}
           <div className="mb-6 inline-block">
             <span
               className="uppercase tracking-[0.5em] font-serif text-sm md:text-base"
@@ -122,7 +122,7 @@ export default function SubsidiaryDetails({ subsidiary, onClose }: SubsidiaryDet
                 letterSpacing: "0.5em",
               }}
             >
-              ◆ Launching Soon ◆
+              ◆ Pre-Launch ◆
             </span>
           </div>
 

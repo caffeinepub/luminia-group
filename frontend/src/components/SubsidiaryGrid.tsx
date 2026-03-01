@@ -158,7 +158,7 @@ export default function SubsidiaryGrid() {
         </div>
       </div>
 
-      {/* Launching Soon Modal */}
+      {/* Pre-Launch Modal */}
       {selectedSubsidiary && (
         <SubsidiaryDetails
           subsidiary={selectedSubsidiary}
@@ -246,7 +246,7 @@ function SubsidiaryCard({ subsidiary, index, onDiscover }: SubsidiaryCardProps) 
 
       {/* Name */}
       <h3
-        className="font-serif mb-2 leading-tight"
+        className="font-serif mb-1"
         style={{
           fontFamily: "'Cormorant Garamond', Georgia, serif",
           fontSize: "1.2rem",
@@ -260,46 +260,54 @@ function SubsidiaryCard({ subsidiary, index, onDiscover }: SubsidiaryCardProps) 
       {/* Tagline */}
       <p
         className="text-xs mb-4 leading-relaxed flex-1"
-        style={{ color: "rgba(212,175,55,0.5)", letterSpacing: "0.05em" }}
+        style={{
+          color: "rgba(212,175,55,0.45)",
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          letterSpacing: "0.05em",
+        }}
       >
         {subsidiary.tagline}
       </p>
 
-      {/* Divider */}
-      <div
-        className="mb-4 h-px"
-        style={{
-          background: "linear-gradient(90deg, rgba(212,175,55,0.3), transparent)",
-        }}
-      />
+      {/* Pre-Launch badge */}
+      <div className="mb-4">
+        <span
+          className="uppercase text-xs tracking-widest"
+          style={{
+            color: "rgba(212,175,55,0.5)",
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            letterSpacing: "0.25em",
+          }}
+        >
+          Pre-Launch
+        </span>
+      </div>
 
       {/* Discover button */}
       <button
         onClick={onDiscover}
-        className="flex items-center gap-2 text-xs uppercase tracking-widest group/btn"
+        className="w-full py-2.5 uppercase text-xs tracking-widest"
         style={{
+          border: "1px solid rgba(212,175,55,0.35)",
+          background: "rgba(212,175,55,0.04)",
           color: "rgba(212,175,55,0.8)",
           fontFamily: "'Cormorant Garamond', Georgia, serif",
-          background: "none",
-          border: "none",
+          letterSpacing: "0.3em",
           cursor: "pointer",
-          padding: 0,
-          letterSpacing: "0.2em",
+          transition: "all 0.3s ease",
         }}
         onMouseEnter={(e) => {
+          e.currentTarget.style.background = "rgba(212,175,55,0.12)";
           e.currentTarget.style.color = "rgba(212,175,55,1)";
+          e.currentTarget.style.boxShadow = "0 0 20px rgba(212,175,55,0.2)";
         }}
         onMouseLeave={(e) => {
+          e.currentTarget.style.background = "rgba(212,175,55,0.04)";
           e.currentTarget.style.color = "rgba(212,175,55,0.8)";
+          e.currentTarget.style.boxShadow = "none";
         }}
       >
         Discover
-        <span
-          className="inline-block transition-transform duration-300 group-hover/btn:translate-x-1"
-          style={{ fontSize: "1rem" }}
-        >
-          →
-        </span>
       </button>
     </div>
   );

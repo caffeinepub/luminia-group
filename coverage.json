@@ -1,80 +1,23 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-01T11:09:22.294Z",
+  "generatedAt": "2026-03-01T11:13:51.607Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 5,
-    "implemented": 5,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Implement a full-screen cinematic welcome popup shown once per session. It must feature: an animated gold particle shimmer/rain effect on deep black background; the Luminia Group logo (image-3.png) fading in at center with a golden glow pulse animation; 'WELCOME TO LUMINIA GROUP CONGLOMERATE' in gold serif capitals with a letter-by-letter reveal animation; a self-drawing thin gold horizontal divider line below the headline; subtitle text 'A Legacy of Excellence' in smaller italic gold below the divider; a glowing gold 'ENTER' button with ripple effect; and a gold burst/dissolve exit transition when the user clicks Enter.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/WelcomePopup.tsx",
-          "frontend/src/index.css"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/WelcomePopup.tsx",
-          "frontend/src/index.css"
-        ]
-      },
-      {
-        "id": "REQ-2",
-        "summary": "Build the main landing page with a consistent black and gold luxury theme throughout — background obsidian/deep black, all typography in gold or ivory, gold accent lines and dividers. Use the Luminia Group logo (image-3.png) in the navigation bar and footer with a black background behind it.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/Navigation.tsx",
-          "frontend/src/components/Footer.tsx",
-          "frontend/src/index.css",
-          "frontend/src/components/HeroSection.tsx",
-          "frontend/src/components/ManifestoSection.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/Navigation.tsx",
-          "frontend/src/components/Footer.tsx",
-          "frontend/src/index.css",
-          "frontend/src/components/HeroSection.tsx",
-          "frontend/src/components/ManifestoSection.tsx"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "Display all 7 Luminia subsidiaries as premium gold-bordered cards on the main page in a responsive grid. Each card must show the company name, a fitting tagline, and a gold 'Discover' button. Companies and their domains: (1) Luminia Gadgets — watches, headphones, earbuds; (2) Moda Vestra — fashion and clothing; (3) Velocity Vogue — luggage and travel bags; (4) Luminia Captures — wedding photography and professional photoshoots; (5) Assured Tours & Travels — itineraries, train tickets, flight tickets; (6) Luminia TechLabs — web and app development, GST services; (7) GST Service — GST-related tax and business services.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/SubsidiaryGrid.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/SubsidiaryGrid.tsx"
-        ]
-      },
-      {
-        "id": "REQ-4",
-        "summary": "When a user clicks the 'Discover' button on any subsidiary card, open a full-screen or large modal overlay with a 'Launching Soon' experience. The modal must have: a black background with animated gold border; the subsidiary name in large gold text; 'LAUNCHING SOON' with a shimmer/glow animation; a grid or carousel of relevant imagery for that subsidiary (using the generated images); and a close button in gold.",
+        "summary": "Update all subsidiary detail modals and any 'Launching Soon' placeholder text/labels to use pre-launch messaging (e.g., 'Coming Soon' or 'Pre-Launch') instead of 'Launching Soon', reflecting that the company has not yet launched.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/components/SubsidiaryDetails.tsx",
           "frontend/src/components/SubsidiaryGrid.tsx",
-          "frontend/src/index.css"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/SubsidiaryDetails.tsx",
-          "frontend/src/components/SubsidiaryGrid.tsx",
-          "frontend/src/index.css"
-        ]
-      },
-      {
-        "id": "REQ-5",
-        "summary": "Use all generated product/service images as static assets in frontend/public/assets/generated and reference them in the respective 'Launching Soon' modals for each subsidiary.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/SubsidiaryDetails.tsx",
-          "frontend/src/components/SubsidiaryGrid.tsx"
+          "frontend/src/components/PlaceholderPage.tsx"
         ],
         "matchedFiles": [
           "frontend/src/components/SubsidiaryDetails.tsx",
@@ -88,27 +31,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/assured-tours-flight.dim_600x400.png",
-    "frontend/public/assets/generated/assured-tours-train.dim_600x400.png",
-    "frontend/public/assets/generated/gst-service-tax.dim_600x400.png",
-    "frontend/public/assets/generated/luminia-captures-studio.dim_600x400.png",
-    "frontend/public/assets/generated/luminia-captures-wedding.dim_600x400.png",
-    "frontend/public/assets/generated/luminia-gadgets-earbuds.dim_600x400.png",
-    "frontend/public/assets/generated/luminia-gadgets-headphones.dim_600x400.png",
-    "frontend/public/assets/generated/luminia-gadgets-watch.dim_600x400.png",
-    "frontend/public/assets/generated/luminia-techlabs-dev.dim_600x400.png",
-    "frontend/public/assets/generated/moda-vestra-fashion.dim_600x400.png",
-    "frontend/public/assets/generated/velocity-vogue-luggage.dim_600x400.png",
-    "frontend/src/App.tsx",
-    "frontend/src/components/Footer.tsx",
-    "frontend/src/components/HeroSection.tsx",
-    "frontend/src/components/ManifestoSection.tsx",
-    "frontend/src/components/Navigation.tsx",
     "frontend/src/components/SubsidiaryDetails.tsx",
     "frontend/src/components/SubsidiaryGrid.tsx",
-    "frontend/src/components/WelcomePopup.tsx",
-    "frontend/src/index.css",
-    "frontend/tailwind.config.js",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

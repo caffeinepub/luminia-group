@@ -1,129 +1,40 @@
 {
   "kind": "build_request",
-  "title": "Full Luminia Group Site — Cinematic Popup, Company Cards & Launching Soon Modals",
+  "title": "Change 'Launching Soon' to 'Pre-Launch' messaging across subsidiary modals",
   "projectName": "Luminia Group",
-  "priority": "high",
+  "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Implement a full-screen cinematic welcome popup shown once per session. It must feature: an animated gold particle shimmer/rain effect on deep black background; the Luminia Group logo (image-3.png) fading in at center with a golden glow pulse animation; 'WELCOME TO LUMINIA GROUP CONGLOMERATE' in gold serif capitals with a letter-by-letter reveal animation; a self-drawing thin gold horizontal divider line below the headline; subtitle text 'A Legacy of Excellence' in smaller italic gold below the divider; a glowing gold 'ENTER' button with ripple effect; and a gold burst/dissolve exit transition when the user clicks Enter.",
+      "text": "Update all subsidiary detail modals and any 'Launching Soon' placeholder text/labels to use pre-launch messaging (e.g., 'Coming Soon' or 'Pre-Launch') instead of 'Launching Soon', reflecting that the company has not yet launched.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-8",
-          "msg-10",
-          "msg-12"
+          "msg-4"
+        ],
+        "quotes": [
+          "not yet launched so pre launch"
         ]
       },
       "acceptanceCriteria": [
-        "Popup appears on first page load (once per session via sessionStorage)",
-        "Gold particles animate on the black background",
-        "Logo fades in with a visible golden glow pulse",
-        "Headline text reveals letter by letter in gold serif font",
-        "Gold divider line draws itself across the screen",
-        "Subtitle 'A Legacy of Excellence' is visible in italic gold",
-        "ENTER button has glow and ripple effect on hover/click",
-        "Clicking ENTER triggers a gold burst transition and reveals the main site"
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Build the main landing page with a consistent black and gold luxury theme throughout — background obsidian/deep black, all typography in gold or ivory, gold accent lines and dividers. Use the Luminia Group logo (image-3.png) in the navigation bar and footer with a black background behind it.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-8",
-          "msg-10",
-          "msg-12"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Page background is deep black / obsidian throughout",
-        "All primary headings and accents use gold color tokens",
-        "Logo appears in nav and footer on a black background",
-        "Overall visual style is premium and consistent"
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Display all 7 Luminia subsidiaries as premium gold-bordered cards on the main page in a responsive grid. Each card must show the company name, a fitting tagline, and a gold 'Discover' button. Companies and their domains: (1) Luminia Gadgets — watches, headphones, earbuds; (2) Moda Vestra — fashion and clothing; (3) Velocity Vogue — luggage and travel bags; (4) Luminia Captures — wedding photography and professional photoshoots; (5) Assured Tours & Travels — itineraries, train tickets, flight tickets; (6) Luminia TechLabs — web and app development, GST services; (7) GST Service — GST-related tax and business services.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-8",
-          "msg-10",
-          "msg-12"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All 7 company cards are rendered in a responsive grid",
-        "Each card has the company name, a tagline, and a Discover button",
-        "Cards use gold borders and black background styling",
-        "Grid is responsive across mobile, tablet, and desktop"
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "When a user clicks the 'Discover' button on any subsidiary card, open a full-screen or large modal overlay with a 'Launching Soon' experience. The modal must have: a black background with animated gold border; the subsidiary name in large gold text; 'LAUNCHING SOON' with a shimmer/glow animation; a grid or carousel of relevant imagery for that subsidiary (using the generated images); and a close button in gold.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-8",
-          "msg-10",
-          "msg-12"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Clicking Discover opens a modal/overlay for that specific subsidiary",
-        "Modal has black background with animated gold border",
-        "LAUNCHING SOON text has visible shimmer or glow animation",
-        "Relevant product/service images are displayed in a grid or carousel",
-        "Modal can be closed via a gold close button or Escape key"
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Use all generated product/service images as static assets in frontend/public/assets/generated and reference them in the respective 'Launching Soon' modals for each subsidiary.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-10",
-          "msg-12"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All generated images are placed in frontend/public/assets/generated",
-        "Each subsidiary modal displays the correct set of images for its category",
-        "Images render correctly on all screen sizes"
+        "No instance of 'Launching Soon' text appears anywhere in the UI.",
+        "Subsidiary modals display 'Pre-Launch' or 'Coming Soon' status language consistently.",
+        "The PlaceholderPage component also reflects pre-launch messaging if it previously displayed 'Launching Soon'.",
+        "The overall tone and styling (black & gold theme) remains unchanged."
       ]
     }
   ],
   "constraints": [
-    "Use image-3.png (the uploaded Luminia Group logo) as the official logo across nav, footer, and welcome popup",
-    "Color theme must be strictly black and gold throughout — no blue, purple, or other accent colors",
-    "Do not edit files under frontend/src/hooks/ or frontend/src/components/ui/",
-    "Session storage must be used so the welcome popup only appears once per browser session"
+    "Do not alter the black-and-gold visual theme or any layout/styling.",
+    "Do not modify files under frontend/src/hooks/ that are listed as immutable."
   ],
   "nonGoals": [
-    "No backend logic or data persistence is needed — this is a fully static corporate site",
-    "No email capture or newsletter forms",
-    "No actual e-commerce, booking, or ticketing functionality",
-    "No user authentication or Internet Identity integration"
+    "Adding new sections or features beyond the messaging update.",
+    "Changing the subsidiary card data or imagery.",
+    "Backend changes — the backend remains a static empty actor."
   ],
   "imageRequirements": {
-    "required": [
-      "Gold luxury smartwatch with dark background, elegant product shot (luminia-gadgets-watch.dim_600x400.png)",
-      "Premium over-ear headphones in gold and black tones, studio product shot (luminia-gadgets-headphones.dim_600x400.png)",
-      "Luxury wireless earbuds in gold case on dark background (luminia-gadgets-earbuds.dim_600x400.png)",
-      "High-fashion women's clothing flatlay in black and gold tones (moda-vestra-fashion.dim_600x400.png)",
-      "Premium hard-shell luggage set in gold and black on dark background (velocity-vogue-luggage.dim_600x400.png)",
-      "Elegant wedding couple portrait with cinematic gold lighting (luminia-captures-wedding.dim_600x400.png)",
-      "Professional photoshoot setup with gold backdrop and studio lights (luminia-captures-studio.dim_600x400.png)",
-      "Luxury airplane interior first class seat with gold accents (assured-tours-flight.dim_600x400.png)",
-      "Scenic train journey through mountains with warm golden hour light (assured-tours-train.dim_600x400.png)",
-      "Modern laptop showing code editor with dark theme and gold UI accents (luminia-techlabs-dev.dim_600x400.png)",
-      "GST tax document and calculator on a dark desk with gold pen (gst-service-tax.dim_600x400.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

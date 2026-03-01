@@ -1,134 +1,32 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Full Luminia Group Site — Cinematic Popup, Company Cards & Launching Soon Modals",
+  "title": "Change 'Launching Soon' to 'Pre-Launch' messaging across subsidiary modals",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Implement cinematic welcome popup with gold particle animation, logo fade-in, letter-by-letter reveal, drawing divider, and burst transition",
+      "summary": "Update all subsidiary detail modals and any 'Launching Soon' placeholder text/labels to use pre-launch messaging (e.g., 'Coming Soon' or 'Pre-Launch') instead of 'Launching Soon', reflecting that the company has not yet launched.",
       "acceptanceCriteria": [
-        "Popup appears on first page load (once per session via sessionStorage)",
-        "Gold particles animate on the black background",
-        "Logo fades in with a visible golden glow pulse",
-        "Headline text reveals letter by letter in gold serif font",
-        "Gold divider line draws itself across the screen",
-        "Subtitle 'A Legacy of Excellence' is visible in italic gold",
-        "ENTER button has glow and ripple effect on hover/click",
-        "Clicking ENTER triggers a gold burst transition and reveals the main site"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/WelcomePopup.tsx",
-          "operation": "modify",
-          "description": "Replace the current welcome popup implementation with a full-screen cinematic version featuring: animated gold particle shimmer/rain effect using CSS keyframes or canvas; logo (frontend/public/assets/image-3.png) with fade-in and golden glow pulse animation; 'WELCOME TO LUMINIA GROUP CONGLOMERATE' headline with letter-by-letter reveal animation using Cormorant Garamond serif font and gold color; self-drawing thin gold horizontal divider line below headline using CSS animation (width 0 to 100%); subtitle 'A Legacy of Excellence' in smaller italic gold text below divider; glowing gold 'ENTER' button with ripple effect on hover/click; gold burst/dissolve exit transition when Enter is clicked; sessionStorage check to show popup only once per session."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add CSS keyframe animations for: gold particle shimmer/rain effect (multiple falling particles with opacity and transform animations); logo glow pulse animation (box-shadow with gold color pulsing); letter-by-letter text reveal animation (opacity and translateY per character with stagger delay); self-drawing divider line animation (width from 0% to 100% with scaleX transform); button ripple effect animation (expanding circle with opacity fade); gold burst/dissolve exit transition (scale and opacity with radial gradient effect)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Build main landing page with consistent black and gold luxury theme, using logo in nav and footer with black background",
-      "acceptanceCriteria": [
-        "Page background is deep black / obsidian throughout",
-        "All primary headings and accents use gold color tokens",
-        "Logo appears in nav and footer on a black background",
-        "Overall visual style is premium and consistent"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/Navigation.tsx",
-          "operation": "modify",
-          "description": "Update Navigation component to use the official Luminia Group logo (frontend/public/assets/image-3.png) with a black background container behind it. Ensure the logo has proper padding and the black background contrasts with the page's dark theme. Maintain existing sticky nav functionality and mobile menu."
-        },
-        {
-          "path": "frontend/src/components/Footer.tsx",
-          "operation": "modify",
-          "description": "Update Footer component to display the official Luminia Group logo (frontend/public/assets/image-3.png) with a black background container behind it. Maintain the existing portfolio brand list, contact links, location, and attribution while ensuring consistent gold and ivory text colors throughout."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Verify and enhance the existing black and gold luxury theme by ensuring: all page backgrounds use obsidian/deep black (--color-obsidian or #0a0a0a); all primary headings use gold color tokens (--color-gold); all accent lines and dividers use gold; body text uses ivory or light gold tones; the overall design system maintains premium consistency with no blue or purple accents."
-        },
-        {
-          "path": "frontend/src/components/HeroSection.tsx",
-          "operation": "modify",
-          "description": "Update HeroSection to ensure it uses the black and gold color scheme consistently. Verify the background overlays use deep black, headline text uses gold, and the CTA button follows the gold accent styling. Maintain existing animations and scroll indicator."
-        },
-        {
-          "path": "frontend/src/components/ManifestoSection.tsx",
-          "operation": "modify",
-          "description": "Ensure ManifestoSection uses gold accent dividers, gold text for the blockquote, and deep black background with the radial glow effect. Maintain existing scroll-triggered animations while enforcing color consistency."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Display all 7 Luminia subsidiaries as premium gold-bordered cards in responsive grid with company names, taglines, and Discover buttons",
-      "acceptanceCriteria": [
-        "All 7 company cards are rendered in a responsive grid",
-        "Each card has the company name, a tagline, and a Discover button",
-        "Cards use gold borders and black background styling",
-        "Grid is responsive across mobile, tablet, and desktop"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/SubsidiaryGrid.tsx",
-          "operation": "modify",
-          "description": "Update the subsidiaries array to include all 7 companies with accurate names, domains, and fitting taglines: (1) Luminia Gadgets — 'Precision Timepieces & Premium Audio' (watches, headphones, earbuds); (2) Moda Vestra — 'Couture Fashion & Timeless Style' (fashion and clothing); (3) Velocity Vogue — 'Luxury Travel Companions' (luggage and travel bags); (4) Luminia Captures — 'Moments Transformed into Art' (wedding photography and professional photoshoots); (5) Assured Tours & Travels — 'Curated Journeys & Seamless Bookings' (itineraries, train tickets, flight tickets); (6) Luminia TechLabs — 'Digital Innovation & Business Solutions' (web and app development, GST services); (7) GST Service — 'Expert Tax & Compliance Advisory' (GST-related tax and business services). Ensure each card has a gold-bordered design with black background, company name in gold heading, tagline in ivory/gold, and a gold 'Discover' button. Maintain responsive grid layout and scroll-triggered animations."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Implement Launching Soon modal overlay for each subsidiary with animated gold border, shimmer effect, and image grid/carousel",
-      "acceptanceCriteria": [
-        "Clicking Discover opens a modal/overlay for that specific subsidiary",
-        "Modal has black background with animated gold border",
-        "LAUNCHING SOON text has visible shimmer or glow animation",
-        "Relevant product/service images are displayed in a grid or carousel",
-        "Modal can be closed via a gold close button or Escape key"
+        "No instance of 'Launching Soon' text appears anywhere in the UI.",
+        "Subsidiary modals display 'Pre-Launch' or 'Coming Soon' status language consistently.",
+        "The PlaceholderPage component also reflects pre-launch messaging if it previously displayed 'Launching Soon'.",
+        "The overall tone and styling (black & gold theme) remains unchanged."
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/SubsidiaryDetails.tsx",
           "operation": "modify",
-          "description": "Transform SubsidiaryDetails into a Launching Soon modal overlay with: full-screen or large modal size with black background; animated gold border using CSS keyframes (pulsing or flowing effect); subsidiary name in large gold text at the top; 'LAUNCHING SOON' headline with shimmer/glow animation using CSS keyframes (gradient animation or opacity pulse); a responsive grid or carousel displaying relevant product/service images for the selected subsidiary (reference images from frontend/public/assets/generated); a prominent gold close button (X) in the top-right corner; support for Escape key to close the modal; smooth entrance and exit transitions."
+          "description": "Update any 'Launching Soon' text in the subsidiary detail modal component to display 'Pre-Launch' or 'Coming Soon' messaging instead. Search for all instances of 'Launching Soon' text within the modal content, button labels, status indicators, and replace with pre-launch terminology while maintaining the existing black-and-gold styling and layout structure."
         },
         {
           "path": "frontend/src/components/SubsidiaryGrid.tsx",
           "operation": "modify",
-          "description": "Update SubsidiaryGrid to trigger the new Launching Soon modal (SubsidiaryDetails) when a user clicks the Discover button on any subsidiary card. Ensure the modal receives the correct subsidiary data including the list of relevant image paths for that subsidiary's category."
+          "description": "Update any 'Launching Soon' text in subsidiary card data, labels, or status fields to use 'Pre-Launch' or 'Coming Soon' messaging. Review the subsidiary definitions array and any status/launch text displayed on the grid cards, replacing all instances with pre-launch terminology."
         },
         {
-          "path": "frontend/src/index.css",
+          "path": "frontend/src/components/PlaceholderPage.tsx",
           "operation": "modify",
-          "description": "Add CSS keyframe animations for the Launching Soon modal: animated gold border effect (border color pulse or gradient flow using border-image or box-shadow); shimmer/glow animation for LAUNCHING SOON text (linear gradient moving across text or opacity pulse with gold glow); smooth modal entrance animation (fade-in with scale or slide-up); modal exit animation (fade-out with scale-down)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Use all generated product/service images as static assets and reference them in Launching Soon modals",
-      "acceptanceCriteria": [
-        "All generated images are placed in frontend/public/assets/generated",
-        "Each subsidiary modal displays the correct set of images for its category",
-        "Images render correctly on all screen sizes"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/SubsidiaryDetails.tsx",
-          "operation": "modify",
-          "description": "Map each subsidiary to its relevant generated image assets: Luminia Gadgets uses frontend/public/assets/generated/luminia-gadgets-watch.dim_600x400.png, frontend/public/assets/generated/luminia-gadgets-headphones.dim_600x400.png, frontend/public/assets/generated/luminia-gadgets-earbuds.dim_600x400.png; Moda Vestra uses frontend/public/assets/generated/moda-vestra-fashion.dim_600x400.png; Velocity Vogue uses frontend/public/assets/generated/velocity-vogue-luggage.dim_600x400.png; Luminia Captures uses frontend/public/assets/generated/luminia-captures-wedding.dim_600x400.png, frontend/public/assets/generated/luminia-captures-studio.dim_600x400.png; Assured Tours & Travels uses frontend/public/assets/generated/assured-tours-flight.dim_600x400.png, frontend/public/assets/generated/assured-tours-train.dim_600x400.png; Luminia TechLabs uses frontend/public/assets/generated/luminia-techlabs-dev.dim_600x400.png; GST Service uses frontend/public/assets/generated/gst-service-tax.dim_600x400.png. Render these images in a responsive grid or carousel within the modal, ensuring they display correctly on mobile, tablet, and desktop viewports using responsive image techniques (object-fit, max-width, aspect-ratio)."
-        },
-        {
-          "path": "frontend/src/components/SubsidiaryGrid.tsx",
-          "operation": "modify",
-          "description": "Update the subsidiaries data structure to include an images array property for each subsidiary, containing the exact file paths (frontend/public/assets/generated/...) of the relevant generated images. Pass this images array to the SubsidiaryDetails modal when a subsidiary is selected."
+          "description": "Verify and update any 'Launching Soon' text in the PlaceholderPage component to display 'Coming Soon' or 'Pre-Launch' messaging instead. The file summary indicates this is a 'Coming Soon' placeholder page, but confirm no 'Launching Soon' text exists and update if found while maintaining the existing fade-in animation and gold decorative elements."
         }
       ]
     }

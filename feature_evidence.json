@@ -2,11 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-implement-a-full-screen-cinematic-welcome-popup-shown-once-per-session-it-must-feature-an-animated-gold-particle-shimmer-rain-effect-on-deep-black-background-the-luminia-group-logo-image-3-png-fading-in-at-center-with-a-golden-glow-pulse-animation-welcome-to-luminia-group-conglomerate-in-gold-serif-capitals-with-a-letter-by-letter-reveal-animation-a-self-drawing-thin-gold-horizontal-divider-line-below-the-headline-subtitle-text-a-legacy-of-excellence-in-smaller-italic-gold-below-the-divider-a-glowing-gold-enter-button-with-ripple-effect-and-a-gold-burst-dissolve-exit-transition-when-the-user-clicks-enter",
-      "featureTitle": "Implement a full-screen cinematic welcome popup shown once per session. It must feature: an animated gold particle shimmer/rain effect on deep black background; the Luminia Group logo (image-3.png) fading in at center with a golden glow pulse animation; 'WELCOME TO LUMINIA GROUP CONGLOMERATE' in gold serif capitals with a letter-by-letter reveal animation; a self-drawing thin gold horizontal divider line below the headline; subtitle text 'A Legacy of Excellence' in smaller italic gold below the divider; a glowing gold 'ENTER' button with ripple effect; and a gold burst/dissolve exit transition when the user clicks Enter.",
+      "featureId": "feature-update-all-subsidiary-detail-modals-and-any-launching-soon-placeholder-text-labels-to-use-pre-launch-messaging-e-g-coming-soon-or-pre-launch-instead-of-launching-soon-reflecting-that-the-company-has-not-yet-launched",
+      "featureTitle": "Update all subsidiary detail modals and any 'Launching Soon' placeholder text/labels to use pre-launch messaging (e.g., 'Coming Soon' or 'Pre-Launch') instead of 'Launching Soon', reflecting that the company has not yet launched.",
       "files": [
-        "frontend/src/components/WelcomePopup.tsx",
-        "frontend/src/index.css"
+        "frontend/src/components/SubsidiaryDetails.tsx",
+        "frontend/src/components/SubsidiaryGrid.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -17,85 +17,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-build-the-main-landing-page-with-a-consistent-black-and-gold-luxury-theme-throughout-background-obsidian-deep-black-all-typography-in-gold-or-ivory-gold-accent-lines-and-dividers-use-the-luminia-group-logo-image-3-png-in-the-navigation-bar-and-footer-with-a-black-background-behind-it",
-      "featureTitle": "Build the main landing page with a consistent black and gold luxury theme throughout — background obsidian/deep black, all typography in gold or ivory, gold accent lines and dividers. Use the Luminia Group logo (image-3.png) in the navigation bar and footer with a black background behind it.",
-      "files": [
-        "frontend/src/components/Footer.tsx",
-        "frontend/src/components/HeroSection.tsx",
-        "frontend/src/components/ManifestoSection.tsx",
-        "frontend/src/components/Navigation.tsx",
-        "frontend/src/index.css"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-display-all-7-luminia-subsidiaries-as-premium-gold-bordered-cards-on-the-main-page-in-a-responsive-grid-each-card-must-show-the-company-name-a-fitting-tagline-and-a-gold-discover-button-companies-and-their-domains-1-luminia-gadgets-watches-headphones-earbuds-2-moda-vestra-fashion-and-clothing-3-velocity-vogue-luggage-and-travel-bags-4-luminia-captures-wedding-photography-and-professional-photoshoots-5-assured-tours-travels-itineraries-train-tickets-flight-tickets-6-luminia-techlabs-web-and-app-development-gst-services-7-gst-service-gst-related-tax-and-business-services",
-      "featureTitle": "Display all 7 Luminia subsidiaries as premium gold-bordered cards on the main page in a responsive grid. Each card must show the company name, a fitting tagline, and a gold 'Discover' button. Companies and their domains: (1) Luminia Gadgets — watches, headphones, earbuds; (2) Moda Vestra — fashion and clothing; (3) Velocity Vogue — luggage and travel bags; (4) Luminia Captures — wedding photography and professional photoshoots; (5) Assured Tours & Travels — itineraries, train tickets, flight tickets; (6) Luminia TechLabs — web and app development, GST services; (7) GST Service — GST-related tax and business services.",
-      "files": [
-        "frontend/src/components/SubsidiaryGrid.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-when-a-user-clicks-the-discover-button-on-any-subsidiary-card-open-a-full-screen-or-large-modal-overlay-with-a-launching-soon-experience-the-modal-must-have-a-black-background-with-animated-gold-border-the-subsidiary-name-in-large-gold-text-launching-soon-with-a-shimmer-glow-animation-a-grid-or-carousel-of-relevant-imagery-for-that-subsidiary-using-the-generated-images-and-a-close-button-in-gold",
-      "featureTitle": "When a user clicks the 'Discover' button on any subsidiary card, open a full-screen or large modal overlay with a 'Launching Soon' experience. The modal must have: a black background with animated gold border; the subsidiary name in large gold text; 'LAUNCHING SOON' with a shimmer/glow animation; a grid or carousel of relevant imagery for that subsidiary (using the generated images); and a close button in gold.",
-      "files": [
-        "frontend/src/components/SubsidiaryDetails.tsx",
-        "frontend/src/components/SubsidiaryGrid.tsx",
-        "frontend/src/index.css"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-use-all-generated-product-service-images-as-static-assets-in-frontend-public-assets-generated-and-reference-them-in-the-respective-launching-soon-modals-for-each-subsidiary",
-      "featureTitle": "Use all generated product/service images as static assets in frontend/public/assets/generated and reference them in the respective 'Launching Soon' modals for each subsidiary.",
-      "files": [
-        "frontend/src/components/SubsidiaryDetails.tsx",
-        "frontend/src/components/SubsidiaryGrid.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
       ],
       "confidence": "high"
     }
