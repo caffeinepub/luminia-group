@@ -1,0 +1,12 @@
+{
+  "frontend/src/index.css": "Global styles defining the dark-gold luxury design system with OKLCH color tokens, Cormorant Garamond display font, Montserrat body font, and utility classes for gold glows, shimmer effects, card hover states, and hero overlays.",
+  "frontend/tailwind.config.js": "Extended Tailwind configuration with Cormorant Garamond/Montserrat font families, gold/obsidian/ivory/charcoal color tokens, luxury box shadows, and custom keyframe animations for fade-in, shimmer, and gold pulse effects.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder module for React Query hooks; no backend queries needed for this static corporate website.",
+  "frontend/src/components/Navigation.tsx": "Sticky top navigation bar with the Luminia Group logo, smooth-scroll anchor links (Home, Our Empire, Connect With Us), a Pre-Launch badge on desktop, and a full mobile drawer menu — \"Luminia Gadgets\" replaced with \"Connect With Us\" which scrolls to the footer contact section.",
+  "frontend/src/components/HeroSection.tsx": "Full-viewport hero section with full-bleed background image, pre-launch badge, animated gold shimmer headline, manifesto quote, gold dividers, CTA button with fill animation, and scroll indicator.",
+  "frontend/src/components/SubsidiaryGrid.tsx": "Responsive 3-column empire grid displaying all 7 subsidiary cards with icons, brand names, taglines, hover gold-glow effects, and click handlers that open the SubsidiaryDetails modal.",
+  "frontend/src/components/SubsidiaryDetails.tsx": "Modal overlay component showing full subsidiary details including icon, name, tagline, description, pre-launch status badge, and prev/next navigation between subsidiaries.",
+  "frontend/src/components/ManifestoSection.tsx": "Interstitial manifesto section between hero and empire grid featuring a large editorial quote with gold gradient text and subtle geometric background texture.",
+  "frontend/src/components/Footer.tsx": "Full footer with brand logo, tagline, location, portfolio list, and a Connect section (email, WhatsApp, Instagram) — now has `id=\"contact-section\"` on the root element to serve as the scroll target for the \"Connect With Us\" nav button.",
+  "frontend/src/App.tsx": "Root application component composing Navigation, HeroSection, ManifestoSection, SubsidiaryGrid, and Footer in a dark obsidian layout."
+}

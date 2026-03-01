@@ -1,0 +1,29 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Replace 'Luminia Gadgets' button with 'Connect With Us' scroll button",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Replace the 'Luminia Gadgets' navigation button with a 'Connect With Us' button that smoothly scrolls to the Footer/Contact section",
+      "acceptanceCriteria": [
+        "The navigation bar no longer displays a 'Luminia Gadgets' button.",
+        "A 'Connect With Us' button is visible in the navigation bar.",
+        "Clicking 'Connect With Us' smoothly scrolls the page to the Footer/Contact section.",
+        "The button styling is consistent with the existing dark luxury design system."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "modify",
+          "description": "Replace the 'Luminia Gadgets' button with a 'Connect With Us' button. Update the button's onClick handler to smoothly scroll to the Footer/Contact section using scrollIntoView with smooth behavior. Ensure the button styling matches the existing luxury design tokens (gold, obsidian, ivory) and is consistent with other navigation elements. Maintain both desktop and mobile navigation implementations."
+        },
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Add an id attribute (e.g., 'contact-section') to the Footer component or its Connect section container to serve as the scroll target for the 'Connect With Us' button. Ensure this does not alter the existing layout, alignment, or styling of the footer's email, WhatsApp, and Instagram links."
+        }
+      ]
+    }
+  ]
+}

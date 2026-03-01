@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "New project",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-in-the-navigation-component-replace-the-luminia-gadgets-button-with-a-connect-with-us-button-that-smoothly-scrolls-to-the-footer-contact-section-when-clicked",
+      "title": "In the Navigation component, replace the 'Luminia Gadgets' button with a 'Connect With Us' button that smoothly scrolls to the Footer/Contact section when clicked.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [],
+  "projectName": "Luminia Group",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

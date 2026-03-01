@@ -1,0 +1,24 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-in-the-navigation-component-replace-the-luminia-gadgets-button-with-a-connect-with-us-button-that-smoothly-scrolls-to-the-footer-contact-section-when-clicked",
+      "featureTitle": "In the Navigation component, replace the 'Luminia Gadgets' button with a 'Connect With Us' button that smoothly scrolls to the Footer/Contact section when clicked.",
+      "files": [
+        "frontend/src/components/Footer.tsx",
+        "frontend/src/components/Navigation.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

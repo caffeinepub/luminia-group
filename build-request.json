@@ -1,0 +1,40 @@
+{
+  "kind": "build_request",
+  "title": "Replace 'Luminia Gadgets' button with 'Connect With Us' scroll button",
+  "projectName": "Luminia Group",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "In the Navigation component, replace the 'Luminia Gadgets' button with a 'Connect With Us' button that smoothly scrolls to the Footer/Contact section when clicked.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Replace the Luminia Gadgets button with a Connect With Us button that scrolls/navigates to the Contact section when clicked."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The navigation bar no longer displays a 'Luminia Gadgets' button.",
+        "A 'Connect With Us' button is visible in the navigation bar.",
+        "Clicking 'Connect With Us' smoothly scrolls the page to the Footer/Contact section.",
+        "The button styling is consistent with the existing dark luxury design system."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not alter the overall dark obsidian luxury design system or color tokens.",
+    "Do not modify immutable frontend paths (useInternetIdentity, useActor, main.tsx, ui components)."
+  ],
+  "nonGoals": [
+    "Adding any new sections or pages.",
+    "Changing any backend logic.",
+    "Modifying the Footer contact links or alignment."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
