@@ -1,9 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Replace the placeholder payment QR code image with the actual user-uploaded Google Pay QR code.
+**Goal:** Replace the existing Google Pay QR code image with the newly uploaded Luminia Gadgets QR code and update the displayed UPI ID.
 
 **Planned changes:**
-- Replace the existing QR placeholder asset with the user-uploaded payment QR image at `frontend/public/assets/generated/google-pay-qr.png`
+- Replace the QR code image (`google-pay-qr.png`) with the uploaded Luminia Gadgets Google Pay QR code (image-9.png)
+- Update the UPI ID displayed in PaymentSection.tsx to `luminiagadgets@okicici`
 
-**User-visible outcome:** The payment section displays the real Google Pay QR code instead of a placeholder, allowing customers to scan and pay directly.
+**User-visible outcome:** When a customer proceeds to pay, they will see the correct Luminia Gadgets QR code linked to Bank of Baroda 1897 with UPI ID `luminiagadgets@okicici`.

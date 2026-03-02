@@ -1,31 +1,37 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-02T14:12:34.471Z",
+  "generatedAt": "2026-03-02T18:01:09.206Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
     "total": 1,
-    "implemented": 0,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-16",
-        "summary": "Save the user-uploaded payment QR code image as the static asset at frontend/public/assets/generated/google-pay-qr.png, replacing any existing placeholder or previous version of that file.",
-        "status": "missing",
+        "id": "REQ-22",
+        "summary": "Replace the existing QR code image at frontend/public/assets/generated/google-pay-qr.png with the newly uploaded QR code image (image-9.png) showing the Luminia Gadgets Google Pay QR code linked to Bank of Baroda 1897 with UPI ID luminiagadgets@okicici.",
+        "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/generated/google-pay-qr.png"
+          "frontend/public/assets/generated/google-pay-qr.dim_600x600.png",
+          "frontend/src/components/PaymentSection.tsx"
         ],
-        "matchedFiles": []
+        "matchedFiles": [
+          "frontend/public/assets/generated/google-pay-qr.dim_600x600.png",
+          "frontend/src/components/PaymentSection.tsx"
+        ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
     "feature_evidence.json",
+    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/google-pay-qr.dim_400x400.png",
+    "frontend/public/assets/generated/google-pay-qr.dim_600x600.png",
+    "frontend/src/components/PaymentSection.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

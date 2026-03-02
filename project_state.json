@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 25,
+  "projectStateVersion": 33,
   "summary": "New project",
   "architectural_notes": [],
   "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Edit Images\n- Replace the existing QR placeholder with the user-uploaded actual payment QR code image (google-pay-qr.png > google-pay-qr.dim_400x400.png)",
+  "isFixRequest": true,
+  "imageRequirements": "## Edit Images\n- Replace with the uploaded Luminia Gadgets Google Pay QR screenshot showing Bank of Baroda 1897 and UPI ID luminiagadgets@okicici (image-9.png > google-pay-qr.dim_600x600.png)",
   "existing_features": [
     {
       "id": "feature-add-a-payment-section-to-the-website-that-includes-1-a-placeholder-area-for-a-qr-code-image-to-be-provided-later-use-a-clearly-labeled-placeholder-until-the-actual-qr-is-uploaded-2-a-upi-redirect-button-link-use-a-placeholder-upi-url-that-can-be-updated-later-3-after-the-user-indicates-they-have-made-payment-auto-generate-a-unique-payment-reference-number-and-display-it-to-the-user-4-a-form-for-the-customer-to-submit-their-payment-details-name-upi-transaction-id-reference-number-and-5-on-form-submission-auto-redirect-to-the-business-whatsapp-using-the-existing-whatsapp-number-from-frontend-src-lib-whatsapp-ts-with-a-pre-filled-message-containing-the-submitted-payment-details-and-reference-number",
@@ -102,6 +102,54 @@
         "REQ-15"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-replace-the-existing-qr-code-image-at-frontend-public-assets-generated-google-pay-qr-png-with-the-newly-uploaded-qr-code-image-image-7-png-showing-the-luminia-gadgets-google-pay-qr-code",
+      "title": "Replace the existing QR code image at frontend/public/assets/generated/google-pay-qr.png with the newly uploaded QR code image (image-7.png) showing the Luminia Gadgets Google Pay QR code.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-upi-id-displayed-in-paymentsection-tsx-from-madhumitanandy69-okicici-to-luminiagadgets-okicici-matching-the-upi-id-shown-in-the-newly-uploaded-qr-code-image",
+      "title": "Update the UPI ID displayed in PaymentSection.tsx from 'madhumitanandy69@okicici' to 'luminiagadgets@okicici', matching the UPI ID shown in the newly uploaded QR code image.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-existing-qr-code-image-at-frontend-public-assets-generated-google-pay-qr-png-with-the-newly-uploaded-qr-code-image-image-8-png-showing-the-luminia-gadgets-google-pay-qr-code-linked-to-bank-of-baroda-1897",
+      "title": "Replace the existing QR code image at frontend/public/assets/generated/google-pay-qr.png with the newly uploaded QR code image (image-8.png) showing the Luminia Gadgets Google Pay QR code linked to Bank of Baroda 1897.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-upi-id-displayed-in-paymentsection-tsx-is-set-to-luminiagadgets-okicici-matching-the-upi-id-shown-in-the-newly-uploaded-qr-code-image-image-8-png",
+      "title": "Ensure the UPI ID displayed in PaymentSection.tsx is set to 'luminiagadgets@okicici', matching the UPI ID shown in the newly uploaded QR code image (image-8.png).",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-alignment-of-the-qr-code-image-in-paymentsection-tsx-so-it-is-properly-centered-both-horizontally-and-vertically-within-its-container-ensure-the-qr-code-image-does-not-appear-skewed-off-center-or-misaligned-on-any-screen-size-desktop-tablet-mobile-use-flexbox-or-equivalent-centering-utilities-consistent-with-the-site-s-existing-tailwind-css-patterns",
+      "title": "Fix the alignment of the QR code image in PaymentSection.tsx so it is properly centered both horizontally and vertically within its container. Ensure the QR code image does not appear skewed, off-center, or misaligned on any screen size (desktop, tablet, mobile). Use flexbox or equivalent centering utilities consistent with the site's existing Tailwind CSS patterns.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-existing-qr-code-image-at-frontend-public-assets-generated-google-pay-qr-png-with-the-newly-uploaded-qr-code-image-image-9-png-showing-the-luminia-gadgets-google-pay-qr-code-linked-to-bank-of-baroda-1897-with-upi-id-luminiagadgets-okicici",
+      "title": "Replace the existing QR code image at frontend/public/assets/generated/google-pay-qr.png with the newly uploaded QR code image (image-9.png) showing the Luminia Gadgets Google Pay QR code linked to Bank of Baroda 1897 with UPI ID luminiagadgets@okicici.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -189,6 +237,18 @@
       "reqIds": [
         "REQ-16"
       ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Update the QR code image and UPI ID displayed in the PaymentSection to the latest/correct versions.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Fix the alignment/positioning of the QR code image in PaymentSection so it appears properly centered/aligned.",
+      "reqIds": [],
       "status": "pending"
     }
   ],

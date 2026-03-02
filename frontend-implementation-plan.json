@@ -1,21 +1,27 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Replace placeholder QR code with uploaded payment QR image",
+  "title": "Replace QR code image with newly uploaded Luminia Gadgets QR (image-9.png)",
   "requirements": [
     {
-      "id": "REQ-16",
-      "summary": "Replace the placeholder payment QR code with the actual user-uploaded QR image",
+      "id": "REQ-22",
+      "summary": "Replace the existing QR code image at frontend/public/assets/generated/google-pay-qr.png with the newly uploaded QR code image (image-9.png) showing the Luminia Gadgets Google Pay QR code linked to Bank of Baroda 1897 with UPI ID luminiagadgets@okicici",
       "acceptanceCriteria": [
-        "The file frontend/public/assets/generated/google-pay-qr.png is the actual uploaded QR code image provided by the user.",
-        "The existing PaymentSection.tsx continues to reference the same path (frontend/public/assets/generated/google-pay-qr.png) without any code changes required.",
-        "The QR code rendered in the payment flow displays the actual uploaded image, not a placeholder."
+        "The file at frontend/public/assets/generated/google-pay-qr.png is replaced with the content of image-9.png.",
+        "The QR code image displayed in PaymentSection.tsx (after the customer clicks 'Proceed to Pay') shows the new Luminia Gadgets QR code.",
+        "The UPI ID displayed in PaymentSection.tsx reads 'luminiagadgets@okicici'.",
+        "The QR code image remains properly centered on all screen sizes."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/google-pay-qr.png",
-          "operation": "create",
-          "description": "Save the user-uploaded payment QR code image (GooglePay_QR.png from workspace) as the static asset at this path, replacing any existing placeholder. This file will be automatically referenced by PaymentSection.tsx without requiring code changes. The image should be the actual QR code provided by the user for Google Pay/UPI transactions."
+          "path": "frontend/public/assets/generated/google-pay-qr.dim_600x600.png",
+          "operation": "modify",
+          "description": "Replace the existing QR code asset with the newly uploaded image-9.png content. This asset shows the Luminia Gadgets Google Pay QR code linked to Bank of Baroda 1897 with UPI ID luminiagadgets@okicici. The replacement maintains the same filename and dimensions (600x600) for consistency with the PaymentSection component's image reference."
+        },
+        {
+          "path": "frontend/src/components/PaymentSection.tsx",
+          "operation": "modify",
+          "description": "Update the UPI ID text display to show 'luminiagadgets@okicici' instead of the previous value. Verify that the QR code image reference points to frontend/public/assets/generated/google-pay-qr.dim_600x600.png and that the image remains properly centered with responsive styling across all screen sizes. Do not modify the two-step payment flow logic, WhatsApp redirect functionality, or UTE reference number generation."
         }
       ]
     }

@@ -150,7 +150,7 @@ export default function PaymentSection() {
               }}
             >
               {/* QR Code */}
-              <div className="text-center">
+              <div className="flex flex-col items-center w-full">
                 <p
                   className="font-serif text-xs tracking-[0.25em] uppercase mb-5"
                   style={{ color: 'oklch(0.78 0.12 75 / 0.6)' }}
@@ -158,26 +158,28 @@ export default function PaymentSection() {
                   Scan to Pay · Google Pay / UPI
                 </p>
 
-                {/* QR image with gold border frame */}
-                <div
-                  className="relative inline-block p-3"
-                  style={{ border: '1px solid oklch(0.78 0.12 75 / 0.4)' }}
-                >
-                  <img
-                    src="/assets/GooglePay_QR.png"
-                    alt="Google Pay QR Code — Madhumita Nandy"
-                    className="w-64 h-64 object-contain"
-                    style={{ background: '#fff' }}
-                  />
-                  {/* Gold corner accents */}
-                  <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2" style={{ borderColor: 'oklch(0.78 0.12 75)' }} />
-                  <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2" style={{ borderColor: 'oklch(0.78 0.12 75)' }} />
-                  <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2" style={{ borderColor: 'oklch(0.78 0.12 75)' }} />
-                  <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2" style={{ borderColor: 'oklch(0.78 0.12 75)' }} />
+                {/* QR image with gold border frame — flex-centered */}
+                <div className="flex items-center justify-center w-full">
+                  <div
+                    className="relative p-3"
+                    style={{ border: '1px solid oklch(0.78 0.12 75 / 0.4)' }}
+                  >
+                    <img
+                      src="/assets/image-9.png"
+                      alt="Google Pay QR Code — Luminia Gadgets (luminiagadgets@okicici)"
+                      className="w-64 h-64 object-contain block"
+                      style={{ background: '#fff' }}
+                    />
+                    {/* Gold corner accents */}
+                    <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2" style={{ borderColor: 'oklch(0.78 0.12 75)' }} />
+                    <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2" style={{ borderColor: 'oklch(0.78 0.12 75)' }} />
+                    <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2" style={{ borderColor: 'oklch(0.78 0.12 75)' }} />
+                    <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2" style={{ borderColor: 'oklch(0.78 0.12 75)' }} />
+                  </div>
                 </div>
 
                 {/* UPI ID */}
-                <div className="mt-5">
+                <div className="mt-5 text-center">
                   <p
                     className="font-serif text-xs tracking-[0.2em] uppercase mb-1"
                     style={{ color: 'oklch(0.78 0.12 75 / 0.5)' }}
@@ -188,7 +190,7 @@ export default function PaymentSection() {
                     className="font-serif text-base tracking-wide"
                     style={{ color: 'oklch(0.78 0.12 75)' }}
                   >
-                    madhumitanandy69@okicici
+                    luminiagadgets@okicici
                   </p>
                 </div>
               </div>

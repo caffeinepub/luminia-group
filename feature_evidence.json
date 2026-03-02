@@ -1,4 +1,26 @@
 {
   "kind": "feature_evidence_report",
-  "features": []
+  "features": [
+    {
+      "featureId": "feature-replace-the-existing-qr-code-image-at-frontend-public-assets-generated-google-pay-qr-png-with-the-newly-uploaded-qr-code-image-image-9-png-showing-the-luminia-gadgets-google-pay-qr-code-linked-to-bank-of-baroda-1897-with-upi-id-luminiagadgets-okicici",
+      "featureTitle": "Replace the existing QR code image at frontend/public/assets/generated/google-pay-qr.png with the newly uploaded QR code image (image-9.png) showing the Luminia Gadgets Google Pay QR code linked to Bank of Baroda 1897 with UPI ID luminiagadgets@okicici.",
+      "files": [
+        "frontend/src/components/PaymentSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0",
+        "qr-code@1.0.0",
+        "camera@1.0.0"
+      ],
+      "testIds": [
+        "REQ-22"
+      ],
+      "confidence": "high"
+    }
+  ]
 }
