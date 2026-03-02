@@ -7,6 +7,7 @@ const navLinks = [
   { label: 'TechLabs', href: '#luminia-techlabs' },
   { label: 'Coming Soon', href: '#coming-soon' },
   { label: 'GST Services', href: '#gst-services' },
+  { label: 'Payment', href: '#payment' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -40,7 +41,7 @@ export default function Navigation() {
         backdropFilter: 'blur(12px)',
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         {/* Logo */}
         <button
           type="button"
@@ -49,10 +50,9 @@ export default function Navigation() {
           style={{ background: 'none', border: 'none', padding: 0 }}
         >
           <img
-            src="/assets/generated/luminia-logo-correct.dim_400x120.png"
-            alt="Luminia Group"
-            className="h-8 md:h-10 object-contain"
-            style={{ filter: 'drop-shadow(0 0 8px oklch(0.78 0.12 75 / 0.4))' }}
+            src="/assets/image-6.png"
+            alt="Luminia Group Conglomerate"
+            className="h-10 md:h-12 object-contain"
           />
         </button>
 

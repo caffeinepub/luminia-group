@@ -9,6 +9,11 @@ export default function PlaceholderPage() {
     return () => clearTimeout(timer);
   }, []);
 
+  const year = new Date().getFullYear();
+  const appId = encodeURIComponent(
+    typeof window !== 'undefined' ? window.location.hostname : 'luminia-group'
+  );
+
   return (
     <div
       ref={containerRef}
@@ -47,10 +52,9 @@ export default function PlaceholderPage() {
         {/* Logo */}
         <div className="mb-10">
           <img
-            src="/assets/generated/luminia-logo-correct.dim_400x120.png"
+            src="/assets/image-6.png"
             alt="Luminia Group Conglomerate"
-            className="h-16 w-auto mx-auto"
-            style={{ filter: 'brightness(1.1)' }}
+            className="h-24 w-auto mx-auto"
           />
         </div>
 
@@ -98,16 +102,23 @@ export default function PlaceholderPage() {
         className="absolute bottom-6 left-0 right-0 flex justify-center"
         style={{
           opacity: visible ? 0.5 : 0,
-          transition: 'opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s',
+          transition: 'opacity 1.5s ease 0.5s',
         }}
       >
-        <p className="text-ivory-faint text-xs tracking-widest">
-          Built with love using{' '}
+        <p
+          className="text-xs"
+          style={{
+            color: 'oklch(0.72 0.14 85 / 0.5)',
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            letterSpacing: '0.1em',
+          }}
+        >
+          © {year} Luminia Group Conglomerate · Built with ♥ using{' '}
           <a
-            href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(window.location.hostname || 'unknown-app')}`}
+            href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${appId}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gold-dim hover:text-gold-bright transition-colors duration-300"
+            style={{ color: 'oklch(0.72 0.14 85 / 0.7)' }}
           >
             caffeine.ai
           </a>

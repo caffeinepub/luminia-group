@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { openWhatsApp, buildBookingMessage } from '../lib/whatsapp';
 
 interface Subsidiary {
   id: string;
@@ -43,6 +44,10 @@ export default function SubsidiaryDetails({ subsidiary, onClose }: Props) {
     document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = ''; };
   }, []);
+
+  const handleEnquire = () => {
+    openWhatsApp(buildBookingMessage(subsidiary.name));
+  };
 
   return (
     <div
@@ -198,25 +203,48 @@ export default function SubsidiaryDetails({ subsidiary, onClose }: Props) {
             style={{ background: 'oklch(0.78 0.12 75 / 0.2)' }}
           />
 
-          {/* Close Button */}
-          <button
-            type="button"
-            onClick={handleClose}
-            className="px-8 py-3 font-serif text-sm tracking-widest uppercase cursor-pointer transition-all duration-300"
-            style={{
-              border: '1px solid oklch(0.78 0.12 75 / 0.5)',
-              color: 'oklch(0.78 0.12 75)',
-              background: 'transparent',
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = 'oklch(0.78 0.12 75 / 0.1)';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
-            }}
-          >
-            Close
-          </button>
+          {/* Action Buttons */}
+          <div className="flex flex-wrap gap-4">
+            {/* WhatsApp Enquire Button */}
+            <button
+              type="button"
+              onClick={handleEnquire}
+              className="px-8 py-3 font-serif text-sm tracking-widest uppercase cursor-pointer transition-all duration-300"
+              style={{
+                border: '1px solid oklch(0.78 0.12 75)',
+                color: 'oklch(0.08 0.01 60)',
+                background: 'oklch(0.78 0.12 75)',
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.background = 'oklch(0.72 0.14 75)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.background = 'oklch(0.78 0.12 75)';
+              }}
+            >
+              Enquire on WhatsApp
+            </button>
+
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={handleClose}
+              className="px-8 py-3 font-serif text-sm tracking-widest uppercase cursor-pointer transition-all duration-300"
+              style={{
+                border: '1px solid oklch(0.78 0.12 75 / 0.5)',
+                color: 'oklch(0.78 0.12 75)',
+                background: 'transparent',
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.background = 'oklch(0.78 0.12 75 / 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
+              }}
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>

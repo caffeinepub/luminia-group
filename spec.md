@@ -1,11 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Add WhatsApp automation to booking CTAs and "Notify Me" buttons so users are redirected to WhatsApp with pre-filled messages relevant to the selected service or brand.
+**Goal:** Auto-generate a unique UTE reference number and embed it in the pre-filled WhatsApp payment confirmation message when the customer clicks "Payment Done", with no manual input required.
 
 **Planned changes:**
-- Update all "Book a Session" and booking-related CTA buttons in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, and GSTServicesSection to open `https://wa.me/<number>?text=...` in a new tab, with a pre-filled message that includes the service/subsidiary name and a prompt for preferred date/time
-- Update all "Notify Me" buttons in ComingSoonSection (Luminia Gadgets, Moda Vestra, Velocity Vogue) to open WhatsApp in a new tab with a pre-filled message stating the user wants to be notified about the launch of that specific brand
-- Use the same WhatsApp number already present in the Footer contact link for all buttons
+- Update `frontend/src/lib/whatsapp.ts` to accept a UTE reference number parameter and embed it in the payment confirmation message body alongside UPI ID and timestamp.
+- Update `PaymentSection.tsx` to auto-generate a unique UTE reference number (format: `UTE-XXXXXXXX`) when the customer clicks "Payment Done" and pass it to the WhatsApp helper, triggering the redirect immediately with no intermediate steps.
 
-**User-visible outcome:** Clicking any booking or notify-me button across the site opens WhatsApp in a new tab with a relevant pre-filled message, making it easy for users to inquire about bookings or request launch notifications.
+**User-visible outcome:** When a customer clicks "Payment Done", WhatsApp automatically opens with a pre-filled message that includes the auto-generated UTE reference number, UPI ID, and timestamp — fully automatic with zero manual input.

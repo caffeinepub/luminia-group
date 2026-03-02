@@ -1,61 +1,41 @@
 {
   "kind": "build_request",
-  "title": "WhatsApp automation for booking and launch notification buttons",
+  "title": "Include auto-generated UTE reference number in automatic WhatsApp payment message",
   "projectName": "Luminia Group",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "When a user clicks any 'Book a Session' or booking-related CTA button (e.g., in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, GSTServicesSection), open WhatsApp (wa.me) in a new tab with a pre-filled message that includes the name of the service/subsidiary selected and a prompt for the user to specify their preferred date/time. The WhatsApp number must be the same one already used in the Footer contact link.",
+      "id": "REQ-6",
+      "text": "Update the payment confirmation flow in PaymentSection.tsx and the corresponding helper in frontend/src/lib/whatsapp.ts so that when the customer clicks 'Payment Done', a unique UTE reference number (e.g., 'UTE-' followed by a timestamp-based or random alphanumeric string) is auto-generated and automatically included in the pre-filled WhatsApp message. No manual input from the customer is required — the entire redirect must be fully automatic with the reference number embedded in the message body.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "Whenever they select book a session or something book automate them to my whatsapp with a message of what is selected and when"
+          "The payment message should contain the ute number make a automatic system fully automatic"
         ]
       },
       "acceptanceCriteria": [
-        "Clicking any booking CTA button opens a new tab with a WhatsApp chat URL (https://wa.me/<number>?text=...)",
-        "The pre-filled message includes the name of the selected service or subsidiary",
-        "The pre-filled message includes a placeholder or prompt for the preferred date and time",
-        "The WhatsApp number used matches the existing Footer contact number",
-        "All booking buttons across AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, and GSTServicesSection trigger this behavior"
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "When a user clicks the 'Notify Me' button for any upcoming brand card in ComingSoonSection (Gadgets, Moda Vestra, Velocity Vogue), open WhatsApp (wa.me) in a new tab with a pre-filled message stating that the person wants to be notified for the launch of that specific company (e.g., 'Hi, I would like to be notified about the launch of Luminia Gadgets!'). The WhatsApp number must be the same one already used in the Footer contact link.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "notify it should also open the whatsapp with saying that person wants to get notified for this companies launch"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Clicking the 'Notify Me' button for a coming-soon brand opens WhatsApp in a new tab",
-        "The pre-filled message includes the specific brand name the user selected",
-        "The pre-filled message clearly states intent to be notified of that brand's launch",
-        "The WhatsApp number used matches the existing Footer contact number",
-        "All three Notify Me buttons (Gadgets, Moda Vestra, Velocity Vogue) trigger this behavior with their respective brand names"
+        "When the customer clicks 'Payment Done', a unique UTE reference number is generated automatically (e.g., 'UTE-XXXXXXXX' format).",
+        "The WhatsApp redirect triggers immediately with no intermediate form or manual input step.",
+        "The pre-filled WhatsApp message body includes the auto-generated UTE reference number clearly labeled (e.g., 'UTE Reference: UTE-XXXXXXXX').",
+        "The message also includes payment context such as UPI ID and timestamp so the business can identify the transaction.",
+        "The whatsapp.ts helper function for payment confirmation accepts and embeds the UTE number in the message string.",
+        "The full flow is end-to-end automatic: Proceed to Pay → QR shown → Payment Done → WhatsApp opens with UTE reference, zero manual steps."
       ]
     }
   ],
   "constraints": [
-    "Use the same WhatsApp number already present in the Footer component — do not introduce a different number",
-    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui",
-    "Open WhatsApp in a new browser tab using wa.me URL scheme with URL-encoded pre-filled text",
-    "No backend changes required — this is a pure frontend change"
+    "Do not add any form or manual input step between 'Payment Done' and the WhatsApp redirect.",
+    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui.",
+    "WhatsApp business number must remain 7439065260 as set in frontend/src/lib/whatsapp.ts."
   ],
   "nonGoals": [
-    "Building a custom booking form or scheduling system",
-    "Storing booking or notification requests in the backend",
-    "Sending automated messages programmatically via WhatsApp Business API",
-    "Email or SMS notification alternatives"
+    "Storing payment records in the backend.",
+    "Sending SMS or email confirmations.",
+    "Verifying UPI transaction IDs programmatically.",
+    "Changing any other part of the payment UI flow beyond embedding the UTE number."
   ],
   "imageRequirements": {
     "required": [],

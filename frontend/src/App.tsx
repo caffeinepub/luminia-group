@@ -8,6 +8,7 @@ import LuminiaCapturesSection from './components/LuminiaCapturesSection';
 import LuminiaTechLabsSection from './components/LuminiaTechLabsSection';
 import ComingSoonSection from './components/ComingSoonSection';
 import GSTServicesSection from './components/GSTServicesSection';
+import PaymentSection from './components/PaymentSection';
 import Footer from './components/Footer';
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ export default function App() {
           <LuminiaTechLabsSection />
           <ComingSoonSection />
           <GSTServicesSection />
+          <PaymentSection />
         </main>
         <Footer />
       </div>

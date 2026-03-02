@@ -27,10 +27,9 @@ export default function Footer() {
               }}
             >
               <img
-                src="/assets/image-3.png"
+                src="/assets/image-6.png"
                 alt="Luminia Group Conglomerate"
                 className="h-16 w-auto object-contain"
-                style={{ filter: "drop-shadow(0 0 12px rgba(212,175,55,0.4))" }}
               />
             </div>
             <p
@@ -131,25 +130,30 @@ export default function Footer() {
 
         {/* Divider */}
         <div
-          className="mb-8 h-px"
-          style={{ background: "linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent)" }}
+          className="h-px mb-8"
+          style={{ background: "rgba(212,175,55,0.1)" }}
         />
 
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p
             className="text-xs"
-            style={{ color: "rgba(212,175,55,0.25)", letterSpacing: "0.1em" }}
+            style={{
+              color: "rgba(212,175,55,0.3)",
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              letterSpacing: "0.1em",
+            }}
           >
             © {year} Luminia Group Conglomerate. All rights reserved.
           </p>
           <p
-            className="text-xs flex items-center gap-1"
-            style={{ color: "rgba(212,175,55,0.25)", letterSpacing: "0.05em" }}
+            className="text-xs"
+            style={{
+              color: "rgba(212,175,55,0.3)",
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+            }}
           >
-            Built with{" "}
-            <span style={{ color: "rgba(212,175,55,0.6)" }}>♛</span>{" "}
-            using{" "}
+            Built with ♥ using{" "}
             <a
               href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${appId}`}
               target="_blank"

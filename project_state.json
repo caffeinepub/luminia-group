@@ -1,26 +1,48 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
-  "summary": "Project includes booking/session functionality with WhatsApp automation for booking confirmations and launch notifications.",
-  "architectural_notes": [
-    "WhatsApp automation uses wa.me deep links with pre-filled messages for booking and notification flows"
-  ],
+  "projectStateVersion": 11,
+  "summary": "New project",
+  "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-when-a-user-clicks-any-book-a-session-or-booking-related-cta-button-e-g-in-assuredtourssection-luminiacapturessection-luminiatechlabssection-gstservicessection-open-whatsapp-wa-me-in-a-new-tab-with-a-pre-filled-message-that-includes-the-name-of-the-service-subsidiary-selected-and-a-prompt-for-the-user-to-specify-their-preferred-date-time-the-whatsapp-number-must-be-the-same-one-already-used-in-the-footer-contact-link",
-      "title": "When a user clicks any 'Book a Session' or booking-related CTA button (e.g., in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, GSTServicesSection), open WhatsApp (wa.me) in a new tab with a pre-filled message that includes the name of the service/subsidiary selected and a prompt for the user to specify their preferred date/time. The WhatsApp number must be the same one already used in the Footer contact link.",
+      "id": "feature-add-a-payment-section-to-the-website-that-includes-1-a-placeholder-area-for-a-qr-code-image-to-be-provided-later-use-a-clearly-labeled-placeholder-until-the-actual-qr-is-uploaded-2-a-upi-redirect-button-link-use-a-placeholder-upi-url-that-can-be-updated-later-3-after-the-user-indicates-they-have-made-payment-auto-generate-a-unique-payment-reference-number-and-display-it-to-the-user-4-a-form-for-the-customer-to-submit-their-payment-details-name-upi-transaction-id-reference-number-and-5-on-form-submission-auto-redirect-to-the-business-whatsapp-using-the-existing-whatsapp-number-from-frontend-src-lib-whatsapp-ts-with-a-pre-filled-message-containing-the-submitted-payment-details-and-reference-number",
+      "title": "Add a Payment section to the website that includes: (1) a placeholder area for a QR code image (to be provided later — use a clearly labeled placeholder until the actual QR is uploaded), (2) a UPI redirect button/link (use a placeholder UPI URL that can be updated later), (3) after the user indicates they have made payment, auto-generate a unique payment reference number and display it to the user, (4) a form for the customer to submit their payment details (name, UPI transaction ID, reference number), and (5) on form submission, auto-redirect to the business WhatsApp (using the existing WhatsApp number from frontend/src/lib/whatsapp.ts) with a pre-filled message containing the submitted payment details and reference number.",
       "reqIds": [
-        "REQ-1"
+        "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-when-a-user-clicks-the-notify-me-button-for-any-upcoming-brand-card-in-comingsoonsection-gadgets-moda-vestra-velocity-vogue-open-whatsapp-wa-me-in-a-new-tab-with-a-pre-filled-message-stating-that-the-person-wants-to-be-notified-for-the-launch-of-that-specific-company-e-g-hi-i-would-like-to-be-notified-about-the-launch-of-luminia-gadgets-the-whatsapp-number-must-be-the-same-one-already-used-in-the-footer-contact-link",
-      "title": "When a user clicks the 'Notify Me' button for any upcoming brand card in ComingSoonSection (Gadgets, Moda Vestra, Velocity Vogue), open WhatsApp (wa.me) in a new tab with a pre-filled message stating that the person wants to be notified for the launch of that specific company (e.g., 'Hi, I would like to be notified about the launch of Luminia Gadgets!'). The WhatsApp number must be the same one already used in the Footer contact link.",
+      "id": "feature-redesign-the-paymentsection-flow-into-two-explicit-steps-1-an-initial-state-showing-only-a-pay-now-proceed-to-pay-button-the-qr-code-must-not-be-visible-at-this-stage-2-after-the-customer-clicks-that-button-reveal-the-qr-code-image-using-the-uploaded-googlepay-qr-png-asset-at-frontend-public-assets-generated-google-pay-qr-png-along-with-the-upi-id-madhumitanandy69-okicici-and-a-i-have-paid-payment-done-button-the-qr-code-section-must-remain-hidden-until-the-customer-explicitly-initiates-payment",
+      "title": "Redesign the PaymentSection flow into two explicit steps: (1) An initial state showing only a 'Pay Now' / 'Proceed to Pay' button — the QR code must NOT be visible at this stage. (2) After the customer clicks that button, reveal the QR code image (using the uploaded GooglePay_QR.png asset at frontend/public/assets/generated/google-pay-qr.png) along with the UPI ID 'madhumitanandy69@okicici' and a 'I Have Paid' / 'Payment Done' button. The QR code section must remain hidden until the customer explicitly initiates payment.",
       "reqIds": [
-        "REQ-2"
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-after-the-customer-clicks-payment-done-or-equivalent-automatically-generate-a-unique-payment-reference-number-and-immediately-redirect-the-customer-to-whatsapp-using-the-business-number-from-frontend-src-lib-whatsapp-ts-with-a-pre-filled-message-containing-the-reference-number-and-payment-details-remove-any-intermediate-form-step-the-whatsapp-redirect-must-happen-automatically-without-requiring-the-customer-to-fill-in-a-name-or-transaction-id-form-first",
+      "title": "After the customer clicks 'Payment Done' (or equivalent), automatically generate a unique payment reference number and immediately redirect the customer to WhatsApp using the business number from frontend/src/lib/whatsapp.ts with a pre-filled message containing the reference number and payment details. Remove any intermediate form step — the WhatsApp redirect must happen automatically without requiring the customer to fill in a name or transaction ID form first.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-hardcoded-whatsapp-business-number-in-frontend-src-lib-whatsapp-ts-to-7439065260-ensure-all-helper-functions-in-that-file-booking-brand-launch-notifications-payment-confirmations-and-any-other-pre-filled-message-builders-use-this-new-number-consistently",
+      "title": "Update the hardcoded WhatsApp business number in frontend/src/lib/whatsapp.ts to 7439065260. Ensure all helper functions in that file (booking, brand launch notifications, payment confirmations, and any other pre-filled message builders) use this new number consistently.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-payment-confirmation-flow-in-paymentsection-tsx-and-the-corresponding-helper-in-frontend-src-lib-whatsapp-ts-so-that-when-the-customer-clicks-payment-done-a-unique-ute-reference-number-e-g-ute-followed-by-a-timestamp-based-or-random-alphanumeric-string-is-auto-generated-and-automatically-included-in-the-pre-filled-whatsapp-message-no-manual-input-from-the-customer-is-required-the-entire-redirect-must-be-fully-automatic-with-the-reference-number-embedded-in-the-message-body",
+      "title": "Update the payment confirmation flow in PaymentSection.tsx and the corresponding helper in frontend/src/lib/whatsapp.ts so that when the customer clicks 'Payment Done', a unique UTE reference number (e.g., 'UTE-' followed by a timestamp-based or random alphanumeric string) is auto-generated and automatically included in the pre-filled WhatsApp message. No manual input from the customer is required — the entire redirect must be fully automatic with the reference number embedded in the message body.",
+      "reqIds": [
+        "REQ-6"
       ],
       "version": 1
     }
@@ -28,18 +50,43 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "When user clicks 'Book a Session' or similar booking button, automatically open WhatsApp with a pre-filled message containing what was selected and when",
+      "summary": "Change 'Est 2024' to 'Est 2026' on the site",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-2",
-      "summary": "When user clicks 'Notify' for a company launch, automatically open WhatsApp with a pre-filled message stating the person wants to be notified for that company's launch",
+      "summary": "Find all occurrences of 'Est 2024' (or 'EST 2024' or 'est 2024' or '© 2024' establishment year references) across all frontend components and update them to display 'Est 2026' (or the corresponding 2026 variant).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add payment section with QR code (to be provided later), UPI redirect link, auto-generated reference number after payment, and customer payment detail submission that auto-redirects to WhatsApp.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "In the payment flow, show the QR code only after the customer selects/initiates payment. After the customer marks payment as done, automatically redirect to WhatsApp with pre-filled payment details (no intermediate form step).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Update the WhatsApp business number to 7439065260 in frontend/src/lib/whatsapp.ts (or wherever it is referenced).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Make the payment WhatsApp message fully automatic — include the auto-generated unique reference (UTE) number in the pre-filled WhatsApp message without any manual input required from the customer.",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "gameProjectType": "none",
   "projectName": "Luminia Group",
   "clarification_mode": "instant",
   "clarification_rounds": 0

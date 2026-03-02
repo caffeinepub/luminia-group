@@ -1,42 +1,26 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-01T20:17:52.043Z",
+  "generatedAt": "2026-03-02T08:09:55.062Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 2,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-1",
-        "summary": "When a user clicks any 'Book a Session' or booking-related CTA button (e.g., in AssuredToursSection, LuminiaCapturesSection, LuminiaTechLabsSection, GSTServicesSection), open WhatsApp (wa.me) in a new tab with a pre-filled message that includes the name of the service/subsidiary selected and a prompt for the user to specify their preferred date/time. The WhatsApp number must be the same one already used in the Footer contact link.",
+        "id": "REQ-6",
+        "summary": "Update the payment confirmation flow in PaymentSection.tsx and the corresponding helper in frontend/src/lib/whatsapp.ts so that when the customer clicks 'Payment Done', a unique UTE reference number (e.g., 'UTE-' followed by a timestamp-based or random alphanumeric string) is auto-generated and automatically included in the pre-filled WhatsApp message. No manual input from the customer is required — the entire redirect must be fully automatic with the reference number embedded in the message body.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/Footer.tsx",
-          "frontend/src/components/AssuredToursSection.tsx",
-          "frontend/src/components/LuminiaCapturesSection.tsx",
-          "frontend/src/components/LuminiaTechLabsSection.tsx",
-          "frontend/src/components/GSTServicesSection.tsx"
+          "frontend/src/lib/whatsapp.ts",
+          "frontend/src/components/PaymentSection.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/AssuredToursSection.tsx",
-          "frontend/src/components/LuminiaCapturesSection.tsx",
-          "frontend/src/components/LuminiaTechLabsSection.tsx",
-          "frontend/src/components/GSTServicesSection.tsx"
-        ]
-      },
-      {
-        "id": "REQ-2",
-        "summary": "When a user clicks the 'Notify Me' button for any upcoming brand card in ComingSoonSection (Gadgets, Moda Vestra, Velocity Vogue), open WhatsApp (wa.me) in a new tab with a pre-filled message stating that the person wants to be notified for the launch of that specific company (e.g., 'Hi, I would like to be notified about the launch of Luminia Gadgets!'). The WhatsApp number must be the same one already used in the Footer contact link.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/ComingSoonSection.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/ComingSoonSection.tsx"
+          "frontend/src/lib/whatsapp.ts",
+          "frontend/src/components/PaymentSection.tsx"
         ]
       }
     ]
@@ -46,11 +30,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/AssuredToursSection.tsx",
-    "frontend/src/components/ComingSoonSection.tsx",
-    "frontend/src/components/GSTServicesSection.tsx",
-    "frontend/src/components/LuminiaCapturesSection.tsx",
-    "frontend/src/components/LuminiaTechLabsSection.tsx",
+    "frontend/src/components/PaymentSection.tsx",
     "frontend/src/lib/whatsapp.ts",
     "project_state.json",
     "scratch/component-selection.json",

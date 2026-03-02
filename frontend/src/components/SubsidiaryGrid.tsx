@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import SubsidiaryDetails from './SubsidiaryDetails';
+import { openWhatsApp, buildBookingMessage } from '../lib/whatsapp';
 
 const subsidiaries = [
   {
@@ -92,6 +93,11 @@ const subsidiaries = [
 export default function SubsidiaryGrid() {
   const [selected, setSelected] = useState<typeof subsidiaries[0] | null>(null);
 
+  const handleEnquire = (e: React.MouseEvent, name: string) => {
+    e.stopPropagation();
+    openWhatsApp(buildBookingMessage(name));
+  };
+
   return (
     <section id="subsidiaries" className="py-24 px-6" style={{ background: 'oklch(0.08 0.01 60)' }}>
       <div className="max-w-7xl mx-auto">
@@ -169,26 +175,53 @@ export default function SubsidiaryGrid() {
                 {sub.description}
               </p>
 
-              {/* Discover Button */}
-              <button
-                type="button"
-                onClick={(e) => { e.stopPropagation(); setSelected(sub); }}
-                className="text-xs tracking-widest uppercase font-serif cursor-pointer transition-colors duration-300"
-                style={{
-                  color: 'oklch(0.78 0.12 75 / 0.7)',
-                  background: 'none',
-                  border: 'none',
-                  padding: 0,
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.color = 'oklch(0.78 0.12 75)';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.color = 'oklch(0.78 0.12 75 / 0.7)';
-                }}
-              >
-                Discover →
-              </button>
+              {/* Action Buttons */}
+              <div className="flex items-center gap-4">
+                {/* Discover Button — opens modal */}
+                <button
+                  type="button"
+                  onClick={(e) => { e.stopPropagation(); setSelected(sub); }}
+                  className="text-xs tracking-widest uppercase font-serif cursor-pointer transition-colors duration-300"
+                  style={{
+                    color: 'oklch(0.78 0.12 75 / 0.7)',
+                    background: 'none',
+                    border: 'none',
+                    padding: 0,
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.color = 'oklch(0.78 0.12 75)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.color = 'oklch(0.78 0.12 75 / 0.7)';
+                  }}
+                >
+                  Discover →
+                </button>
+
+                {/* Enquire Button — opens WhatsApp */}
+                <button
+                  type="button"
+                  onClick={(e) => handleEnquire(e, sub.name)}
+                  className="text-xs tracking-widest uppercase font-serif cursor-pointer transition-all duration-300 px-3 py-1"
+                  style={{
+                    color: 'oklch(0.78 0.12 75 / 0.8)',
+                    background: 'transparent',
+                    border: '1px solid oklch(0.78 0.12 75 / 0.35)',
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.color = 'oklch(0.78 0.12 75)';
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = 'oklch(0.78 0.12 75 / 0.7)';
+                    (e.currentTarget as HTMLButtonElement).style.background = 'oklch(0.78 0.12 75 / 0.08)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLButtonElement).style.color = 'oklch(0.78 0.12 75 / 0.8)';
+                    (e.currentTarget as HTMLButtonElement).style.borderColor = 'oklch(0.78 0.12 75 / 0.35)';
+                    (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
+                  }}
+                >
+                  Enquire
+                </button>
+              </div>
             </div>
           ))}
         </div>

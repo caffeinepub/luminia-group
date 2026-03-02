@@ -46,31 +46,22 @@ export default function HeroSection() {
           transition: 'opacity 1.2s ease, transform 1.2s ease',
         }}
       >
+        {/* Logo */}
+        <div className="flex justify-center mb-8">
+          <img
+            src="/assets/image-6.png"
+            alt="Luminia Group Conglomerate"
+            className="h-28 md:h-36 lg:h-44 object-contain"
+          />
+        </div>
+
         {/* Tagline */}
         <p
           className="font-serif italic text-sm md:text-base tracking-[0.3em] uppercase mb-6"
           style={{ color: 'oklch(0.78 0.12 75 / 0.7)' }}
         >
-          Est. 2024 · India
+          Est. 2026 · India
         </p>
-
-        {/* Main Title */}
-        <h1
-          className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 leading-tight"
-          style={{
-            color: 'oklch(0.78 0.12 75)',
-            textShadow: '0 0 60px oklch(0.78 0.12 75 / 0.3)',
-          }}
-        >
-          Luminia Group
-          <br />
-          <span
-            className="italic"
-            style={{ color: 'oklch(0.78 0.12 75 / 0.8)' }}
-          >
-            Conglomerate
-          </span>
-        </h1>
 
         {/* Diamond Divider */}
         <div className="flex items-center justify-center gap-4 mb-8">
