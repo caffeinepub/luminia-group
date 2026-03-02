@@ -1,10 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 11,
+  "projectStateVersion": 25,
   "summary": "New project",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
+  "imageRequirements": "## Edit Images\n- Replace the existing QR placeholder with the user-uploaded actual payment QR code image (google-pay-qr.png > google-pay-qr.dim_400x400.png)",
   "existing_features": [
     {
       "id": "feature-add-a-payment-section-to-the-website-that-includes-1-a-placeholder-area-for-a-qr-code-image-to-be-provided-later-use-a-clearly-labeled-placeholder-until-the-actual-qr-is-uploaded-2-a-upi-redirect-button-link-use-a-placeholder-upi-url-that-can-be-updated-later-3-after-the-user-indicates-they-have-made-payment-auto-generate-a-unique-payment-reference-number-and-display-it-to-the-user-4-a-form-for-the-customer-to-submit-their-payment-details-name-upi-transaction-id-reference-number-and-5-on-form-submission-auto-redirect-to-the-business-whatsapp-using-the-existing-whatsapp-number-from-frontend-src-lib-whatsapp-ts-with-a-pre-filled-message-containing-the-submitted-payment-details-and-reference-number",
@@ -43,6 +44,62 @@
       "title": "Update the payment confirmation flow in PaymentSection.tsx and the corresponding helper in frontend/src/lib/whatsapp.ts so that when the customer clicks 'Payment Done', a unique UTE reference number (e.g., 'UTE-' followed by a timestamp-based or random alphanumeric string) is auto-generated and automatically included in the pre-filled WhatsApp message. No manual input from the customer is required — the entire redirect must be fully automatic with the reference number embedded in the message body.",
       "reqIds": [
         "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-merge-the-gst-services-section-currently-in-gstservicessection-tsx-into-the-luminia-techlabs-section-luminiatechlabssection-tsx-the-combined-section-should-present-luminia-techlabs-as-the-parent-division-and-incorporate-all-three-gst-service-offerings-registration-filing-consulting-alongside-the-existing-techlabs-service-cards-the-gst-services-should-be-clearly-grouped-or-labeled-within-the-techlabs-section-e-g-under-a-gst-services-sub-heading-each-gst-service-card-must-retain-its-whatsapp-booking-cta-using-the-existing-helper-from-frontend-src-lib-whatsapp-ts-remove-gstservicessection-tsx-from-the-page-render-order-in-app-tsx-and-from-navigation-tsx-links",
+      "title": "Merge the GST Services section (currently in GSTServicesSection.tsx) into the Luminia TechLabs section (LuminiaTechLabsSection.tsx). The combined section should present Luminia TechLabs as the parent division and incorporate all three GST service offerings (Registration, Filing, Consulting) alongside the existing TechLabs service cards. The GST services should be clearly grouped or labeled within the TechLabs section (e.g., under a 'GST Services' sub-heading). Each GST service card must retain its WhatsApp booking CTA using the existing helper from frontend/src/lib/whatsapp.ts. Remove GSTServicesSection.tsx from the page render order in App.tsx and from Navigation.tsx links.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-government-services-sub-section-within-luminiatechlabssection-tsx-containing-service-cards-for-voter-id-update-aadhaar-update-correction-and-general-application-assistance-e-g-certificates-forms-government-applications-each-card-must-follow-the-same-visual-style-as-the-existing-techlabs-and-gst-service-cards-include-a-brief-description-and-have-a-whatsapp-inquiry-cta-using-the-existing-helper-from-frontend-src-lib-whatsapp-ts",
+      "title": "Add a 'Government Services' sub-section within LuminiaTechLabsSection.tsx containing service cards for: Voter ID Update, Aadhaar Update/Correction, and General Application Assistance (e.g., certificates, forms, government applications). Each card must follow the same visual style as the existing TechLabs and GST service cards, include a brief description, and have a WhatsApp inquiry CTA using the existing helper from frontend/src/lib/whatsapp.ts.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-all-gst-service-cards-gst-sub-sections-and-any-gst-related-headings-or-labels-from-luminiatechlabssection-tsx-the-section-should-retain-only-the-core-techlabs-service-cards-and-the-government-services-sub-section-voter-id-update-aadhaar-update-correction-general-application-assistance",
+      "title": "Remove all GST service cards, GST sub-sections, and any GST-related headings or labels from LuminiaTechLabsSection.tsx. The section should retain only the core TechLabs service cards and the Government Services sub-section (Voter ID Update, Aadhaar Update/Correction, General Application Assistance).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-discount-countdown-banner-component-that-counts-down-to-30th-march-of-the-current-or-next-applicable-year-and-render-it-immediately-above-the-launched-companies-subsidiaries-section-subsidiarygrid-in-app-tsx-the-banner-must-display-the-remaining-days-hours-minutes-and-seconds-until-the-deadline-along-with-a-short-promotional-message-indicating-a-limited-time-discount-offer-for-the-launched-luminia-brands-style-it-consistently-with-the-site-s-existing-gold-obsidian-luxury-palette-using-the-gold-and-obsidian-color-tokens-defined-in-the-tailwind-config-and-css-custom-properties-once-the-countdown-reaches-zero-the-banner-should-either-hide-itself-or-display-an-offer-ended-message",
+      "title": "Add a discount countdown banner/component that counts down to 30th March (of the current or next applicable year) and render it immediately above the launched companies/subsidiaries section (SubsidiaryGrid) in App.tsx. The banner must display the remaining days, hours, minutes, and seconds until the deadline, along with a short promotional message indicating a limited-time discount offer for the launched Luminia brands. Style it consistently with the site's existing gold/obsidian luxury palette (using the gold and obsidian color tokens defined in the Tailwind config and CSS custom properties). Once the countdown reaches zero, the banner should either hide itself or display an 'Offer Ended' message.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-relocate-the-discountcountdown-banner-in-app-tsx-so-it-renders-immediately-below-the-herosection-i-e-just-below-the-luminia-group-logo-hero-area-not-between-manifestosection-and-subsidiarygrid-as-currently-placed",
+      "title": "Relocate the DiscountCountdown banner in App.tsx so it renders immediately below the HeroSection (i.e., just below the Luminia Group logo/hero area), not between ManifestoSection and SubsidiaryGrid as currently placed.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-discountcountdown-tsx-to-display-two-distinct-countdown-offers-side-by-side-or-stacked-on-mobile-1-a-holi-special-discount-counting-down-to-4th-march-of-the-current-or-next-applicable-year-and-2-a-launch-discount-counting-down-to-30th-march-of-the-current-or-next-applicable-year-each-offer-must-show-its-own-live-days-hours-minutes-seconds-countdown-and-a-short-promotional-label-when-an-individual-countdown-reaches-zero-that-offer-s-tile-should-show-an-offer-ended-message-the-component-must-remain-styled-consistently-with-the-site-s-gold-obsidian-luxury-palette",
+      "title": "Redesign DiscountCountdown.tsx to display two distinct countdown offers side by side (or stacked on mobile): (1) a 'Holi Special Discount' counting down to 4th March of the current or next applicable year, and (2) a 'Launch Discount' counting down to 30th March of the current or next applicable year. Each offer must show its own live days/hours/minutes/seconds countdown and a short promotional label. When an individual countdown reaches zero, that offer's tile should show an 'Offer Ended' message. The component must remain styled consistently with the site's gold/obsidian luxury palette.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-discountcountdown-tsx-so-that-only-one-offer-is-displayed-at-a-time-first-show-the-holi-special-discount-tile-counting-down-to-4th-march-of-the-current-or-next-applicable-year-with-its-live-days-hours-minutes-seconds-timer-once-the-holi-countdown-reaches-zero-i-e-current-date-time-is-past-4th-march-automatically-hide-the-holi-tile-and-display-the-grand-launch-discount-tile-counting-down-to-30th-march-of-the-current-or-next-applicable-year-instead-never-show-both-tiles-simultaneously-when-the-grand-launch-countdown-also-reaches-zero-display-an-offer-ended-message-the-component-must-remain-styled-consistently-with-the-site-s-gold-obsidian-luxury-palette",
+      "title": "Redesign DiscountCountdown.tsx so that only ONE offer is displayed at a time. First, show the 'Holi Special Discount' tile (counting down to 4th March of the current or next applicable year) with its live days/hours/minutes/seconds timer. Once the Holi countdown reaches zero (i.e., current date/time is past 4th March), automatically hide the Holi tile and display the 'Grand Launch Discount' tile (counting down to 30th March of the current or next applicable year) instead. Never show both tiles simultaneously. When the Grand Launch countdown also reaches zero, display an 'Offer Ended' message. The component must remain styled consistently with the site's gold/obsidian luxury palette.",
+      "reqIds": [
+        "REQ-15"
       ],
       "version": 1
     }
@@ -84,6 +141,54 @@
       "id": "AR-6",
       "summary": "Make the payment WhatsApp message fully automatic — include the auto-generated unique reference (UTE) number in the pre-filled WhatsApp message without any manual input required from the customer.",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add government services (voter ID update, Aadhaar update, application services, etc.) as service cards within the Luminia TechLabs section.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Remove all GST services/references from the site (GST section, GST service cards, GST navigation links, etc.)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Remove any remaining references to GST from Navigation.tsx (nav links, anchor IDs) and App.tsx (any GST section render or import). Ensure no GST-related navigation links appear in the desktop or mobile menu.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Remove any GST-related helper functions or WhatsApp message builders from frontend/src/lib/whatsapp.ts that exist solely to support GST service bookings. Keep all other helpers (booking, brand launch, government services, payment confirmation) intact.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Show only one countdown banner at a time: display the Holi Special Discount (counting to 4th March) first, and once it ends, automatically switch to show the Grand Launch Discount (counting to 30th March). Do not show both simultaneously.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "User has provided the actual payment QR code image (QR scanner). Replace the placeholder QR code in PaymentSection with the actual uploaded QR image.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Save the user-uploaded payment QR code image as the static asset at frontend/public/assets/generated/google-pay-qr.png, replacing any existing placeholder or previous version of that file.",
+      "reqIds": [
+        "REQ-16"
+      ],
       "status": "pending"
     }
   ],

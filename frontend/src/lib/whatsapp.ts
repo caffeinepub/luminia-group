@@ -22,6 +22,14 @@ export function buildNotifyMessage(brand: string): string {
   );
 }
 
+export function buildGovernmentServiceMessage(service: string): string {
+  return (
+    `Hello Luminia Group! 👋\n\n` +
+    `I need assistance with *${service}*.\n\n` +
+    `Could you please guide me through the process and let me know what documents are required?\n\nThank you!`
+  );
+}
+
 export function openWhatsAppBooking(service: string): void {
   openWhatsApp(buildBookingMessage(service));
 }

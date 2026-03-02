@@ -1,37 +1,31 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-02T08:09:55.062Z",
+  "generatedAt": "2026-03-02T14:12:34.471Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
     "total": 1,
-    "implemented": 1,
+    "implemented": 0,
     "items": [
       {
-        "id": "REQ-6",
-        "summary": "Update the payment confirmation flow in PaymentSection.tsx and the corresponding helper in frontend/src/lib/whatsapp.ts so that when the customer clicks 'Payment Done', a unique UTE reference number (e.g., 'UTE-' followed by a timestamp-based or random alphanumeric string) is auto-generated and automatically included in the pre-filled WhatsApp message. No manual input from the customer is required — the entire redirect must be fully automatic with the reference number embedded in the message body.",
-        "status": "implemented",
+        "id": "REQ-16",
+        "summary": "Save the user-uploaded payment QR code image as the static asset at frontend/public/assets/generated/google-pay-qr.png, replacing any existing placeholder or previous version of that file.",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/src/lib/whatsapp.ts",
-          "frontend/src/components/PaymentSection.tsx"
+          "frontend/public/assets/generated/google-pay-qr.png"
         ],
-        "matchedFiles": [
-          "frontend/src/lib/whatsapp.ts",
-          "frontend/src/components/PaymentSection.tsx"
-        ]
+        "matchedFiles": []
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
     "feature_evidence.json",
-    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/PaymentSection.tsx",
-    "frontend/src/lib/whatsapp.ts",
+    "frontend/public/assets/generated/google-pay-qr.dim_400x400.png",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

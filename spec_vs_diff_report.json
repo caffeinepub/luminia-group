@@ -1,15 +1,21 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-03-02T08:09:55.059Z",
-  "summary": "The diff fully implements REQ-6. PaymentSection.tsx adds a generateUTEReference() function producing 'UTE-XXXXXXXX' format strings and calls it inside handlePaymentDone(), immediately invoking openWhatsAppPaymentConfirmation(uteRef) with no intermediate form step. The whatsapp.ts helper accepts the UTE reference and embeds it in the message along with the UPI ID and timestamp. The WhatsApp number remains 7439065260. All acceptance criteria are satisfied.",
-  "missing_requirements": [],
+  "generatedAt": "2026-03-02T14:12:34.468Z",
+  "summary": "The diff only shows a modification to project_state.json (a metadata/state tracking file). The actual required file — frontend/public/assets/generated/google-pay-qr.png — does not appear in the diff as an added or modified binary asset. REQ-16 requires saving the uploaded QR code image as a static asset at that specific path, but no such file addition is evidenced in the diff.",
+  "missing_requirements": [
+    {
+      "id": "REQ-16",
+      "requirement": "Save the user-uploaded payment QR code image as the static asset at frontend/public/assets/generated/google-pay-qr.png, replacing any existing placeholder or previous version of that file.",
+      "reason": "The diff shows no added or modified image file at frontend/public/assets/generated/google-pay-qr.png. Only project_state.json was modified. The actual PNG asset replacement is not evidenced in the diff.",
+      "evidence": [
+        "project_state.json"
+      ]
+    }
+  ],
   "hallucinated_features": [],
-  "confidence": 0.97,
+  "confidence": 0.85,
   "changed_files": [
-    "frontend-file-summaries.txt",
-    "frontend/src/components/PaymentSection.tsx",
-    "frontend/src/lib/whatsapp.ts",
     "project_state.json"
   ]
 }

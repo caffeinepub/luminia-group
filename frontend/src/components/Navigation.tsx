@@ -6,7 +6,6 @@ const navLinks = [
   { label: 'Captures', href: '#luminia-captures' },
   { label: 'TechLabs', href: '#luminia-techlabs' },
   { label: 'Coming Soon', href: '#coming-soon' },
-  { label: 'GST Services', href: '#gst-services' },
   { label: 'Payment', href: '#payment' },
   { label: 'Contact', href: '#contact' },
 ];

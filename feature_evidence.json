@@ -1,27 +1,4 @@
 {
   "kind": "feature_evidence_report",
-  "features": [
-    {
-      "featureId": "feature-update-the-payment-confirmation-flow-in-paymentsection-tsx-and-the-corresponding-helper-in-frontend-src-lib-whatsapp-ts-so-that-when-the-customer-clicks-payment-done-a-unique-ute-reference-number-e-g-ute-followed-by-a-timestamp-based-or-random-alphanumeric-string-is-auto-generated-and-automatically-included-in-the-pre-filled-whatsapp-message-no-manual-input-from-the-customer-is-required-the-entire-redirect-must-be-fully-automatic-with-the-reference-number-embedded-in-the-message-body",
-      "featureTitle": "Update the payment confirmation flow in PaymentSection.tsx and the corresponding helper in frontend/src/lib/whatsapp.ts so that when the customer clicks 'Payment Done', a unique UTE reference number (e.g., 'UTE-' followed by a timestamp-based or random alphanumeric string) is auto-generated and automatically included in the pre-filled WhatsApp message. No manual input from the customer is required — the entire redirect must be fully automatic with the reference number embedded in the message body.",
-      "files": [
-        "frontend/src/components/PaymentSection.tsx",
-        "frontend/src/lib/whatsapp.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "blob-storage@4.0.0",
-        "qr-code@1.0.0",
-        "camera@1.0.0"
-      ],
-      "testIds": [
-        "REQ-6"
-      ],
-      "confidence": "high"
-    }
-  ]
+  "features": []
 }

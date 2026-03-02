@@ -1,29 +1,21 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Include auto-generated UTE reference number in automatic WhatsApp payment message",
+  "title": "Replace placeholder QR code with uploaded payment QR image",
   "requirements": [
     {
-      "id": "REQ-6",
-      "summary": "Auto-generate and embed a unique UTE reference number in the WhatsApp payment confirmation message when customer clicks 'Payment Done', ensuring a fully automatic redirect with no manual input steps",
+      "id": "REQ-16",
+      "summary": "Replace the placeholder payment QR code with the actual user-uploaded QR image",
       "acceptanceCriteria": [
-        "When the customer clicks 'Payment Done', a unique UTE reference number is generated automatically (e.g., 'UTE-XXXXXXXX' format).",
-        "The WhatsApp redirect triggers immediately with no intermediate form or manual input step.",
-        "The pre-filled WhatsApp message body includes the auto-generated UTE reference number clearly labeled (e.g., 'UTE Reference: UTE-XXXXXXXX').",
-        "The message also includes payment context such as UPI ID and timestamp so the business can identify the transaction.",
-        "The whatsapp.ts helper function for payment confirmation accepts and embeds the UTE number in the message string.",
-        "The full flow is end-to-end automatic: Proceed to Pay → QR shown → Payment Done → WhatsApp opens with UTE reference, zero manual steps."
+        "The file frontend/public/assets/generated/google-pay-qr.png is the actual uploaded QR code image provided by the user.",
+        "The existing PaymentSection.tsx continues to reference the same path (frontend/public/assets/generated/google-pay-qr.png) without any code changes required.",
+        "The QR code rendered in the payment flow displays the actual uploaded image, not a placeholder."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/lib/whatsapp.ts",
-          "operation": "modify",
-          "description": "Modify the openPaymentConfirmation function to accept an optional uteReference parameter and embed it in the pre-filled WhatsApp message body. The message should clearly label the UTE reference (e.g., 'UTE Reference: UTE-XXXXXXXX') and include payment context such as the UPI ID (lumi***oup@axl) and timestamp for transaction identification. Ensure the business WhatsApp number (7439065260) remains unchanged."
-        },
-        {
-          "path": "frontend/src/components/PaymentSection.tsx",
-          "operation": "modify",
-          "description": "In the handlePaymentDone function, generate a unique UTE reference number using a timestamp-based or random alphanumeric format (e.g., 'UTE-' followed by timestamp + random suffix to ensure uniqueness). Immediately call the updated openPaymentConfirmation function from whatsapp.ts with the generated UTE reference, triggering an automatic WhatsApp redirect with the UTE number embedded in the message. Do not add any form, input field, or intermediate step between the button click and the redirect. Ensure the flow remains fully automatic: click 'Payment Done' → UTE generated → WhatsApp opens with pre-filled message including UTE reference."
+          "path": "frontend/public/assets/generated/google-pay-qr.png",
+          "operation": "create",
+          "description": "Save the user-uploaded payment QR code image (GooglePay_QR.png from workspace) as the static asset at this path, replacing any existing placeholder. This file will be automatically referenced by PaymentSection.tsx without requiring code changes. The image should be the actual QR code provided by the user for Google Pay/UPI transactions."
         }
       ]
     }
