@@ -158,17 +158,22 @@ export default function PaymentSection() {
                   Scan to Pay · Google Pay / UPI
                 </p>
 
-                {/* QR image with gold border frame — flex-centered */}
+                {/* QR image with gold border frame */}
                 <div className="flex items-center justify-center w-full">
                   <div
                     className="relative p-3"
                     style={{ border: '1px solid oklch(0.78 0.12 75 / 0.4)' }}
                   >
                     <img
-                      src="/assets/image-9.png"
+                      src="/assets/WhatsApp Image 2026-03-03 at 12.07.08 AM.jpeg"
                       alt="Google Pay QR Code — Luminia Gadgets (luminiagadgets@okicici)"
-                      className="w-64 h-64 object-contain block"
-                      style={{ background: '#fff' }}
+                      style={{
+                        width: '256px',
+                        height: '256px',
+                        display: 'block',
+                        objectFit: 'cover',
+                        background: '#fff',
+                      }}
                     />
                     {/* Gold corner accents */}
                     <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2" style={{ borderColor: 'oklch(0.78 0.12 75)' }} />

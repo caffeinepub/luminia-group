@@ -54,7 +54,7 @@ export function openWhatsAppPaymentConfirmation(uteReference: string): void {
     `Hello Luminia Group! 👋\n\n` +
     `I have completed my payment via Google Pay / UPI.\n\n` +
     `*UTE Reference:* ${uteReference}\n` +
-    `*UPI ID Paid To:* madhumitanandy69@okicici\n` +
+    `*UPI ID Paid To:* luminiagadgets@okicici\n` +
     `*Payment Date & Time:* ${timestamp} IST\n\n` +
     `Please confirm receipt of my payment at your earliest convenience.\n\nThank you!`;
 

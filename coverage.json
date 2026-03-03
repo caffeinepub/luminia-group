@@ -1,26 +1,50 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-02T18:01:09.206Z",
+  "generatedAt": "2026-03-03T04:04:31.737Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 3,
+    "implemented": 3,
     "items": [
       {
-        "id": "REQ-22",
-        "summary": "Replace the existing QR code image at frontend/public/assets/generated/google-pay-qr.png with the newly uploaded QR code image (image-9.png) showing the Luminia Gadgets Google Pay QR code linked to Bank of Baroda 1897 with UPI ID luminiagadgets@okicici.",
+        "id": "REQ-1",
+        "summary": "Add a 'Happy Holi' greeting banner or splash overlay that appears at the very top of the page (or as a brief dismissible overlay before the main content) displaying 'Happy Holi 🎨' in bold gold typography on a black background, visible only on the date of Holi (March 14, 2025). The component should auto-dismiss or be dismissible by the user.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/generated/google-pay-qr.dim_600x600.png",
-          "frontend/src/components/PaymentSection.tsx"
+          "frontend/src/components/HoliGreeting.tsx",
+          "frontend/src/App.tsx"
         ],
         "matchedFiles": [
-          "frontend/public/assets/generated/google-pay-qr.dim_600x600.png",
-          "frontend/src/components/PaymentSection.tsx"
+          "frontend/src/components/HoliGreeting.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Apply a Holi-themed color accent layer to the website for today only (March 14, 2025): overlay scattered, semi-transparent splashes of vibrant Holi colors (pink, red, green, cyan, orange, yellow) as decorative elements in the background or as floating blobs/powder-burst shapes across sections. These should complement — not override — the existing black and gold design system, appearing as subtle festive accents (e.g., behind hero text, at section dividers, or as corner decorations).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/HoliColorAccents.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/HoliColorAccents.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Implement a date-gating utility (e.g., `isHoliToday()` returning true only when the current date is March 14, 2025) and use it consistently to conditionally render all Holi-themed components (the greeting banner and color accents) so they are automatically hidden on all other dates without any manual toggle.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/lib/dateUtils.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/lib/dateUtils.ts"
         ]
       }
     ]
@@ -30,8 +54,11 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/google-pay-qr.dim_600x600.png",
-    "frontend/src/components/PaymentSection.tsx",
+    "frontend/public/assets/generated/holi-splash.dim_800x400.png",
+    "frontend/src/App.tsx",
+    "frontend/src/components/HoliColorAccents.tsx",
+    "frontend/src/components/HoliGreeting.tsx",
+    "frontend/src/lib/dateUtils.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

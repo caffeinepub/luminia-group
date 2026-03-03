@@ -1,5 +1,10 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { openWhatsApp, buildBookingMessage } from '../lib/whatsapp';
+import { FileText } from 'lucide-react';
+
+// Hardcoded deploy timestamp — badge is visible for 48 hours from this moment
+const DEPLOY_TIMESTAMP = new Date('2026-03-02T00:00:00Z').getTime();
+const isNewBadgeVisible = () => Date.now() - DEPLOY_TIMESTAMP < 48 * 60 * 60 * 1000;
 
 const services = [
   { title: 'Flight Bookings', desc: 'Domestic & international flights at the best prices.' },
@@ -10,12 +15,27 @@ const services = [
   { title: 'Travel Insurance', desc: 'Comprehensive coverage for peace of mind.' },
 ];
 
+const WHATSAPP_NUMBER = '917439065260';
+
+function openWhatsAppService(message: string) {
+  const encoded = encodeURIComponent(message);
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank');
+}
+
 export default function AssuredToursSection() {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation({ threshold: 0.1 });
 
+  const showNewBadge = isNewBadgeVisible();
+
   const handleBookClick = () => {
     openWhatsApp(buildBookingMessage('Assured Tours & Travels'));
+  };
+
+  const handlePassportClick = () => {
+    openWhatsAppService(
+      'Hello! I would like to inquire about Passport Services through Assured Tours & Travels. Please guide me on the process and requirements.'
+    );
   };
 
   return (
@@ -99,7 +119,7 @@ export default function AssuredToursSection() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
           {services.map((service, idx) => (
             <div
               key={idx}
@@ -133,22 +153,104 @@ export default function AssuredToursSection() {
           ))}
         </div>
 
+        {/* Passport Services — Featured Card */}
+        <div className="mb-12">
+          <div
+            className="p-8 transition-all duration-300 flex flex-col md:flex-row md:items-center gap-6"
+            style={{
+              border: '1px solid oklch(0.78 0.12 75 / 0.4)',
+              background: 'oklch(0.10 0.01 60)',
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLDivElement).style.borderColor = 'oklch(0.78 0.12 75 / 0.7)';
+              (e.currentTarget as HTMLDivElement).style.background = 'oklch(0.12 0.02 60)';
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLDivElement).style.borderColor = 'oklch(0.78 0.12 75 / 0.4)';
+              (e.currentTarget as HTMLDivElement).style.background = 'oklch(0.10 0.01 60)';
+            }}
+          >
+            {/* Icon */}
+            <div
+              className="flex-shrink-0 w-16 h-16 flex items-center justify-center"
+              style={{
+                border: '1px solid oklch(0.78 0.12 75 / 0.5)',
+                background: 'oklch(0.78 0.12 75 / 0.08)',
+              }}
+            >
+              <FileText size={28} style={{ color: 'oklch(0.78 0.12 75)' }} />
+            </div>
+
+            {/* Text */}
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-2">
+                <h3
+                  className="font-serif text-xl"
+                  style={{ color: 'oklch(0.78 0.12 75)' }}
+                >
+                  Passport Services
+                </h3>
+                {showNewBadge && (
+                  <span
+                    className="font-serif italic text-xs tracking-widest uppercase px-2 py-0.5"
+                    style={{
+                      border: '1px solid oklch(0.78 0.12 75 / 0.5)',
+                      color: 'oklch(0.78 0.12 75 / 0.9)',
+                      background: 'oklch(0.78 0.12 75 / 0.12)',
+                    }}
+                  >
+                    New
+                  </span>
+                )}
+              </div>
+              <p
+                className="text-sm leading-relaxed mb-1"
+                style={{ color: 'oklch(0.85 0.01 60 / 0.6)' }}
+              >
+                Fresh applications, renewals, and Tatkal passport processing assistance. We guide you through every step — from document preparation to appointment scheduling.
+              </p>
+            </div>
+
+            {/* CTA */}
+            <div className="flex-shrink-0">
+              <button
+                type="button"
+                onClick={handlePassportClick}
+                className="font-serif text-xs tracking-widest uppercase cursor-pointer transition-all duration-300 px-6 py-3 whitespace-nowrap"
+                style={{
+                  background: 'oklch(0.78 0.12 75)',
+                  color: 'oklch(0.08 0.01 60)',
+                  border: 'none',
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.background = 'oklch(0.85 0.10 75)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.background = 'oklch(0.78 0.12 75)';
+                }}
+              >
+                Enquire on WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+
         {/* CTA */}
         <div className="text-center">
           <button
             type="button"
             onClick={handleBookClick}
-            className="px-10 py-4 font-serif text-sm tracking-widest uppercase cursor-pointer transition-all duration-300"
+            className="font-serif text-sm tracking-widest uppercase cursor-pointer transition-all duration-300 px-12 py-4"
             style={{
-              border: '1px solid oklch(0.78 0.12 75)',
-              color: 'oklch(0.78 0.12 75)',
-              background: 'transparent',
+              background: 'oklch(0.78 0.12 75)',
+              color: 'oklch(0.08 0.01 60)',
+              border: 'none',
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = 'oklch(0.78 0.12 75 / 0.1)';
+              (e.currentTarget as HTMLButtonElement).style.background = 'oklch(0.85 0.10 75)';
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
+              (e.currentTarget as HTMLButtonElement).style.background = 'oklch(0.78 0.12 75)';
             }}
           >
             Book Your Journey

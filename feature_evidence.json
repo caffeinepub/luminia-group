@@ -2,10 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-replace-the-existing-qr-code-image-at-frontend-public-assets-generated-google-pay-qr-png-with-the-newly-uploaded-qr-code-image-image-9-png-showing-the-luminia-gadgets-google-pay-qr-code-linked-to-bank-of-baroda-1897-with-upi-id-luminiagadgets-okicici",
-      "featureTitle": "Replace the existing QR code image at frontend/public/assets/generated/google-pay-qr.png with the newly uploaded QR code image (image-9.png) showing the Luminia Gadgets Google Pay QR code linked to Bank of Baroda 1897 with UPI ID luminiagadgets@okicici.",
+      "featureId": "feature-add-a-happy-holi-greeting-banner-or-splash-overlay-that-appears-at-the-very-top-of-the-page-or-as-a-brief-dismissible-overlay-before-the-main-content-displaying-happy-holi-in-bold-gold-typography-on-a-black-background-visible-only-on-the-date-of-holi-march-14-2025-the-component-should-auto-dismiss-or-be-dismissible-by-the-user",
+      "featureTitle": "Add a 'Happy Holi' greeting banner or splash overlay that appears at the very top of the page (or as a brief dismissible overlay before the main content) displaying 'Happy Holi 🎨' in bold gold typography on a black background, visible only on the date of Holi (March 14, 2025). The component should auto-dismiss or be dismissible by the user.",
       "files": [
-        "frontend/src/components/PaymentSection.tsx"
+        "frontend/src/App.tsx",
+        "frontend/src/components/HoliGreeting.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -18,7 +19,50 @@
         "camera@1.0.0"
       ],
       "testIds": [
-        "REQ-22"
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-holi-themed-color-accent-layer-to-the-website-for-today-only-march-14-2025-overlay-scattered-semi-transparent-splashes-of-vibrant-holi-colors-pink-red-green-cyan-orange-yellow-as-decorative-elements-in-the-background-or-as-floating-blobs-powder-burst-shapes-across-sections-these-should-complement-not-override-the-existing-black-and-gold-design-system-appearing-as-subtle-festive-accents-e-g-behind-hero-text-at-section-dividers-or-as-corner-decorations",
+      "featureTitle": "Apply a Holi-themed color accent layer to the website for today only (March 14, 2025): overlay scattered, semi-transparent splashes of vibrant Holi colors (pink, red, green, cyan, orange, yellow) as decorative elements in the background or as floating blobs/powder-burst shapes across sections. These should complement — not override — the existing black and gold design system, appearing as subtle festive accents (e.g., behind hero text, at section dividers, or as corner decorations).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/HoliColorAccents.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0",
+        "qr-code@1.0.0",
+        "camera@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-date-gating-utility-e-g-isholitoday-returning-true-only-when-the-current-date-is-march-14-2025-and-use-it-consistently-to-conditionally-render-all-holi-themed-components-the-greeting-banner-and-color-accents-so-they-are-automatically-hidden-on-all-other-dates-without-any-manual-toggle",
+      "featureTitle": "Implement a date-gating utility (e.g., `isHoliToday()` returning true only when the current date is March 14, 2025) and use it consistently to conditionally render all Holi-themed components (the greeting banner and color accents) so they are automatically hidden on all other dates without any manual toggle.",
+      "files": [
+        "frontend/src/lib/dateUtils.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0",
+        "qr-code@1.0.0",
+        "camera@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
       ],
       "confidence": "high"
     }

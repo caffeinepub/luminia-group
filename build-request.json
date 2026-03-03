@@ -1,40 +1,81 @@
 {
   "kind": "build_request",
-  "title": "Replace QR code image with newly uploaded Luminia Gadgets QR (image-9.png)",
+  "title": "Holi Theme Overlay for Today",
+  "projectName": "Luminia Group",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-22",
-      "text": "Replace the existing QR code image at frontend/public/assets/generated/google-pay-qr.png with the newly uploaded QR code image (image-9.png) showing the Luminia Gadgets Google Pay QR code linked to Bank of Baroda 1897 with UPI ID luminiagadgets@okicici.",
+      "id": "REQ-1",
+      "text": "Add a 'Happy Holi' greeting banner or splash overlay that appears at the very top of the page (or as a brief dismissible overlay before the main content) displaying 'Happy Holi 🎨' in bold gold typography on a black background, visible only on the date of Holi (March 14, 2025). The component should auto-dismiss or be dismissible by the user.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "this is the qr code just paste it there with the upi id"
+          "at the beginning happy holi"
         ]
       },
       "acceptanceCriteria": [
-        "The file at frontend/public/assets/generated/google-pay-qr.png is replaced with the content of image-9.png.",
-        "The QR code image displayed in PaymentSection.tsx (after the customer clicks 'Proceed to Pay') shows the new Luminia Gadgets QR code.",
-        "The UPI ID displayed in PaymentSection.tsx reads 'luminiagadgets@okicici'.",
-        "The QR code image remains properly centered on all screen sizes."
+        "A 'Happy Holi 🎨' greeting is visible at the top of the page or as an overlay when first landing on the site on March 14, 2025",
+        "The greeting uses gold text on a black background",
+        "The banner/overlay is not shown on any other date",
+        "The greeting is dismissible or auto-fades after a few seconds"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Apply a Holi-themed color accent layer to the website for today only (March 14, 2025): overlay scattered, semi-transparent splashes of vibrant Holi colors (pink, red, green, cyan, orange, yellow) as decorative elements in the background or as floating blobs/powder-burst shapes across sections. These should complement — not override — the existing black and gold design system, appearing as subtle festive accents (e.g., behind hero text, at section dividers, or as corner decorations).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "add some holi colours to the website",
+          "black and golden colours"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Colorful Holi-themed decorative elements (pink, red, green, cyan, orange, yellow) are visible on the page on March 14, 2025",
+        "The existing black and gold design tokens are preserved and remain dominant",
+        "Holi color accents do not appear on any date other than March 14, 2025",
+        "Decorative splashes/blobs are semi-transparent and do not obscure primary content or CTAs"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement a date-gating utility (e.g., `isHoliToday()` returning true only when the current date is March 14, 2025) and use it consistently to conditionally render all Holi-themed components (the greeting banner and color accents) so they are automatically hidden on all other dates without any manual toggle.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "only for today"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A utility function or constant checks if today is March 14, 2025",
+        "All Holi-themed UI elements (banner, color splashes) are wrapped in a conditional that uses this check",
+        "On any date other than March 14, 2025, the website renders exactly as before with no Holi elements visible"
       ]
     }
   ],
   "constraints": [
-    "Do not change the two-step payment flow logic in PaymentSection.tsx.",
-    "Do not alter the WhatsApp redirect or UTE reference number generation logic."
+    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui/",
+    "The existing black and gold design tokens in frontend/src/index.css and frontend/tailwind.config.js must remain unchanged",
+    "All Holi UI elements must be strictly date-gated to March 14, 2025 only"
   ],
   "nonGoals": [
-    "Changing any other payment flow behavior.",
-    "Modifying any section other than the QR code asset and UPI ID display."
+    "Permanently changing the site's color scheme or design tokens",
+    "Adding a user-facing toggle to enable/disable the Holi theme",
+    "Any backend changes"
   ],
   "imageRequirements": {
-    "required": [],
-    "edits": [
-      "Replace with the uploaded Luminia Gadgets Google Pay QR screenshot showing Bank of Baroda 1897 and UPI ID luminiagadgets@okicici (image-9.png > google-pay-qr.dim_600x600.png)"
-    ]
+    "required": [
+      "Vibrant Holi color powder splash burst illustration with pink, red, green, cyan, orange, and yellow powder clouds on a transparent background (holi-splash.dim_800x400.png)"
+    ],
+    "edits": []
   }
 }

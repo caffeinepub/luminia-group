@@ -10,6 +10,8 @@ import LuminiaTechLabsSection from './components/LuminiaTechLabsSection';
 import ComingSoonSection from './components/ComingSoonSection';
 import PaymentSection from './components/PaymentSection';
 import Footer from './components/Footer';
+import HoliGreeting from './components/HoliGreeting';
+import HoliColorAccents from './components/HoliColorAccents';
 
 const queryClient = new QueryClient();
 
@@ -17,6 +19,10 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen" style={{ background: 'oklch(0.08 0.01 60)' }}>
+        {/* Holi special — only renders on March 3, 2026 */}
+        <HoliGreeting />
+        <HoliColorAccents />
+
         <WelcomePopup />
         <Navigation />
         <main>

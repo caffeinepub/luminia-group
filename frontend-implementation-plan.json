@@ -1,27 +1,65 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Replace QR code image with newly uploaded Luminia Gadgets QR (image-9.png)",
+  "title": "Holi Theme Overlay for Today",
   "requirements": [
     {
-      "id": "REQ-22",
-      "summary": "Replace the existing QR code image at frontend/public/assets/generated/google-pay-qr.png with the newly uploaded QR code image (image-9.png) showing the Luminia Gadgets Google Pay QR code linked to Bank of Baroda 1897 with UPI ID luminiagadgets@okicici",
+      "id": "REQ-1",
+      "summary": "Add a dismissible 'Happy Holi' greeting banner or overlay that appears only on March 14, 2025, displaying 'Happy Holi 🎨' in bold gold typography on a black background",
       "acceptanceCriteria": [
-        "The file at frontend/public/assets/generated/google-pay-qr.png is replaced with the content of image-9.png.",
-        "The QR code image displayed in PaymentSection.tsx (after the customer clicks 'Proceed to Pay') shows the new Luminia Gadgets QR code.",
-        "The UPI ID displayed in PaymentSection.tsx reads 'luminiagadgets@okicici'.",
-        "The QR code image remains properly centered on all screen sizes."
+        "A 'Happy Holi 🎨' greeting is visible at the top of the page or as an overlay when first landing on the site on March 14, 2025",
+        "The greeting uses gold text on a black background",
+        "The banner/overlay is not shown on any other date",
+        "The greeting is dismissible or auto-fades after a few seconds"
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/google-pay-qr.dim_600x600.png",
-          "operation": "modify",
-          "description": "Replace the existing QR code asset with the newly uploaded image-9.png content. This asset shows the Luminia Gadgets Google Pay QR code linked to Bank of Baroda 1897 with UPI ID luminiagadgets@okicici. The replacement maintains the same filename and dimensions (600x600) for consistency with the PaymentSection component's image reference."
+          "path": "frontend/src/components/HoliGreeting.tsx",
+          "operation": "create",
+          "description": "Create a dismissible overlay/banner component displaying 'Happy Holi 🎨' in gold text on a black background. The component should auto-dismiss after 5 seconds or allow manual dismissal via a close button. Use animations for entrance and exit. Store dismissal state in sessionStorage to prevent re-showing during the same session. Use the date-gating utility to conditionally render."
         },
         {
-          "path": "frontend/src/components/PaymentSection.tsx",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Update the UPI ID text display to show 'luminiagadgets@okicici' instead of the previous value. Verify that the QR code image reference points to frontend/public/assets/generated/google-pay-qr.dim_600x600.png and that the image remains properly centered with responsive styling across all screen sizes. Do not modify the two-step payment flow logic, WhatsApp redirect functionality, or UTE reference number generation."
+          "description": "Import and render the HoliGreeting component at the very top of the component tree (before WelcomePopup) so it appears first. Wire it to use the date-gating utility to ensure it only renders on March 14, 2025."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Apply Holi-themed color accent layer with scattered semi-transparent splashes of vibrant colors (pink, red, green, cyan, orange, yellow) as decorative background elements for March 14, 2025 only",
+      "acceptanceCriteria": [
+        "Colorful Holi-themed decorative elements (pink, red, green, cyan, orange, yellow) are visible on the page on March 14, 2025",
+        "The existing black and gold design tokens are preserved and remain dominant",
+        "Holi color accents do not appear on any date other than March 14, 2025",
+        "Decorative splashes/blobs are semi-transparent and do not obscure primary content or CTAs"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/HoliColorAccents.tsx",
+          "operation": "create",
+          "description": "Create a fixed-position decorative overlay component that renders semi-transparent Holi color splashes/blobs (pink, red, green, cyan, orange, yellow) scattered across the viewport. Use the generated image at frontend/public/assets/generated/holi-splash.dim_800x400.png as a repeating or positioned decorative element. Set low opacity (0.15-0.25) and use pointer-events: none to ensure clicks pass through. Position splashes behind main content (z-index below navigation and content). Use the date-gating utility to conditionally render."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render the HoliColorAccents component as a fixed background layer (after HoliGreeting, before main content sections). Ensure it's wrapped in the date-gating check so it only appears on March 14, 2025."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Implement a date-gating utility function that returns true only when the current date is March 14, 2025, to control all Holi-themed component rendering",
+      "acceptanceCriteria": [
+        "A utility function or constant checks if today is March 14, 2025",
+        "All Holi-themed UI elements (banner, color splashes) are wrapped in a conditional that uses this check",
+        "On any date other than March 14, 2025, the website renders exactly as before with no Holi elements visible"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/lib/dateUtils.ts",
+          "operation": "create",
+          "description": "Create a utility module exporting an isHoliToday() function that checks if the current local date is March 14, 2025. Return true only on that exact date, false otherwise. Use the Date API to get the current date and compare year, month (2 for March), and day (14)."
         }
       ]
     }

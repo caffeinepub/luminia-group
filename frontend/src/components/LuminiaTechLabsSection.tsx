@@ -1,6 +1,10 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { openWhatsApp, buildBookingMessage, buildGovernmentServiceMessage } from '../lib/whatsapp';
 
+// Hardcoded deploy timestamp — badge is visible for 48 hours from this moment
+const DEPLOY_TIMESTAMP = new Date('2026-03-02T00:00:00Z').getTime();
+const isNewBadgeVisible = () => Date.now() - DEPLOY_TIMESTAMP < 48 * 60 * 60 * 1000;
+
 const techServices = [
   { title: 'Web Development', desc: 'Modern, responsive websites and web applications.' },
   { title: 'Mobile Apps', desc: 'Native and cross-platform mobile solutions.' },
@@ -33,6 +37,8 @@ export default function LuminiaTechLabsSection() {
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: govHeaderRef, isVisible: govHeaderVisible } = useScrollAnimation({ threshold: 0.1 });
   const { ref: govCardsRef, isVisible: govCardsVisible } = useScrollAnimation({ threshold: 0.1 });
+
+  const showNewBadge = isNewBadgeVisible();
 
   const handleBookClick = () => {
     openWhatsApp(buildBookingMessage('Luminia TechLabs'));
@@ -234,12 +240,26 @@ export default function LuminiaTechLabsSection() {
           >
             Luminia TechLabs · Citizen Services
           </p>
-          <h2
-            className="font-serif text-4xl md:text-5xl mb-4"
-            style={{ color: 'oklch(0.78 0.12 75)' }}
-          >
-            Government Services
-          </h2>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <h2
+              className="font-serif text-4xl md:text-5xl"
+              style={{ color: 'oklch(0.78 0.12 75)' }}
+            >
+              Government Services
+            </h2>
+            {showNewBadge && (
+              <span
+                className="font-serif italic text-xs tracking-widest uppercase px-2 py-1 self-center"
+                style={{
+                  border: '1px solid oklch(0.78 0.12 75 / 0.5)',
+                  color: 'oklch(0.78 0.12 75 / 0.9)',
+                  background: 'oklch(0.78 0.12 75 / 0.12)',
+                }}
+              >
+                New
+              </span>
+            )}
+          </div>
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-24" style={{ background: 'oklch(0.78 0.12 75 / 0.4)' }} />
             <div className="w-2 h-2 rotate-45" style={{ background: 'oklch(0.78 0.12 75)' }} />
