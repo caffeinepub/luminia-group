@@ -27,7 +27,7 @@ export default function Footer() {
               }}
             >
               <img
-                src="/assets/image-6.png"
+                src="/assets/luminia-logo.jpeg"
                 alt="Luminia Group Conglomerate"
                 className="h-16 w-auto object-contain"
               />

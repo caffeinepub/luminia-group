@@ -1,16 +1,18 @@
 import React from "react";
 import AssuredToursSection from "./components/AssuredToursSection";
-import ComingSoonSection from "./components/ComingSoonSection";
 import DiscountCountdown from "./components/DiscountCountdown";
 import FestivalOverlay from "./components/FestivalOverlay";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import LuminiaCapturesSection from "./components/LuminiaCapturesSection";
+import LuminiaGadgetsSection from "./components/LuminiaGadgetsSection";
 import LuminiaTechLabsSection from "./components/LuminiaTechLabsSection";
 import ManifestoSection from "./components/ManifestoSection";
+import ModaVestraSection from "./components/ModaVestraSection";
 import Navigation from "./components/Navigation";
 import PaymentSection from "./components/PaymentSection";
 import SubsidiaryGrid from "./components/SubsidiaryGrid";
+import VelocityVogueSection from "./components/VelocityVogueSection";
 import WelcomePopup from "./components/WelcomePopup";
 
 function App() {
@@ -30,10 +32,14 @@ function App() {
           <DiscountCountdown />
           <ManifestoSection />
           <SubsidiaryGrid />
+          {/* Product brands — shown first */}
+          <LuminiaGadgetsSection />
+          <ModaVestraSection />
+          <VelocityVogueSection />
+          {/* Service brands — shown last */}
           <AssuredToursSection />
           <LuminiaCapturesSection />
           <LuminiaTechLabsSection />
-          <ComingSoonSection />
           <PaymentSection />
         </main>
         <Footer />

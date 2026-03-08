@@ -86,7 +86,7 @@ export default function WelcomePopup() {
         {/* Logo */}
         <div className="mb-8">
           <img
-            src="/assets/image-6.png"
+            src="/assets/luminia-logo.jpeg"
             alt="Luminia Group Conglomerate"
             className="h-40 md:h-52 lg:h-64 w-auto object-contain mx-auto"
             style={{ animation: "logoPulse 3s ease infinite" }}

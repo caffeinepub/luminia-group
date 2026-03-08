@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#manifesto" },
-  { label: "Subsidiaries", href: "#subsidiaries" },
+  { label: "Our Empire", href: "#subsidiaries" },
+  { label: "Gadgets", href: "#luminia-gadgets" },
+  { label: "Fashion", href: "#moda-vestra" },
+  { label: "Travel Gear", href: "#velocity-vogue" },
   { label: "Tours", href: "#assured-tours" },
   { label: "Captures", href: "#luminia-captures" },
   { label: "TechLabs", href: "#luminia-techlabs" },
-  { label: "Coming Soon", href: "#coming-soon" },
   { label: "Payment", href: "#payment" },
 ];
 
@@ -62,7 +64,7 @@ const Navigation: React.FC = () => {
           }}
         >
           <img
-            src="/assets/image-6.png"
+            src="/assets/luminia-logo.jpeg"
             alt="Luminia"
             style={{
               height: scrolled ? 32 : 40,

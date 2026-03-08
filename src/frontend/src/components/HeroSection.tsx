@@ -86,7 +86,7 @@ const HeroSection: React.FC = () => {
           }}
         >
           <img
-            src="/assets/image-6.png"
+            src="/assets/luminia-logo.jpeg"
             alt="Luminia"
             style={{
               height: "clamp(60px, 10vw, 100px)",

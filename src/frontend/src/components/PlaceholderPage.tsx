@@ -59,7 +59,7 @@ export default function PlaceholderPage() {
         {/* Logo */}
         <div className="mb-10">
           <img
-            src="/assets/image-6.png"
+            src="/assets/luminia-logo.jpeg"
             alt="Luminia Group Conglomerate"
             className="h-24 w-auto mx-auto"
           />

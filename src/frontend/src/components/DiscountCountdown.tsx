@@ -253,44 +253,24 @@ function ActiveOffer({
   );
 }
 
-// Fixed deadline dates — never roll over to next year
-const HOLI_DEADLINE = new Date(2026, 2, 4, 23, 59, 59); // 4th March 2026
+// Fixed deadline date for grand launch discount
 const LAUNCH_DEADLINE = new Date(2026, 2, 30, 23, 59, 59); // 30th March 2026
 
-type ActivePhase = "holi" | "launch" | "ended";
-
-function getPhase(): ActivePhase {
-  const now = Date.now();
-  if (now < HOLI_DEADLINE.getTime()) return "holi";
-  if (now < LAUNCH_DEADLINE.getTime()) return "launch";
-  return "ended";
-}
-
 export default function DiscountCountdown() {
-  const [phase, setPhase] = useState<ActivePhase>(getPhase);
-  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(() => {
-    const p = getPhase();
-    if (p === "holi") return calcTimeLeft(HOLI_DEADLINE);
-    if (p === "launch") return calcTimeLeft(LAUNCH_DEADLINE);
-    return null;
-  });
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(() =>
+    calcTimeLeft(LAUNCH_DEADLINE),
+  );
 
   useEffect(() => {
     const id = setInterval(() => {
-      const currentPhase = getPhase();
-      setPhase(currentPhase);
-      if (currentPhase === "holi") {
-        setTimeLeft(calcTimeLeft(HOLI_DEADLINE));
-      } else if (currentPhase === "launch") {
-        setTimeLeft(calcTimeLeft(LAUNCH_DEADLINE));
-      } else {
-        setTimeLeft(null);
-      }
+      setTimeLeft(calcTimeLeft(LAUNCH_DEADLINE));
     }, 1000);
     return () => clearInterval(id);
   }, []);
 
-  if (phase === "ended") {
+  const isEnded = timeLeft === null;
+
+  if (isEnded) {
     return (
       <section
         className="w-full py-10 px-4 md:px-8 relative overflow-hidden"
@@ -311,7 +291,7 @@ export default function DiscountCountdown() {
               className="font-serif text-xs tracking-[0.35em] uppercase"
               style={{ color: "oklch(0.78 0.12 75 / 0.6)" }}
             >
-              Limited Time Offers
+              Limited Time Offer
             </span>
             <Sparkles
               size={14}
@@ -327,14 +307,12 @@ export default function DiscountCountdown() {
               background: "oklch(0.78 0.12 75 / 0.04)",
             }}
           >
-            — All Offers Have Ended —
+            — Offer Has Ended —
           </div>
         </div>
       </section>
     );
   }
-
-  const isHoli = phase === "holi";
 
   return (
     <section
@@ -375,18 +353,12 @@ export default function DiscountCountdown() {
           />
         </div>
 
-        {/* Single active offer tile */}
+        {/* Grand Launch offer tile */}
         <ActiveOffer
-          badge={isHoli ? "Holi Special" : "Grand Launch"}
-          title={
-            isHoli ? "Holi Festival Discount" : "Launch Introductory Discount"
-          }
-          subtitle={
-            isHoli
-              ? "Celebrate Holi with exclusive pricing on all Luminia services"
-              : "Unlock exclusive launch pricing across all Luminia brands"
-          }
-          deadline={isHoli ? HOLI_DEADLINE : LAUNCH_DEADLINE}
+          badge="Grand Launch"
+          title="Launch Introductory Discount"
+          subtitle="Unlock exclusive launch pricing across all Luminia brands"
+          deadline={LAUNCH_DEADLINE}
           timeLeft={timeLeft}
         />
       </div>

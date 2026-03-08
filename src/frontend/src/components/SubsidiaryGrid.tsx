@@ -18,6 +18,69 @@ interface Subsidiary {
 }
 
 const subsidiaries: Subsidiary[] = [
+  // ── Product Brands (shown first) ──
+  {
+    id: "luminia-gadgets",
+    name: "Luminia Gadgets",
+    tagline: "Tech Redefined",
+    description:
+      "Premium consumer electronics and smart devices that blend performance with elegance.",
+    icon: "/assets/generated/gadgets-icon.dim_128x128.png",
+    color: "#76ff03",
+    glowColor: "rgba(118,255,3,0.3)",
+    images: [
+      "/assets/generated/luminia-gadgets-watch.dim_600x400.png",
+      "/assets/generated/luminia-gadgets-earbuds.dim_600x400.png",
+      "/assets/generated/luminia-gadgets-headphones.dim_600x400.png",
+    ],
+    services: [
+      "Smart Watches",
+      "Audio Devices",
+      "Mobile Accessories",
+      "Smart Home",
+      "Wearables",
+    ],
+    status: "Active",
+  },
+  {
+    id: "moda-vestra",
+    name: "Moda Vestra",
+    tagline: "Wear Your Story",
+    description:
+      "Contemporary fashion that speaks to the modern soul — where tradition meets avant-garde design.",
+    icon: "/assets/generated/moda-icon.dim_128x128.png",
+    color: "#d500f9",
+    glowColor: "rgba(213,0,249,0.3)",
+    images: ["/assets/generated/moda-vestra-fashion.dim_600x400.png"],
+    services: [
+      "Designer Wear",
+      "Ethnic Collections",
+      "Western Fusion",
+      "Accessories",
+      "Custom Tailoring",
+    ],
+    status: "Active",
+  },
+  {
+    id: "velocity-vogue",
+    name: "Velocity Vogue",
+    tagline: "Travel in Style",
+    description:
+      "Premium luggage and travel accessories engineered for the modern nomad who refuses to compromise.",
+    icon: "/assets/generated/velocity-icon.dim_128x128.png",
+    color: "#ffea00",
+    glowColor: "rgba(255,234,0,0.3)",
+    images: ["/assets/generated/velocity-vogue-luggage.dim_600x400.png"],
+    services: [
+      "Premium Luggage",
+      "Travel Bags",
+      "Accessories",
+      "Corporate Gifting",
+      "Custom Branding",
+    ],
+    status: "Active",
+  },
+  // ── Service Brands (shown last) ──
   {
     id: "assured-tours",
     name: "Assured Tours and Travels",
@@ -85,67 +148,6 @@ const subsidiaries: Subsidiary[] = [
       "Digital Marketing",
     ],
     status: "Active",
-  },
-  {
-    id: "luminia-gadgets",
-    name: "Luminia Gadgets",
-    tagline: "Tech Redefined",
-    description:
-      "Premium consumer electronics and smart devices that blend performance with elegance.",
-    icon: "/assets/generated/gadgets-icon.dim_128x128.png",
-    color: "#76ff03",
-    glowColor: "rgba(118,255,3,0.3)",
-    images: [
-      "/assets/generated/luminia-gadgets-watch.dim_600x400.png",
-      "/assets/generated/luminia-gadgets-earbuds.dim_600x400.png",
-      "/assets/generated/luminia-gadgets-headphones.dim_600x400.png",
-    ],
-    services: [
-      "Smart Watches",
-      "Audio Devices",
-      "Mobile Accessories",
-      "Smart Home",
-      "Wearables",
-    ],
-    status: "Pre-Launch",
-  },
-  {
-    id: "moda-vestra",
-    name: "Moda Vestra",
-    tagline: "Wear Your Story",
-    description:
-      "Contemporary fashion that speaks to the modern soul — where tradition meets avant-garde design.",
-    icon: "/assets/generated/moda-icon.dim_128x128.png",
-    color: "#d500f9",
-    glowColor: "rgba(213,0,249,0.3)",
-    images: ["/assets/generated/moda-vestra-fashion.dim_600x400.png"],
-    services: [
-      "Designer Wear",
-      "Ethnic Collections",
-      "Western Fusion",
-      "Accessories",
-      "Custom Tailoring",
-    ],
-    status: "Pre-Launch",
-  },
-  {
-    id: "velocity-vogue",
-    name: "Velocity Vogue",
-    tagline: "Travel in Style",
-    description:
-      "Premium luggage and travel accessories engineered for the modern nomad who refuses to compromise.",
-    icon: "/assets/generated/velocity-icon.dim_128x128.png",
-    color: "#ffea00",
-    glowColor: "rgba(255,234,0,0.3)",
-    images: ["/assets/generated/velocity-vogue-luggage.dim_600x400.png"],
-    services: [
-      "Premium Luggage",
-      "Travel Bags",
-      "Accessories",
-      "Corporate Gifting",
-      "Custom Branding",
-    ],
-    status: "Pre-Launch",
   },
 ];
 
